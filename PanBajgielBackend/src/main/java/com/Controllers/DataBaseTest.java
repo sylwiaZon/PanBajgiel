@@ -28,11 +28,11 @@ public class DataBaseTest{
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) { //sprawdzamy czy sie polaczylo, jesli tak to tu dzialamy dalej ^^
                 System.out.println("jest ok");
-                String sql = "Select * from shop";
+                String sql = "Select * from shop";      // polecenie
 
                 List<Shop> shops = jdbcTemplate.query(
                         sql,
-                        new ShopRowMapper());
+                        new ShopRowMapper()); // tworzy obiekty pobrane z bazy ( nazwaTabeliROWMAPPER)
                 System.out.println(shops);
                 return new ModelAndView("dbTest", "msg", "Database Connection Successfully Established.");
 
