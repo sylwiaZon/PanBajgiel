@@ -7,9 +7,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b19fdfe-8172-46a8-9e92-e692f4254b97" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/PanBajgielBackend_jar/PanBajgielBackend.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/PanBajgielBackend_jar/PanBajgielBackend.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dbTest.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Controllers/DataBaseTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Models/Details.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Models/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Models/ProductRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Models/Shop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Models/ShopRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Models/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/classes/com/Models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/jsp/dbTest.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/jsp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/classmate-1.3.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/hibernate-validator-6.0.17.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jackson-annotations-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jackson-core-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jackson-databind-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jackson-datatype-jdk8-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jackson-datatype-jsr310-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jackson-module-parameter-names-2.10.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jakarta.annotation-api-1.3.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jakarta.validation-api-2.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jboss-logging-3.3.2.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/jul-to-slf4j-1.7.28.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/log4j-api-2.12.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/log4j-to-slf4j-2.12.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/logback-classic-1.2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/logback-core-1.2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/mysql-connector-java-6.0.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/snakeyaml-1.25.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-aop-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-beans-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-autoconfigure-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-starter-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-starter-json-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-starter-logging-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-starter-tomcat-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-starter-validation-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-boot-starter-web-2.2.0.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-context-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-core-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-expression-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-jcl-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-jdbc-5.0.2.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-tx-5.0.2.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-web-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/spring-webmvc-5.2.1.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/tomcat-embed-core-9.0.27.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/tomcat-embed-el-9.0.27.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/lib/tomcat-embed-websocket-9.0.27.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/spring-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Details.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -26,17 +105,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+            <state relative-caret-position="544">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="36" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Models/Transaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="172">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,20 +132,45 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#275#276#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa14880.8793/HelloController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="3" column="11" selection-end-line="11" />
+            <state relative-caret-position="289">
+              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/view/dbTest.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -71,15 +184,23 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>war</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Main.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java" />
       </list>
     </option>
   </component>
@@ -124,7 +245,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -149,17 +270,6 @@
             <path>
               <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -181,6 +291,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -188,7 +307,24 @@
               <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -197,15 +333,26 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575237561973" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575364701212" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sylwia\Desktop\PanBajgiel\PanBajgielBackend\src\main\java\com\view" />
+      <recent name="C:\Users\Sylwia\Desktop\PanBajgiel\PanBajgielBackend\src\main\java" />
+      <recent name="C:\Users\Sylwia\Desktop\PanBajgiel\PanBajgielBackend\src\main" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -219,7 +366,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.29">
+  <component name="RunManager" selected="Spring Boot.Main">
+    <configuration name="PanBajgiel [assembly]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="assembly" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="PanBajgiel [clean,package]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -245,6 +417,19 @@
         </option>
       </MavenSettings>
       <method v="2" />
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="PanBajgielBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Tomcat 9.0.29" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.29" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8000/PanBajgielBackend_war_exploded/" />
@@ -321,8 +506,15 @@
     </configuration>
     <list>
       <item itemvalue="Maven.PanBajgiel [clean,package]" />
+      <item itemvalue="Maven.PanBajgiel [assembly]" />
+      <item itemvalue="Spring Boot.Main" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.29" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -336,16 +528,19 @@
       <updated>1575234588653</updated>
       <workItem from="1575234595668" duration="1754000" />
       <workItem from="1575236633279" duration="921000" />
+      <workItem from="1575315051737" duration="1712000" />
+      <workItem from="1575316864969" duration="5632000" />
+      <workItem from="1575364186107" duration="849000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2675000" />
+    <option name="totallyTimeSpent" value="10868000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="676" y="0" width="697" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36734694" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37897125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -355,8 +550,8 @@
       <window_info id="Azure Explorer" order="7" weight="0.32967034" />
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33388704" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22749591" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -371,10 +566,9 @@
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Version Control" order="16" />
-      <window_info anchor="bottom" id="Terminal" order="17" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="17" weight="0.42880523" />
       <window_info anchor="bottom" id="Messages" order="18" weight="0.32405892" />
       <window_info anchor="bottom" id="Azure Activity Log" order="19" />
-      <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -384,40 +578,84 @@
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa14880.8793/HelloController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa14880.8793/HelloController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Models/Details.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="3" column="11" selection-end-line="11" />
+        <state relative-caret-position="131">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring-servlet.xml" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="544">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="36" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Models/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        <state relative-caret-position="102">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/view/dbTest.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="44" selection-start-line="1" selection-start-column="44" selection-end-line="1" selection-end-column="44" />
+        <state relative-caret-position="255">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#275#276#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
