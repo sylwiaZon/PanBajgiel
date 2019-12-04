@@ -8,6 +8,9 @@ public class User {
     private Integer stamps;
     private Integer client;
 
+    public User() {
+    }
+
     public User(String login, String password){
         this.login = login;
         this.password = password;

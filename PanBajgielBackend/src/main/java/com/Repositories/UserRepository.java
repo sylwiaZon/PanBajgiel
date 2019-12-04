@@ -13,7 +13,7 @@ public class UserRepository {
     public User login(User user, JdbcTemplate jdbcTemplate){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "Select * from user where login = " + user.getLogin() + " and password = " + user.getPassword() + ";";      // polecenie
+                String sql = "Select * from user where login = '" + user.getLogin() + "' and password = '" + user.getPassword() + "';";      // polecenie
 
                 List<User> users = jdbcTemplate.query(
                         sql,
@@ -36,11 +36,11 @@ public class UserRepository {
     public User register(User user, JdbcTemplate jdbcTemplate){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "INSERT INTO user (login, password, name, points, stamps, client) VALUES ("+user.getLogin()+user.getPassword()+user.getName()+",0,0,1); ";
+                String sql =
+                        String.format("INSERT INTO user (login, password, name, points, stamps, client) VALUES ('%s', '%s', '%s',0,0,1); ",
+                                user.getLogin(), user.getPassword(), user.getName());
 
-                jdbcTemplate.query(
-                        sql,
-                        new UserRowMapper());
+                jdbcTemplate.execute(sql);
                 return login(user,jdbcTemplate);
 
             } else {
