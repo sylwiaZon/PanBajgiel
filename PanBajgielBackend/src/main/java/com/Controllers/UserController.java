@@ -1,43 +1,36 @@
 package com.Controllers;
 import com.Models.Shop;
 import com.Models.ShopRowMapper;
+import com.Models.User;
+import com.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.annotation.RequestScope;
 
 import java.sql.SQLException;
 import java.util.List;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @RequestMapping("/")
-    public String display()
-    {
-        try {
-            if ( jdbcTemplate.getDataSource().getConnection() != null) { //sprawdzamy czy sie polaczylo, jesli tak to tu dzialamy dalej ^^
-                System.out.println("jest ok");
-                String sql = "Select * from shop";      // polecenie
+    private UserRepository userRepository;
 
-                List<Shop> shops = jdbcTemplate.query(
-                        sql,
-                        new ShopRowMapper()); // tworzy obiekty pobrane z bazy ( nazwaTabeliROWMAPPER)
-                System.out.println(shops);
-                return "Database Connection Successfully Established.";
+    UserController(){
+        this.userRepository = new UserRepository();
+    }
 
-            } else {
-                System.out.println("jest nie ok");
-                return "nie ok";
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("jest nie ok");
-            return "nie ok";
-        }
+    @RequestMapping(value = "/login", method = RequestMethod.GET )
+    public void login(@RequestParam("login") String login, @RequestParam("password") String password){
+        User user = new User(login,password);
+        System.out.println(userRepository.login(user,jdbcTemplate).getLogin());
     }
 }

@@ -9,5 +9,6 @@
         <module name="PanBajgielBackend" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="11" />
   </component>
 </project>

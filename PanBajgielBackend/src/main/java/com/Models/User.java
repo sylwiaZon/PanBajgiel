@@ -8,6 +8,11 @@ public class User {
     private Integer stamps;
     private Integer client;
 
+    public User(String login, String password){
+        this.login = login;
+        this.password = password;
+    }
+
     public User(String login, String password, String name, Integer points, Integer stamps, Integer client){
         this.login = login;
         this.password = password;
