@@ -23,7 +23,6 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET )
     public ResponseEntity<User> getUser(@RequestParam("login") String login){
         User foundUser = userRepository.getUser(login,jdbcTemplate);
-        System.out.println(foundUser);
         if(foundUser!=null){
             return new ResponseEntity<User>(foundUser, HttpStatus.OK);
         } else {
