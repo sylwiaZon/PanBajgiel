@@ -41,4 +41,9 @@ public class UserController {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public ResponseEntity<> delete(@RequestParam int userId) {
+
+    }
 }
