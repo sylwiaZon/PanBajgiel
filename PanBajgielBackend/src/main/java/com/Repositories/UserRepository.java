@@ -10,25 +10,41 @@ import java.util.List;
 
 public class UserRepository {
 
+    private User getUserFromDB(String sql, JdbcTemplate jdbcTemplate){
+        List<User> users = jdbcTemplate.query(
+                sql,
+                new UserRowMapper());
+        if(users.size() > 0) {
+            return users.get(0);
+        } else {
+            return null;
+        }
+    }
+
     public User login(User user, JdbcTemplate jdbcTemplate){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql = "Select * from user where login = '" + user.getLogin() + "' and password = '" + user.getPassword() + "';";      // polecenie
-
-                List<User> users = jdbcTemplate.query(
-                        sql,
-                        new UserRowMapper());
-                if(users.size() > 0) {
-                    return users.get(0);
-                } else {
-                    return null;
-                }
+                return getUserFromDB(sql, jdbcTemplate);
             } else {
                 return null;
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("jest nie ok");
+            return null;
+        }
+    }
+
+    public User getUser(String login, JdbcTemplate jdbcTemplate){
+        try {
+            if ( jdbcTemplate.getDataSource().getConnection() != null) {
+                String sql = "Select * from user where login = '" + login + "';";
+                return getUserFromDB(sql, jdbcTemplate);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -48,7 +64,6 @@ public class UserRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("jest nie ok");
             return null;
         }
     }
@@ -68,7 +83,6 @@ public class UserRepository {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("jest nie ok");
             return Boolean.parseBoolean(null);
         }
     }

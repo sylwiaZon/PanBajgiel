@@ -7,9 +7,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b19fdfe-8172-46a8-9e92-e692f4254b97" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/PanBajgielBackend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/PanBajgielBackend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/azureSettings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/PanBajgielBackend_jar/PanBajgielBackend.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Details.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,8 +59,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="238">
+              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
             </state>
           </provider>
         </entry>
@@ -42,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+            <state relative-caret-position="-357">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
             </state>
           </provider>
         </entry>
@@ -118,6 +153,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" />
       </list>
@@ -259,11 +295,11 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575635043088" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575648138866" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -469,12 +505,20 @@
       <workItem from="1575316864969" duration="5632000" />
       <workItem from="1575364186107" duration="849000" />
       <workItem from="1575473522666" duration="1934000" />
-      <workItem from="1575646239964" duration="884000" />
+      <workItem from="1575646239964" duration="1855000" />
     </task>
+    <task id="LOCAL-00001" summary="Delete user">
+      <created>1575647249692</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575647249693</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13816000" />
+    <option name="totallyTimeSpent" value="14787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -491,7 +535,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30769232" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.30769232" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -502,10 +546,10 @@
       <window_info anchor="bottom" id="Debug Remote Spark Job in Cluster" order="10" />
       <window_info anchor="bottom" id="Remote Spark Job in Cluster" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5015129" side_tool="true" weight="0.30769232" />
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
-      <window_info anchor="bottom" id="Version Control" order="16" />
+      <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.49924356" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="17" weight="0.42880523" />
       <window_info anchor="bottom" id="Messages" order="18" weight="0.32405892" />
       <window_info anchor="bottom" id="Azure Activity Log" order="19" />
@@ -523,6 +567,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Delete user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete user" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DIa14880.8793/HelloController.java" />
@@ -606,17 +654,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="72" column="9" lean-forward="true" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+        <state relative-caret-position="-357">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="238">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
         </state>
       </provider>
     </entry>
