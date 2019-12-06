@@ -52,4 +52,24 @@ public class UserRepository {
             return null;
         }
     }
+
+
+    public boolean delete(String login, JdbcTemplate jdbcTemplate){
+        try {
+            if( jdbcTemplate.getDataSource().getConnection() != null) {
+                String sql =
+                        String.format("DELETE FROM user WHERE login = '" + login + "';");
+
+                jdbcTemplate.execute(sql);
+                return true;
+
+            } else {
+                return Boolean.parseBoolean(null);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("jest nie ok");
+            return Boolean.parseBoolean(null);
+        }
+    }
 }

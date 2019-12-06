@@ -34,16 +34,21 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST )
     public ResponseEntity<User> register(@RequestBody User user){
-        User foundUser = userRepository.register(user,jdbcTemplate);
-        if(foundUser!=null){
-            return new ResponseEntity<User>(foundUser, HttpStatus.OK);
+        User registeredUser = userRepository.register(user,jdbcTemplate);
+        if(registeredUser !=null){
+            return new ResponseEntity<>(registeredUser , HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public ResponseEntity<> delete(@RequestParam int userId) {
-
+    public ResponseEntity<Object> delete(@RequestParam String userId) {
+        boolean action = userRepository.delete(userId,jdbcTemplate);
+        if(action) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 }
