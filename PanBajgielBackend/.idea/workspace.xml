@@ -6,37 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b19fdfe-8172-46a8-9e92-e692f4254b97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/azureSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/PanBajgielBackend_jar/PanBajgielBackend.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Details.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-    </list>
+    <list default="true" id="6b19fdfe-8172-46a8-9e92-e692f4254b97" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -77,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="531">
+              <caret line="45" column="34" lean-forward="true" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -295,7 +265,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575648138866" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575648277576" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -505,7 +475,7 @@
       <workItem from="1575316864969" duration="5632000" />
       <workItem from="1575364186107" duration="849000" />
       <workItem from="1575473522666" duration="1934000" />
-      <workItem from="1575646239964" duration="1855000" />
+      <workItem from="1575646239964" duration="2031000" />
     </task>
     <task id="LOCAL-00001" summary="Delete user">
       <created>1575647249692</created>
@@ -518,13 +488,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14787000" />
+    <option name="totallyTimeSpent" value="14963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20347957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20347957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -535,7 +505,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.30769232" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.30769232" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -663,15 +633,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="531">
+          <caret line="45" column="34" lean-forward="true" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
