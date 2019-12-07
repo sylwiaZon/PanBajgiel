@@ -19,7 +19,7 @@ class HomeScreen extends React.Component {
     return(
      <View style={{ alignItems: 'center',justifyContent: 'center'}}>
 
-     <ImageBackground source={require('./assets/background.png')} style={styles.background}>
+     <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('./assets/background.png')} style={styles.background}>
     <Text>Banan głowny!</Text>
   </ImageBackground>
     </View>
@@ -30,7 +30,7 @@ class HomeScreen extends React.Component {
 class ProfileScreen extends React.Component {
   render() {
     return(
-      <View style={{ alignItems: 'center',justifyContent: 'center'}}>
+      <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'ProfileScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
     <ImageBackground source={require('./assets/background.png')} style={styles.background}>
     <Text>Jestem bananem i to moje bananowe dane!</Text>
   </ImageBackground>
@@ -42,7 +42,7 @@ class ProfileScreen extends React.Component {
 class ProductsScreen extends React.Component {
   render() {
     return(
-      <View style={{ alignItems: 'center',justifyContent: 'center'}}>
+      <View  accessible={true}  testID="ProductsScreen" accessibilityLabel={'ProductsScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
     <ImageBackground source={require('./assets/background.png')} style={styles.background}>
     <Text>Lista bananów!</Text>
   </ImageBackground>
@@ -53,7 +53,7 @@ class ProductsScreen extends React.Component {
 class PromotionsScreen extends React.Component {
   render() {
     return(
-      <View style={{ alignItems: 'center',justifyContent: 'center'}}>
+      <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'PromotionsScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
     <ImageBackground source={require('./assets/background.png')} style={styles.background}>
     <Text>Lista babanowych promocji :D!</Text>
   </ImageBackground>
@@ -64,7 +64,7 @@ class PromotionsScreen extends React.Component {
 class SettingsScreen extends React.Component {
   render() {
     return(
-      <View style={{ alignItems: 'center',justifyContent: 'center'}}>
+      <View  accessible={true} testID="SettingsScreen" accessibilityLabel={'SettingsScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
     <ImageBackground source={require('./assets/background.png')} style={styles.background}>
     <Text>ja ustawiam banany!</Text>
   </ImageBackground>
@@ -79,7 +79,7 @@ const bottomTabNavigator = createBottomTabNavigator(
   		navigationOptions:{
   			tabBarIcon: ({ tintColor }) => (
 
-          <Icon name="cog" size={36} color={tintColor} />
+          <Icon  name="cog" size={36} color={tintColor}  accessible={true}  testID="settingsIcon" accessibilityLabel={'settingsIcon'} />
         )
   		}
 
@@ -89,8 +89,8 @@ const bottomTabNavigator = createBottomTabNavigator(
   		screen: ProductsScreen,
   		navigationOptions:{
   			tabBarIcon: ({ tintColor }) => (
-           <Image source={(tintColor=='#a9ecf3') ? require( './assets/ikonaFocus.png')
-                                : require( './assets/ikona.png')} style={{width:50, height:50}} />
+           <Image  source={(tintColor=='#a9ecf3') ? require( './assets/ikonaFocus.png')
+                                : require( './assets/ikona.png')} style={{width:50, height:50}}  accessible={true} testID="productsIcon" accessibilityLabel={'productsIcon'} />
         )
   		}
   	},
@@ -99,7 +99,7 @@ const bottomTabNavigator = createBottomTabNavigator(
   		screen: PromotionsScreen,
   		navigationOptions:{
   			tabBarIcon: ({ tintColor }) => (
-          <Icon name="percentage" size={36} color={tintColor} />
+          <Icon  name="percentage" size={36} color={tintColor}  accessible={true}  testID="promotionsIcon" accessibilityLabel={'promotionsIcon'}/>
         )
   		}
   	},
@@ -108,7 +108,7 @@ const bottomTabNavigator = createBottomTabNavigator(
       screen: HomeScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="home" size={36} color={tintColor} />
+          <Icon name="home" size={36} color={tintColor}  accessible={true}  testID="homeIcon" accessibilityLabel={'homeIcon'} />
         )
       }
     },
@@ -117,7 +117,7 @@ const bottomTabNavigator = createBottomTabNavigator(
       screen: ProfileScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="user" size={36} color={tintColor} />
+          <Icon name="user" size={36} color={tintColor}  accessible={true} testID="userIcon" accessibilityLabel ={'userIcon'}  />
         )
       }
     }
