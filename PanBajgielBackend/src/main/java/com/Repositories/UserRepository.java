@@ -3,9 +3,9 @@ package com.Repositories;
 import com.Models.UserRowMapper;
 import com.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -30,10 +30,10 @@ public class UserRepository {
         }
     }
 
-    public User login(User user){
+    public User login(String login, String password){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "Select * from user where login = '" + user.getLogin() + "' and password = '" + user.getPassword() + "';";      // polecenie
+                String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";      // polecenie
                 return getUserFromDB(sql);
             } else {
                 return null;
@@ -61,13 +61,17 @@ public class UserRepository {
     public User register(User user){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql =
-                        String.format("INSERT INTO user (login, password, name, points, stamps, client) VALUES ('%s', '%s', '%s',0,0,1); ",
-                                user.getLogin(), user.getPassword(), user.getName());
+                Boolean userExists = getUser(user.getLogin()) != null ? true : false;
+                if (!userExists) {
+                    String sql =
+                            String.format("INSERT INTO user (login, password, name, points, stamps, client) VALUES ('%s', '%s', '%s',0,0,1); ",
+                                    user.getLogin(), user.getPassword(), user.getName());
 
-                jdbcTemplate.execute(sql);
-                return login(user);
-
+                    jdbcTemplate.execute(sql);
+                    return login(user.getLogin(), user.getPassword());
+                } else {
+                    return null;
+                }
             } else {
                 return null;
             }

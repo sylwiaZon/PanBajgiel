@@ -27,8 +27,7 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET )
     public ResponseEntity<User> login(@RequestParam("login") String login, @RequestParam("password") String password){
-        User providedUser = new User(login,password);
-        User foundUser = userRepository.login(providedUser);
+        User foundUser = userRepository.login(login,password);
         if(foundUser!=null){
             return new ResponseEntity<User>(foundUser, HttpStatus.OK);
         } else {
@@ -42,7 +41,7 @@ public class UserController {
         if(registeredUser !=null){
             return new ResponseEntity<User>(registeredUser , HttpStatus.OK);
         } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.CONFLICT);
         }
     }
 
