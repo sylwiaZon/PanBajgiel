@@ -1,4 +1,5 @@
 com\Controllers\UserController.class
+tests\controllers\UserControllerTests.class
 com\Main.class
 com\Repositories\UserRepository.class
 com\Models\Details.class

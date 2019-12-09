@@ -4,13 +4,22 @@ import com.Models.UserRowMapper;
 import com.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class UserRepository {
+    private final JdbcTemplate jdbcTemplate;
 
-    private User getUserFromDB(String sql, JdbcTemplate jdbcTemplate){
+    @Autowired
+    public UserRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    private User getUserFromDB(String sql){
         List<User> users = jdbcTemplate.query(
                 sql,
                 new UserRowMapper());
@@ -21,11 +30,11 @@ public class UserRepository {
         }
     }
 
-    public User login(User user, JdbcTemplate jdbcTemplate){
+    public User login(User user){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql = "Select * from user where login = '" + user.getLogin() + "' and password = '" + user.getPassword() + "';";      // polecenie
-                return getUserFromDB(sql, jdbcTemplate);
+                return getUserFromDB(sql);
             } else {
                 return null;
             }
@@ -35,11 +44,11 @@ public class UserRepository {
         }
     }
 
-    public User getUser(String login, JdbcTemplate jdbcTemplate){
+    public User getUser(String login){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql = "Select * from user where login = '" + login + "';";
-                return getUserFromDB(sql, jdbcTemplate);
+                return getUserFromDB(sql);
             } else {
                 return null;
             }
@@ -49,7 +58,7 @@ public class UserRepository {
         }
     }
 
-    public User register(User user, JdbcTemplate jdbcTemplate){
+    public User register(User user){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql =
@@ -57,7 +66,7 @@ public class UserRepository {
                                 user.getLogin(), user.getPassword(), user.getName());
 
                 jdbcTemplate.execute(sql);
-                return login(user,jdbcTemplate);
+                return login(user);
 
             } else {
                 return null;
@@ -69,7 +78,7 @@ public class UserRepository {
     }
 
 
-    public boolean delete(String login, JdbcTemplate jdbcTemplate){
+    public boolean delete(String login){
         try {
             if( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql =

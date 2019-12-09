@@ -12,17 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-
     private UserRepository userRepository;
 
-    UserController(){
-        this.userRepository = new UserRepository();
-    }
 
     @RequestMapping(method = RequestMethod.GET )
     public ResponseEntity<User> getUser(@RequestParam("login") String login){
-        User foundUser = userRepository.getUser(login,jdbcTemplate);
+        User foundUser = userRepository.getUser(login);
         if(foundUser!=null){
             return new ResponseEntity<User>(foundUser, HttpStatus.OK);
         } else {
@@ -33,7 +28,7 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET )
     public ResponseEntity<User> login(@RequestParam("login") String login, @RequestParam("password") String password){
         User providedUser = new User(login,password);
-        User foundUser = userRepository.login(providedUser,jdbcTemplate);
+        User foundUser = userRepository.login(providedUser);
         if(foundUser!=null){
             return new ResponseEntity<User>(foundUser, HttpStatus.OK);
         } else {
@@ -43,7 +38,7 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST )
     public ResponseEntity<User> register(@RequestBody User user){
-        User registeredUser = userRepository.register(user,jdbcTemplate);
+        User registeredUser = userRepository.register(user);
         if(registeredUser !=null){
             return new ResponseEntity<User>(registeredUser , HttpStatus.OK);
         } else {
@@ -53,7 +48,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.DELETE)
     public ResponseEntity<Object> delete(@RequestParam String login) {
-        boolean action = userRepository.delete(login,jdbcTemplate);
+        boolean action = userRepository.delete(login);
         if(action) {
             return new ResponseEntity(HttpStatus.OK);
         } else {
