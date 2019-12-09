@@ -11,6 +11,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import tests.helpers.UserHelper;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -18,8 +19,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-public class UserControllerTests {
+public class UserControllerIntegrationTests {
 
+    private UserHelper userHelper;
     private MockMvc mockMvc;
 
     @Mock
@@ -30,6 +32,7 @@ public class UserControllerTests {
 
     @Before
     public void init(){
+        UserHelper userHelper = new UserHelper();
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders
                 .standaloneSetup(userController)
@@ -38,21 +41,15 @@ public class UserControllerTests {
 
     @Test
     public void get_user() throws Exception {
-        String login = "login@mail.com";
-        String password = "password";
-        String name = "name";
-        Integer points = 0;
-        Integer stamps = 0;
-        Integer client = 1;
-        User responseUser = new User(login,password,name,points,stamps,client);
-        when(userRepository.getUser(login)).thenReturn(responseUser);
-        mockMvc.perform(get("/user?login={login}",login).header("Origin","*")).andDo(print())
+        User responseUser = this.userHelper.getUser();
+        when(userRepository.getUser(responseUser.getLogin())).thenReturn(responseUser);
+        mockMvc.perform(get("/user?login={login}",responseUser.getLogin()).header("Origin","*")).andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.login").value(login))
-                .andExpect(jsonPath("$.password").value(password))
-                .andExpect(jsonPath("$.name").value(name));
-        verify(userRepository, times(1)).getUser(login);
+                .andExpect(jsonPath("$.login").value(responseUser.getLogin()))
+                .andExpect(jsonPath("$.password").value(responseUser.getPassword()))
+                .andExpect(jsonPath("$.name").value(responseUser.getName()));
+        verify(userRepository, times(1)).getUser(responseUser.getLogin());
         verifyNoMoreInteractions(userRepository);
 
     }

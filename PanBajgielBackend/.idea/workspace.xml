@@ -7,27 +7,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b19fdfe-8172-46a8-9e92-e692f4254b97" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Details.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Details.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/tests/controllers/UserControllerTests.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+            <state relative-caret-position="387">
+              <caret line="108" column="21" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -51,66 +46,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+            <state relative-caret-position="238">
+              <caret line="21" column="26" selection-start-line="21" selection-end-line="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="359">
+              <caret line="44" column="87" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#220#221#0" expanded="true" />
-                <element signature="e#275#276#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerUnitTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-end-line="19" />
+            <state relative-caret-position="444">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#506#507#0" expanded="true" />
-                <element signature="e#554#555#0" expanded="true" />
+                <element signature="e#1569#1575#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Models/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tests/helpers/UserHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="8" selection-end-column="27" />
+            <state relative-caret-position="289">
+              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="23" />
+              <folding>
+                <element signature="e#438#439#0" expanded="true" />
+                <element signature="e#473#474#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#506#507#0" expanded="true" />
+                <element signature="e#554#555#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,8 +128,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Arquillian JUnit Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -148,6 +137,7 @@
     <findStrings>
       <find>war</find>
       <find>security</find>
+      <find>assertj</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,8 +159,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Main.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tests/helpers/UserHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerUnitTests.java" />
       </list>
     </option>
   </component>
@@ -210,7 +203,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
@@ -222,7 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -329,6 +322,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,7 +332,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575842096307" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575885635527" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -375,8 +369,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UserControllerTests.get_user">
-    <configuration name="UserControllerTests.get_user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserControllerUnitTests.get_user">
+    <configuration name="UserControllerIntegrationTests.get_user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="PanBajgielBackend" />
       <extension name="coverage">
         <pattern>
@@ -385,7 +379,23 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="tests.controllers" />
-      <option name="MAIN_CLASS_NAME" value="tests.controllers.UserControllerTests" />
+      <option name="MAIN_CLASS_NAME" value="tests.controllers.UserControllerIntegrationTests" />
+      <option name="METHOD_NAME" value="get_user" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerUnitTests.get_user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="PanBajgielBackend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests.controllers" />
+      <option name="MAIN_CLASS_NAME" value="tests.controllers.UserControllerUnitTests" />
       <option name="METHOD_NAME" value="get_user" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -543,16 +553,18 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserControllerTests.get_user" />
+      <item itemvalue="JUnit.UserControllerIntegrationTests.get_user" />
       <item itemvalue="Maven.PanBajgiel [clean,package]" />
       <item itemvalue="Maven.PanBajgiel [assembly]" />
       <item itemvalue="Spring Boot.Main" />
       <item itemvalue="Spring Boot.Main (1)" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.29" />
+      <item itemvalue="JUnit.UserControllerUnitTests.get_user" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserControllerTests.get_user" />
+        <item itemvalue="JUnit.UserControllerUnitTests.get_user" />
+        <item itemvalue="JUnit.UserControllerIntegrationTests.get_user" />
         <item itemvalue="Spring Boot.Main" />
         <item itemvalue="Spring Boot.Main (1)" />
       </list>
@@ -578,6 +590,7 @@
       <workItem from="1575729019206" duration="1844000" />
       <workItem from="1575807197425" duration="4922000" />
       <workItem from="1575839630751" duration="2546000" />
+      <workItem from="1575882247676" duration="2886000" />
     </task>
     <task id="LOCAL-00001" summary="Delete user">
       <created>1575647249692</created>
@@ -629,12 +642,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27360000" />
+    <option name="totallyTimeSpent" value="30246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23524962" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11875945" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -744,25 +758,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Models/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="8" selection-end-column="27" />
+        <state relative-caret-position="153">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PanBajgielBackend.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
+        <state relative-caret-position="68">
           <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#220#221#0" expanded="true" />
             <element signature="e#275#276#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="8" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -776,10 +797,43 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/DataBaseTest.java">
+    <entry file="file://$PROJECT_DIR$/PanBajgielBackend.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="289">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/helpers/UserHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#473#474#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="26" selection-start-line="21" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="44" column="87" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -788,33 +842,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+        <state relative-caret-position="387">
+          <caret line="108" column="21" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/org/hamcrest/MatcherAssert.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state relative-caret-position="163">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerTests.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerUnitTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-end-line="19" />
+        <state relative-caret-position="444">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#1569#1575#0" expanded="true" />
           </folding>
         </state>
       </provider>
