@@ -72,7 +72,6 @@ img: {
 scrollview:{
 	width: '100%',
 	marginLeft: 0.08 * width,
-	marginTop: 0.15 * height
 },
 text: {
 	fontSize: 0.05 * width,
