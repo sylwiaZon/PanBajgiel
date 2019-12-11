@@ -1,5 +1,4 @@
 com\Controllers\UserController.class
-tests\controllers\UserControllerTests.class
 com\Main.class
 com\Repositories\UserRepository.class
 com\Models\Details.class
@@ -7,7 +6,10 @@ com\Models\ShopRowMapper.class
 com\Models\Transaction.class
 com\Models\Shop.class
 com\Models\UserRowMapper.class
+tests\controllers\UserControllerIntegrationTests.class
+tests\controllers\UserControllerUnitTests.class
 com\Models\User.class
 com\Models\ProductRowMapper.class
 com\Controllers\DataBaseTest.class
 com\Models\Product.class
+tests\helpers\UserHelper.class
