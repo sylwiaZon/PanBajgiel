@@ -1,6 +1,6 @@
 package tests.helpers;
 
-import com.models.User;
+import com.Models.User;
 
 public class UserHelper {
     private User responseUser;

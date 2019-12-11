@@ -1,8 +1,9 @@
-package com.repositories;
+package com.Repositories;
 
-import com.models.UserRowMapper;
-import com.models.User;
+import com.Models.UserRowMapper;
+import com.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

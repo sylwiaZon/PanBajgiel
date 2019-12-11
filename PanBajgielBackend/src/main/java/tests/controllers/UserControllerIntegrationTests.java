@@ -1,8 +1,11 @@
 package tests.controllers;
 
-import com.controllers.UserController;
-import com.models.User;
-import com.repositories.UserRepository;
+import ch.qos.logback.core.net.ObjectWriter;
+import com.Controllers.UserController;
+import com.Models.User;
+import com.Repositories.UserRepository;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.commons.lang3.SerializationUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;

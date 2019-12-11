@@ -1,7 +1,7 @@
-package com.controllers;
+package com.Controllers;
 
-import com.models.Shop;
-import com.models.ShopRowMapper;
+import com.Models.Shop;
+import com.Models.ShopRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.sql.DataSource;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class DataBaseTest{

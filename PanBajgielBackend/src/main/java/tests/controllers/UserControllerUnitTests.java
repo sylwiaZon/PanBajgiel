@@ -1,8 +1,8 @@
 package tests.controllers;
 
-import com.controllers.UserController;
-import com.models.User;
-import com.repositories.UserRepository;
+import com.Controllers.UserController;
+import com.Models.User;
+import com.Repositories.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
