@@ -1,4 +1,4 @@
-package com.Models;
+package com.models;
 
 public class Transaction {
     private Integer id;

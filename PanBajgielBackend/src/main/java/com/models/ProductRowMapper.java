@@ -1,4 +1,4 @@
-package com.Models;
+package com.models;
 
 import org.springframework.jdbc.core.RowMapper;
 

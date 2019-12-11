@@ -1,10 +1,9 @@
-package com.Controllers;
-import com.Models.User;
-import com.Repositories.UserRepository;
+package com.controllers;
+import com.models.User;
+import com.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

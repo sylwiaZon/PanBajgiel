@@ -1,4 +1,4 @@
-package com.Models;
+package com.models;
 
 public class Shop {
     private Integer id;
