@@ -1,19 +1,35 @@
 package com.Repositories;
 
+import com.Models.Product;
 import com.Models.ProductRowMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-
+@Repository
 public class ProductRepository {
+    private JdbcTemplate jdbcTemplate;
 
-    public ProductList getAllProductsFromDataBase(JdbcTemplate jdbcTemplate){
+    @Autowired
+    public ProductRepository(JdbcTemplate jdbcTemplate) {
+
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
+    public List<Product> getAllProductsFromDataBase(){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql = "Select * from product";
-                ProductList productsFromDataBase = new ProductList();
-                productsFromDataBase.setProducts(jdbcTemplate.query(sql, new ProductRowMapper()));
-                return productsFromDataBase;
+                List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
+                if(productsFromDataBase.isEmpty()){
+                    return null;
+                }
+                else{
+                    return productsFromDataBase;
+                }
             }
         }
         catch (SQLException e) {
@@ -22,13 +38,17 @@ public class ProductRepository {
         return null;
     }
 
-    public ProductList findProducts(String productId, JdbcTemplate jdbcTemplate){
+    public List<Product> findProducts(String productId){
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql = "Select * from product where id in ( "+ productId +")";
-                ProductList products = new ProductList();
-                products.setProducts(jdbcTemplate.query(sql, new ProductRowMapper()));
-                return products;
+                List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
+                if(productsFromDataBase.isEmpty()){
+                    return null;
+                }
+                else{
+                    return productsFromDataBase;
+                }
             }
         }
         catch (SQLException e) {
