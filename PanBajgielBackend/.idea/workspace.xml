@@ -7,21 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b19fdfe-8172-46a8-9e92-e692f4254b97" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerUnitTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerUnitTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tests/controllers/UserControllerIntegrationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tests/controllers/UserControllerIntegrationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tests/controllers/UserControllerUnitTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/tests/controllers/UserControllerUnitTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -68,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            <state>
+              <caret selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -253,7 +239,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576149057098" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576153101685" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -517,13 +503,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46933000" />
+    <option name="totallyTimeSpent" value="49368000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20347957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49856734" visible="true" weight="0.20347957" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -531,10 +517,10 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Image Layers" order="6" />
       <window_info id="Azure Explorer" order="7" weight="0.32967034" />
-      <window_info id="Web" order="8" side_tool="true" />
+      <window_info id="Web" order="8" sideWeight="0.50143266" side_tool="true" weight="0.20347957" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.400982" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.400982" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -549,7 +535,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="17" weight="0.42880523" />
+      <window_info anchor="bottom" id="Terminal" order="17" visible="true" weight="0.42880523" />
       <window_info anchor="bottom" id="Messages" order="18" weight="0.32405892" />
       <window_info anchor="bottom" id="Azure Activity Log" order="19" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -740,8 +726,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        <state>
+          <caret selection-end-line="5" />
         </state>
       </provider>
     </entry>
