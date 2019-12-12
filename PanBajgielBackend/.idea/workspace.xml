@@ -9,28 +9,9 @@
     <list default="true" id="6b19fdfe-8172-46a8-9e92-e692f4254b97" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/PanBajgielBackend.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/DataBaseTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Details.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Details.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ProductRowMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Shop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/ShopRowMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Models/UserRowMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Repositories/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tests/controllers/UserControllerIntegrationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tests/controllers/UserControllerUnitTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/tests/helpers/UserHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/PanBajgiel.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/PanBajgiel.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -59,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="153" column="12" lean-forward="true" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
+            <state relative-caret-position="70">
+              <caret line="136" column="34" lean-forward="true" selection-start-line="136" selection-start-column="34" selection-end-line="136" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -68,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+            <state relative-caret-position="347">
+              <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -77,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="1717">
               <caret line="121" column="50" selection-start-line="121" selection-start-column="50" selection-end-line="121" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -253,7 +234,74 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PanBajgielBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PanBajgielBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -264,7 +312,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576104160309" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576135462440" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Arquillian JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -284,6 +332,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sylwia\Desktop\PanBajgiel\PanBajgiel\PanBajgielBackend\src\main" />
       <recent name="C:\Users\Sylwia\Desktop\PanBajgiel\PanBajgielBackend\src\main\java\com\view" />
       <recent name="C:\Users\Sylwia\Desktop\PanBajgiel\PanBajgielBackend\src\main\java" />
       <recent name="C:\Users\Sylwia\Desktop\PanBajgiel\PanBajgielBackend\src\main" />
@@ -301,69 +350,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main (1)">
-    <configuration name="UserControllerIntegrationTests.deleteSomethingWentWrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PanBajgielBackend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.controllers" />
-      <option name="MAIN_CLASS_NAME" value="tests.controllers.UserControllerIntegrationTests" />
-      <option name="METHOD_NAME" value="deleteSomethingWentWrong" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerIntegrationTests.register_should_return_CONFLICT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PanBajgielBackend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.controllers" />
-      <option name="MAIN_CLASS_NAME" value="tests.controllers.UserControllerIntegrationTests" />
-      <option name="METHOD_NAME" value="register_should_return_CONFLICT" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerIntegrationTests.register_should_return_registered_user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PanBajgielBackend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.controllers" />
-      <option name="MAIN_CLASS_NAME" value="tests.controllers.UserControllerIntegrationTests" />
-      <option name="METHOD_NAME" value="register_should_return_registered_user" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="tests.controllers in PanBajgielBackend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="PanBajgielBackend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests.controllers" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.Main ">
     <configuration name="PanBajgiel [assembly]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -415,7 +402,7 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
-    <configuration name="Main (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration name="Main " type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="PanBajgiel" />
       <extension name="coverage">
         <pattern>
@@ -424,13 +411,7 @@
         </pattern>
       </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.Main" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="PanBajgielBackend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.Main" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -509,23 +490,14 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.UserControllerIntegrationTests.deleteSomethingWentWrong" />
-      <item itemvalue="JUnit.tests.controllers in PanBajgielBackend" />
-      <item itemvalue="JUnit.UserControllerIntegrationTests.register_should_return_registered_user" />
-      <item itemvalue="JUnit.UserControllerIntegrationTests.register_should_return_CONFLICT" />
       <item itemvalue="Maven.PanBajgiel [clean,package]" />
       <item itemvalue="Maven.PanBajgiel [assembly]" />
-      <item itemvalue="Spring Boot.Main" />
+      <item itemvalue="Spring Boot.Main " />
       <item itemvalue="Tomcat Server.Tomcat 9.0.29" />
-      <item itemvalue="Spring Boot.Main (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Main (1)" />
-        <item itemvalue="JUnit.UserControllerIntegrationTests.register_should_return_CONFLICT" />
-        <item itemvalue="JUnit.tests.controllers in PanBajgielBackend" />
-        <item itemvalue="JUnit.UserControllerIntegrationTests.register_should_return_registered_user" />
-        <item itemvalue="JUnit.UserControllerIntegrationTests.deleteSomethingWentWrong" />
+        <item itemvalue="Spring Boot.Main " />
       </list>
     </recent_temporary>
   </component>
@@ -550,7 +522,9 @@
       <workItem from="1575807197425" duration="4922000" />
       <workItem from="1575839630751" duration="2546000" />
       <workItem from="1575882247676" duration="14043000" />
-      <workItem from="1576104086568" duration="24000" />
+      <workItem from="1576104086568" duration="946000" />
+      <workItem from="1576134589316" duration="1197000" />
+      <workItem from="1576142817332" duration="405000" />
     </task>
     <task id="LOCAL-00001" summary="Delete user">
       <created>1575647249692</created>
@@ -570,9 +544,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UserControllerIntegrationTests_deleteOK - 2019.12.09 at 15h 42m 29s.xml">
-      <configuration name="UserControllerIntegrationTests.deleteOK" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UserControllerIntegrationTests_deleteOK - 2019.12.09 at 15h 43m 24s.xml">
       <configuration name="UserControllerIntegrationTests.deleteOK" configurationId="JUnit" />
     </history-entry>
@@ -600,15 +571,17 @@
     <history-entry file="tests_controllers_in_PanBajgielBackend - 2019.12.09 at 16h 57m 42s.xml">
       <configuration name="tests.controllers in PanBajgielBackend" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="tests_in_PanBajgiel - 2019.12.12 at 08h 22m 50s.xml">
+      <configuration name="tests in PanBajgiel" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41427000" />
+    <option name="totallyTimeSpent" value="43951000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1301059" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20801815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -619,7 +592,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.32569557" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.46972176" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -634,7 +607,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Version Control" order="16" sideWeight="0.49924356" weight="0.3289689" />
-      <window_info anchor="bottom" id="Terminal" order="17" weight="0.42880523" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="17" visible="true" weight="0.42880523" />
       <window_info anchor="bottom" id="Messages" order="18" weight="0.32405892" />
       <window_info anchor="bottom" id="Azure Activity Log" order="19" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -735,10 +708,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/tests/helpers/IntegrationTestsHelper.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/tests/repositories/UserRepositoryTests.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="43" column="57" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+        <state relative-caret-position="1717">
+          <caret line="121" column="50" selection-start-line="121" selection-start-column="50" selection-end-line="121" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -799,20 +775,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tests/controllers/UserControllerIntegrationTests.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/controllers/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="121" column="50" selection-start-line="121" selection-start-column="50" selection-end-line="121" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="347">
+          <caret line="32" column="16" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="153" column="12" lean-forward="true" selection-start-line="153" selection-start-column="12" selection-end-line="153" selection-end-column="12" />
+        <state relative-caret-position="70">
+          <caret line="136" column="34" lean-forward="true" selection-start-line="136" selection-start-column="34" selection-end-line="136" selection-end-column="34" />
         </state>
       </provider>
     </entry>
