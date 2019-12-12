@@ -1,9 +1,9 @@
 com\Controllers\UserController.class
 com\Main.class
-com\Repositories\UserRepository.class
 com\Models\Details.class
 com\Models\ShopRowMapper.class
 com\Models\Transaction.class
+com\repositories\UserRepository.class
 com\Models\Shop.class
 com\Models\UserRowMapper.class
 tests\controllers\UserControllerIntegrationTests.class
