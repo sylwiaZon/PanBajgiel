@@ -1,5 +1,2 @@
-FROM openjdk:7
-COPY . /usr/target
-WORKDIR /usr/target
-RUN javac Main.java
-CMD ["java", "-jar"]
+COPY app.jar ./target/PanBajgiel.jar
+ENTRYPOINT ["java","-jar","app.jar"]
