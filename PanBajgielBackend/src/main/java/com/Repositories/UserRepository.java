@@ -34,7 +34,8 @@ public class UserRepository {
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";      // polecenie
-                return getUserFromDB(sql);
+                User user = getUserFromDB(sql);
+                return user;
             } else {
                 return null;
             }
@@ -48,7 +49,9 @@ public class UserRepository {
         try {
             if ( jdbcTemplate.getDataSource().getConnection() != null) {
                 String sql = "Select * from user where login = '" + login + "';";
-                return getUserFromDB(sql);
+                User user = getUserFromDB(sql);
+                jdbcTemplate.getDataSource().getConnection().close();
+                return user;
             } else {
                 return null;
             }
@@ -68,6 +71,7 @@ public class UserRepository {
                                     user.getLogin(), user.getPassword(), user.getName());
 
                     jdbcTemplate.execute(sql);
+                    jdbcTemplate.getDataSource().getConnection().close();
                     return login(user.getLogin(), user.getPassword());
                 } else {
                     return null;
@@ -89,6 +93,7 @@ public class UserRepository {
                         String.format("DELETE FROM user WHERE login = '" + login + "';");
 
                 jdbcTemplate.execute(sql);
+                jdbcTemplate.getDataSource().getConnection().close();
                 return true;
 
             } else {
