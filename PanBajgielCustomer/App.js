@@ -1,5 +1,6 @@
 import {Products} from './Products.js';
 import {Promotions} from './Promotions.js';
+import {Profile} from './Profile.js';
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View, Image} from "react-native";
 import {createStackNavigator} from "react-navigation-stack";
@@ -35,11 +36,9 @@ class HomeScreen extends React.Component {
 class ProfileScreen extends React.Component {
     render() {
         return(
-            <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'ProfileScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
-                <ImageBackground source={require('./assets/background.png')} style={styles.background}>
-                    <Text>Jestem bananem i to moje bananowe dane!</Text>
-                </ImageBackground>
-            </View>
+            
+                     <Profile/>
+                
         );
     }
 }
@@ -147,6 +146,7 @@ const AppContainer = createAppContainer(createBottomTabNavigator(
         Promotions: PromotionsStack,
         Settings: SettingsStack
     },
+  
     {
         defaultNavigationOptions: ({ navigation }) => ({
             tabBarIcon: ({ focused, tintColor }) => {
@@ -183,6 +183,7 @@ const AppContainer = createAppContainer(createBottomTabNavigator(
             activeTintColor: '#a9ecf3',
             style: {
                 backgroundColor: 'rgba(106,147,151,1)',
+
             },
             showLabel: false
         }

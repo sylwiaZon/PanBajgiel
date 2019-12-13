@@ -14,13 +14,15 @@ constructor() {
     super();
 
    this.state = {
+    login: 'loginUsera@mail.com',
     promotions: [],
     point:''
     };
   }
 componentDidMount = () => {
+   url = 'http://52.142.162.240:8081/user?login='+this.state.login
 
-  fetch('http://52.142.162.240:8081/user?login=loginUsera@mail.com', {
+  fetch(url, {
       method: "GET"
     })
     .then((response) => response.json())
