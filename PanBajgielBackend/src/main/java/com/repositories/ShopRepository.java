@@ -1,4 +1,4 @@
-package com.Repositories;
+package com.repositories;
 
 import com.Models.Shop;
 import com.Models.ShopRowMapper;

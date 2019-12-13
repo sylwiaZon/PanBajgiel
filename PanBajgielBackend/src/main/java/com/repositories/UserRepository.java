@@ -28,30 +28,17 @@ public class UserRepository {
     }
 
     public User login(String login, String password){
-        try {
-            if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";      // polecenie
-                User user = getUserFromDB(sql);
-                return user;
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
+        String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";      // polecenie
+        User user = getUserFromDB(sql);
+        return user;
     }
 
     public User getUser(String login){
         try {
-            if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "Select * from user where login = '" + login + "';";
-                User user = getUserFromDB(sql);
-                jdbcTemplate.getDataSource().getConnection().close();
-                return user;
-            } else {
-                return null;
-            }
+            String sql = "Select * from user where login = '" + login + "';";
+            User user = getUserFromDB(sql);
+            jdbcTemplate.getDataSource().getConnection().close();
+            return user;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -59,35 +46,22 @@ public class UserRepository {
     }
 
     public User updateState(String login, Integer state, String stateName){
-        try {
-            if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "UPDATE user SET " + stateName + " = " + state + " WHERE login = \"" + login + "\";";      // polecenie
-                jdbcTemplate.execute(sql);
-                return getUser(login);
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
+        String sql = "UPDATE user SET " + stateName + " = " + state + " WHERE login = \"" + login + "\";";      // polecenie
+        jdbcTemplate.execute(sql);
+        return getUser(login);
     }
 
     public User register(User user){
         try {
-            if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                Boolean userExists = getUser(user.getLogin()) != null ? true : false;
-                if (!userExists) {
-                    String sql =
-                            String.format("INSERT INTO user (login, password, name, points, stamps, client) VALUES ('%s', '%s', '%s',0,0,1); ",
-                                    user.getLogin(), user.getPassword(), user.getName());
+            Boolean userExists = getUser(user.getLogin()) != null ? true : false;
+            if (!userExists) {
+                String sql =
+                        String.format("INSERT INTO user (login, password, name, points, stamps, client) VALUES ('%s', '%s', '%s',0,0,1); ",
+                                user.getLogin(), user.getPassword(), user.getName());
 
-                    jdbcTemplate.execute(sql);
-                    jdbcTemplate.getDataSource().getConnection().close();
-                    return login(user.getLogin(), user.getPassword());
-                } else {
-                    return null;
-                }
+                jdbcTemplate.execute(sql);
+                jdbcTemplate.getDataSource().getConnection().close();
+                return login(user.getLogin(), user.getPassword());
             } else {
                 return null;
             }
@@ -100,17 +74,12 @@ public class UserRepository {
 
     public boolean delete(String login){
         try {
-            if( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql =
-                        String.format("DELETE FROM user WHERE login = '" + login + "';");
+           String sql =
+                    String.format("DELETE FROM user WHERE login = '" + login + "';");
 
-                jdbcTemplate.execute(sql);
-                jdbcTemplate.getDataSource().getConnection().close();
-                return true;
-
-            } else {
-                return Boolean.parseBoolean(null);
-            }
+            jdbcTemplate.execute(sql);
+            jdbcTemplate.getDataSource().getConnection().close();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return Boolean.parseBoolean(null);

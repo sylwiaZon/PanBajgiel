@@ -1,4 +1,4 @@
-package com.Repositories;
+package com.repositories;
 
 import com.Models.Product;
 import com.Models.ProductRowMapper;

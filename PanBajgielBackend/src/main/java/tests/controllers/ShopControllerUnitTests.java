@@ -3,7 +3,7 @@ package tests.controllers;
 
 import com.Controllers.ShopController;
 import com.Models.Shop;
-import com.Repositories.ShopRepository;
+import com.repositories.ShopRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
