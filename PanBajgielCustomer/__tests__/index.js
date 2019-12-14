@@ -29,6 +29,14 @@ await client.$$("~ProductsScreen");
 await client.$$("~PromotionsScreen");
 await client.$$("~HomeScreen");
 await client.$$("~Users");
+await client.$$("~StampsView");
+await client.$$("~CardView");
+await client.$$("~mak");
+await client.$$("~sezam");
+await client.$$("~sol");
+await client.$$("~ser");
+await client.$$("~posypka");
+await client.$$("~wieloziarnisty");
 
   await client.deleteSession();
  
