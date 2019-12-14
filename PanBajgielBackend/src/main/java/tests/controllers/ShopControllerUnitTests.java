@@ -2,7 +2,7 @@ package tests.controllers;
 
 
 import com.Controllers.ShopController;
-import com.Models.Shop;
+import com.models.Shop;
 import com.repositories.ShopRepository;
 import org.junit.Before;
 import org.junit.Test;

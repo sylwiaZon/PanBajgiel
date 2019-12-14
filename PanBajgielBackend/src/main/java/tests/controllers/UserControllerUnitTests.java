@@ -1,7 +1,7 @@
 package tests.controllers;
 
 import com.Controllers.UserController;
-import com.Models.User;
+import com.models.User;
 import com.repositories.UserRepository;
 import org.junit.Before;
 import org.junit.Test;

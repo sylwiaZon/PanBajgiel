@@ -1,5 +1,5 @@
 package com.Controllers;
-import com.Models.User;
+import com.models.User;
 import com.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

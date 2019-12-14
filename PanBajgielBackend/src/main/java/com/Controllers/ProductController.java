@@ -1,6 +1,6 @@
 package com.Controllers;
 
-import com.Models.Product;
+import com.models.Product;
 import java.util.List;
 import com.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;

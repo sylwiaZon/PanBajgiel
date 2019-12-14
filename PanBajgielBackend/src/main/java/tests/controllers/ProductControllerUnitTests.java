@@ -1,6 +1,6 @@
 package tests.controllers;
 import com.Controllers.ProductController;
-import com.Models.Product;
+import com.models.Product;
 import com.repositories.ProductRepository;
 import org.junit.Before;
 import org.junit.Test;

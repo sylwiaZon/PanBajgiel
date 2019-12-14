@@ -1,7 +1,7 @@
 package com.repositories;
 
-import com.Models.Product;
-import com.Models.ProductRowMapper;
+import com.models.Product;
+import com.models.ProductRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -20,40 +20,20 @@ public class ProductRepository {
     }
 
     public List<Product> getAllProductsFromDataBase(){
-        try {
-            if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "Select * from product";
-                List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
-                if(productsFromDataBase.isEmpty()){
-                    return null;
-                }
-                else{
-                    return productsFromDataBase;
-                }
-            }
+        String sql = "Select * from product";
+        List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
+        if(productsFromDataBase.isEmpty()){
+            return null;
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return productsFromDataBase;
     }
 
     public List<Product> findProducts(String productId){
-        try {
-            if ( jdbcTemplate.getDataSource().getConnection() != null) {
-                String sql = "Select * from product where id in ( "+ productId +")";
-                List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
-                if(productsFromDataBase.isEmpty()){
-                    return null;
-                }
-                else{
-                    return productsFromDataBase;
-                }
-            }
+        String sql = "Select * from product where id in ( "+ productId +")";
+        List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
+        if(productsFromDataBase.isEmpty()) {
+            return null;
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return productsFromDataBase;
     }
 }
