@@ -154,7 +154,7 @@ generateStamps(){
 
 
     return (
-         <ScrollView style={styles.container}>
+         <ScrollView style={styles.container} accessible={true} testID="StampsView" accessibilityLabel={'StampsView'}>
             <View style={styles.stampsContainer}>
 
 

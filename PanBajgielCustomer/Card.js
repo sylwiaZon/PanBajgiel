@@ -17,6 +17,7 @@ constructor() {
    this.state = {
     login: 'loginUsera@mail.com', //tutaj podmienic na login z obiektu
     points:'',
+    name:'',
     };
   }
 
@@ -30,7 +31,8 @@ componentDidMount = () => {
     .then((responseJson) => {
          console.log(responseJson);
          this.setState({
-            points: responseJson.points
+            points: responseJson.points,
+            name: responseJson.name
          })
       })
       
@@ -48,10 +50,10 @@ componentDidMount = () => {
 
 
     return (
-      <View style={styles.container}>
+      <View style={styles.container} accessible={true} testID="CardView" accessibilityLabel={'CardView'}>
       <View style={{justifyContent:'center'}}>
         <View style={styles.textContainerUpper}>
-          <Text style={styles.text}>Witaj Anna</Text>
+          <Text style={styles.text}>Witaj {this.state.name}</Text>
            <Text style={styles.text}>Życzymy Ci miłego dnia!</Text>
         </View>
 

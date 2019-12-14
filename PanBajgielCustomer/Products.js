@@ -13,14 +13,14 @@ export class Products extends React.Component {
     return (
   <ScrollView style={styles.scrollview}>
   	
-  	<View style={styles.rowContainer}>
+  	<View style={styles.rowContainer} accessible={true} testID="mak" accessibilityLabel={'mak'}>
           <Image  source={require('./assets/Mak.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z makiem{"\n"}1,80 zł
           </Text>
     </View>
 
-    <View style={styles.rowContainer}>
+    <View style={styles.rowContainer} accessible={true} testID="sezam" accessibilityLabel={'sezam'}>
           <Image  source={require('./assets/Sezam.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z sezamem{"\n"}1,80 zł
@@ -28,7 +28,7 @@ export class Products extends React.Component {
     </View>
 
 
-    <View style={styles.rowContainer}>
+    <View style={styles.rowContainer} accessible={true} testID="ser" accessibilityLabel={'ser'}>
           <Image  source={require('./assets/Ser.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z serem{"\n"}1,80 zł
@@ -36,7 +36,7 @@ export class Products extends React.Component {
     </View>
 
 
-    <View style={styles.rowContainer}>
+    <View style={styles.rowContainer} accessible={true} testID="sol" accessibilityLabel={'sol'}>
           <Image  source={require('./assets/Sol.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z solą{"\n"}1,80 zł
@@ -44,14 +44,14 @@ export class Products extends React.Component {
     </View>
 
 
-    <View style={styles.rowContainer}>
+    <View style={styles.rowContainer} accessible={true} testID="posypka" accessibilityLabel={'posypka'}>
           <Image  source={require('./assets/Ostra_Posypka.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z ostrą posypką{"\n"}1,80 zł
           </Text>
     </View>
 
-    <View style={styles.rowContainer}>
+    <View style={styles.rowContainer} accessible={true} testID="Wieloziarnisty" accessibilityLabel={'Wieloziarnisty'}>
           <Image  source={require('./assets/Wieloziarnisty.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Wieloziarnisty{"\n"}1,80 zł
