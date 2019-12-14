@@ -1,6 +1,6 @@
 package com.Controllers;
-import com.Models.Shop;
-import com.Repositories.ShopRepository;
+import com.models.Shop;
+import com.repositories.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

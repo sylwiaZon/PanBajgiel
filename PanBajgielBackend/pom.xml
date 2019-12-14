@@ -118,30 +118,6 @@
     <build>
         <finalName>PanBajgiel</finalName>
         <plugins>
-
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <imageName>PanBajgiel:tag</imageName>
-                    <dockerDirectory>.</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/usr/local/tomcat/webapps/</targetPath>
-                            <directory>target/</directory>
-                            <include>PanBajgiel.war</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

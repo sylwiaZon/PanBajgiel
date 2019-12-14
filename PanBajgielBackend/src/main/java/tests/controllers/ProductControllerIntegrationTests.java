@@ -1,15 +1,14 @@
 package tests.controllers;
 
 import com.Controllers.ProductController;
-import com.Models.Product;
-import com.Repositories.ProductRepository;
+import com.models.Product;
+import com.repositories.ProductRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import tests.helpers.ProductHelper;

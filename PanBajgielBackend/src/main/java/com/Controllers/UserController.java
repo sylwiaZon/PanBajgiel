@@ -1,10 +1,9 @@
 package com.Controllers;
-import com.Models.User;
-import com.Repositories.UserRepository;
+import com.models.User;
+import com.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,6 +27,25 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET )
     public ResponseEntity<User> login(@RequestParam("login") String login, @RequestParam("password") String password){
         User foundUser = userRepository.login(login,password);
+        if(foundUser!=null){
+            return new ResponseEntity<User>(foundUser, HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(value = "/update/points", method = RequestMethod.GET)
+    public ResponseEntity<User> updatePoints(@RequestParam("login") String login, @RequestParam("points") Integer points){
+        return updateUserState(login, points, "points");
+    }
+
+    @RequestMapping(value = "/update/stamps", method = RequestMethod.GET)
+    public ResponseEntity<User> updateStamps(@RequestParam("login") String login, @RequestParam("stamps") Integer stamps){
+        return updateUserState(login, stamps, "stamps");
+    }
+
+    private ResponseEntity<User> updateUserState(String login, Integer state, String stateName){
+        User foundUser = userRepository.updateState(login,state,stateName);
         if(foundUser!=null){
             return new ResponseEntity<User>(foundUser, HttpStatus.OK);
         } else {

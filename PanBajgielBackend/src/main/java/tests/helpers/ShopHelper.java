@@ -1,7 +1,6 @@
 package tests.helpers;
 
-import com.Models.Product;
-import com.Models.Shop;
+import com.models.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
