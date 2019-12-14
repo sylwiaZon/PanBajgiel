@@ -25,10 +25,16 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.panbajgiel.panbajgielcustomer"
+      "bundleIdentifier": "com.panbajgiel.panbajgielcustomer",
+      "config": {
+    "googleMapsApiKey": "AIzaSyCK3LVnpo_OsGKl9MJqkYXiYICc-UQ6ZCs"
+  }
     },
       "android": {
-      "package": "com.panbajgiel.panbajgielcustomer"
+      "package": "com.panbajgiel.panbajgielcustomer",
+       "config": {
+      "googleMaps": { "apiKey": "<AIzaSyA61hU_Tz5WmT6bvC3O_Us4lAleb0LIhuM>" }   
+   }
     }
   }
 }

@@ -1,6 +1,8 @@
 import {Products} from './Products.js';
 import {Promotions} from './Promotions.js';
 import {Profile} from './Profile.js';
+import {Maps} from './Maps.js';
+
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View, Image} from "react-native";
 import {createStackNavigator} from "react-navigation-stack";
@@ -25,7 +27,7 @@ class HomeScreen extends React.Component {
             <View style={{ alignItems: 'center',justifyContent: 'center'}}>
 
                 <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('./assets/background.png')} style={styles.background}>
-                    <Text>Banan głowny!</Text>
+                    <Maps/>
                 </ImageBackground>
             </View>
         );
@@ -68,7 +70,7 @@ class PromotionsScreen extends React.Component {
 class SettingsScreen extends React.Component {
     render() {
         return(
-            <View  accessible={true} testID="SettingsScreen" accessibilityLabel={'SettingsScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
+              <View  accessible={true} testID="SettingsScreen" accessibilityLabel={'SettingsScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
                 <ImageBackground source={require('./assets/background.png')} style={styles.background}>
                     <Text>ja ustawiam banany!</Text>
                 </ImageBackground>
