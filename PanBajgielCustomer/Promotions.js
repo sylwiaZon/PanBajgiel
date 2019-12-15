@@ -21,7 +21,7 @@ constructor() {
     };
   }
 componentDidMount = () => {
-   url = 'http://localhost:8081/user?login='+this.state.login
+   url = 'http://52.142.162.240:8081/user?login='+this.state.login
 
   fetch(url, {
       method: "GET"
