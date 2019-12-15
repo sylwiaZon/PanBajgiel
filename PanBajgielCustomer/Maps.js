@@ -15,7 +15,7 @@ export class Maps extends React.Component {
   }
 
   fetchMarkerData() {
-    fetch('http://localhost:8081/shop')
+    fetch('http://52.142.162.240:8081/shop')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({ 
