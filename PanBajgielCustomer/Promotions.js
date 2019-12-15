@@ -54,19 +54,19 @@ getPromotions(){
   			<Dialog visible={this.state.visible} onTouchOutside={() => {this.setState({ visible: false });}}>
     		<DialogContent>
         	<View style={styles.container3}>
-				<Text style={styles.textQr} >Gratulacje! Odbierz zniżkę !!</Text>
-          		<QRCode
-      			value='Jeśli nie chcesz mojej zguby mopsa daj mi luby !'
-      			size={0.4*width}
-      			color = "#94cfd5"/>
-            	<View style={styles.insideContainer3}>
-           			<Button title='OK' onPress={() => {this.setState({ visible: false});}}/>
-           		</View>
-            </View>
+				    <Text style={styles.textQr} >Gratulacje! Odbierz zniżkę !!</Text>
+          	<QRCode
+      			 value='Jeśli nie chcesz mojej zguby mopsa daj mi luby !'
+      			 size={0.4*width}
+      			 color = "#94cfd5"/>
+            <View style={styles.insideContainer3}>
+           	  <Button title='OK' onPress={() => {this.setState({ visible: false});}}/>
+           	</View>
+          </View>
     		</DialogContent>
   			</Dialog>
           </View>
-          </View>
+    </View>
       )
     })
 
