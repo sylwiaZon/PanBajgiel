@@ -15,7 +15,7 @@ export class Maps extends React.Component {
   }
 
   fetchMarkerData() {
-    fetch('http://52.142.162.240:8081/shop/')
+    fetch('http://localhost:8081/shop')
       .then((response) => response.json())
       .then((responseJson) => {
         this.setState({ 
@@ -68,7 +68,6 @@ export class Maps extends React.Component {
                   <Text style={styles.text} >
                   Punkt nr {marker.id}{"\n"}
                     {marker.address}
-                  
                   </Text>
                 </View>
             </MapView.Callout>
@@ -98,13 +97,13 @@ mapStyle: {
         textAlign: 'center',
         color: '#ffffff',
         fontWeight: 'bold',
-       fontSize: 0.05 * width,
+       fontSize: 0.04 * width,
     },
     callout:{
-        width: 0.5 * width,
-        height: 0.1 * height,
+        width: 0.4 * width,
+        height: 0.09 * height,
         paddingTop:0.02 * height,
-        backgroundColor: 'rgba(85, 133, 138,0.8)',
+        backgroundColor: 'rgba(148, 207, 213,0.9)',
         borderRadius: 15,
         marginBottom: 20,
         alignItems: 'center',
