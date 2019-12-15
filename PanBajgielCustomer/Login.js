@@ -1,12 +1,166 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React from 'react';
+import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, AppRegistry} from 'react-native';
+import LoginForm from "./LoginForm";
+import {UserModel} from "./userModel";
 
-export class Login extends Component {
+export default class Login extends React.Component{
+    constructor() {
+        super();
+        this.state = {
+            login: '',
+            password: '',
+        };
+    }
+
+    authenticateUser() {
+        let url = 'http://52.142.162.240:8081/user/login='+this.state.login+'/password='+this.state.password;
+
+        fetch(url, {method: "GET"})
+            .then(function(response) {
+        if (response.status == 404) {
+            let responseText = JSON.stringify(response.text());
+            console.log(responseText);
+        }
+        if (response.ok){
+            console.log(ok);
+            this.props.navigation.navigate('App')
+        }})
+        .catch((error) => {
+            console.error(error)
+        });
+    }
+
+    do = () => {
+        console.log('cos');
+    };
+
     render() {
-        return (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                <Text>Hello, world!</Text>
+        return(
+            <View style = {styles.container}>
+                <ImageBackground style = {styles.backgroundImage}
+                       source= {require('./assets/background2.png')} >
+                    <View style = {styles.logoContainer}>
+                        <Image style = {styles.logo}
+                               source= {require('./assets/icon.png')} />
+                           <Text style = {styles.title}> Zaloguj się, aby korzystać z aplikacji</Text>
+                </View>
+                <View style = {styles.formContainer}>
+                    <View style = {styles.container2}>
+                        <TextInput
+                            placeholder = "login"
+                            textAlign = 'center'
+                            placeholderTextColor = 'rgba(33,52,54,0.7)'
+                            style = {styles.input}
+                            returnKeyType = "next"
+                            autoCapitalize = "none"
+                            autoCorrect = {false}
+                            onSubmitEditing = {() => this.passwordInput.focus()}
+                            //value = {this.state.login}
+                        />
+                        <TextInput
+                            ref = {(input) => this.passwordInput = input}
+                            textAlign = 'center'
+                            placeholder = "hasło"
+                            placeholderTextColor = 'rgba(33,52,54,0.7)'
+                            style = {styles.input}
+                            secureTextEntry
+                            returnKeyType = "go"
+                            autoCapitalize = "none"
+                            autoCorrect = {false}
+                            //value = {this.state.password}
+                        />
+                    </View>
+                </View>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('App')} style = {styles.buttonContainerLog}>
+                        <Text style = {styles.buttonTextLog}>
+                            Zaloguj
+                        </Text>
+                    </TouchableOpacity>
+                    <Text style = {styles.title}>
+                        lub
+                    </Text>
+                    <View>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}
+                            style = {styles.buttonContainer}>
+                            <Text style = {styles.bottom}>
+                                Załóż konto
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </ImageBackground>
             </View>
-        );
+        )
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#FEFEFE'
+    },
+    logoContainer: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    logo: {
+        width: 100,
+        height: 100,
+        alignItems: 'center'
+    },
+    title: {
+        color: '#55858A',
+        marginTop: 10,
+        width: 200,
+        textAlign: 'center',
+        opacity: 0.9,
+        fontWeight: 'bold',
+        marginBottom: 20,
+    },
+    backgroundImage:{
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: 0.7
+    },
+    formContainer: {
+        justifyContent: 'center'
+    },
+    bottom: {
+        textAlign: 'center',
+        color: '#55858A',
+        fontWeight: 'bold'
+    },
+    buttonContainer: {
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        paddingVertical: 15,
+        width: 300,
+        borderRadius: 15
+    },
+    buttonContainerLog: {
+        backgroundColor: 'rgba(33,52,54,0.5)',
+        paddingVertical: 15,
+        width: 300,
+        borderRadius: 15,
+        marginBottom: 10
+    },
+    buttonTextLog: {
+        textAlign: 'center',
+        color: '#FFFFFF',
+        fontWeight: 'bold'
+    },
+    container2: {
+        padding: 20
+    },
+    input: {
+        height: 40,
+        marginBottom: 20,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        color: '#55858A',
+        paddingHorizontal: 10,
+        fontWeight: 'bold',
+        borderRadius: 15,
+        width: 300
+    },
+})
