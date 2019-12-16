@@ -14,14 +14,14 @@ constructor() {
     super();
 
    this.state = {
-    login: 'loginUsera@mail.com',
-    stamps:7,
+   
+    stamps:0,
     stampsTable:[],
     };
   }
 
 componentDidMount = () => {
-  url = 'http://52.142.162.240:8081/user?login='+this.state.login
+  url = 'http://13.90.100.215:8081/user?login='+this.state.login
 
   fetch(url, {
       method: "GET"

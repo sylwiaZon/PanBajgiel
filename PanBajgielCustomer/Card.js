@@ -15,14 +15,14 @@ constructor() {
     super();
 
    this.state = {
-    login: 'loginUsera@mail.com', //tutaj podmienic na login z obiektu
+    //tutaj podmienic na login z obiektu
     points:'',
     name:'',
     };
   }
 
 componentDidMount = () => {
-  url = 'http://52.142.162.240:8081/user?login='+this.state.login
+  url = 'http://13.90.100.215:80811/user?login='+this.state.login
 
   fetch(url, {
       method: "GET"

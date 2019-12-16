@@ -16,7 +16,7 @@ constructor() {
     super();
 
    this.state = {
-    login: 'loginUsera@mail.com',
+    
     index: 0,
     routes: [
       { key: 'first', title: 'Twoja karta' },
