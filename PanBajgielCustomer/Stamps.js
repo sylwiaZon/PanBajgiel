@@ -1,6 +1,7 @@
 import { StyleSheet,ImageBackground, Text, View, Image, ScrollView, AppRegistry,TouchableOpacity, Alert,Dimensions  } from 'react-native';
 import React,{Component} from 'react';
 import { TabView,TabBar, SceneMap } from 'react-native-tab-view';
+import {UserModel} from "./userModel.js";
 
 
 var {width, height} = Dimensions.get('window');
@@ -14,10 +15,11 @@ constructor() {
     super();
 
    this.state = {
-   
+    login: global.login,
     stamps:0,
     stampsTable:[],
     };
+
   }
 
 componentDidMount = () => {

@@ -2,10 +2,11 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, AppRegistry, Alert} from 'react-native';
 import {UserModel} from "./userModel.js";
 
+
 export default class Login extends React.Component {
     constructor() {
         super();
-        this.state = {
+        state = {
             login: '',
             password: '',
         }
@@ -16,6 +17,7 @@ export default class Login extends React.Component {
 
     setLogin(event) {
         this.setState({ login: event.nativeEvent.text })
+
     }
 
     setPassword(event) {
@@ -25,7 +27,7 @@ export default class Login extends React.Component {
 
     authenticateUser = () => {
         let url = 'http://13.90.100.215:8081/user/login?login='+this.state.login+'&password='+this.state.password
-        
+        global.login=this.state.login
         fetch(url, {method: "GET"})
         .then(function(response) {
         if (response.status==200){

@@ -2,12 +2,15 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, ImageBackground, Button, TouchableOpacity, TextInput} from 'react-native';
 import Dialog from "react-native-dialog";
 import PasswordChange from "./PasswordChange.js";
+import {UserModel} from "./userModel.js";
+
 
 export default class Settings extends React.Component {
     state = {
         dialogVisible: false,
         passwordPopUp: false
     };
+   
 
     showDeletionDialog = () => {
         this.setState({ dialogVisible: true });

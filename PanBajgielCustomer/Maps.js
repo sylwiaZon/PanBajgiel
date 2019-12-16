@@ -2,6 +2,7 @@ import { StyleSheet,Dimensions,Image ,View,Text} from 'react-native';
 import React from 'react';
 import MapView from 'react-native-maps';
 var {width, height} = Dimensions.get('window');
+import {UserModel} from "./userModel.js";
 
 
 export class Maps extends React.Component {
@@ -12,6 +13,7 @@ export class Maps extends React.Component {
       isLoading: true,
       markers: [],
     };
+
   }
 
   fetchMarkerData() {

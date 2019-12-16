@@ -1,6 +1,7 @@
 import {Products} from './Products.js';
 import {Promotions} from './Promotions.js';
 import {Profile} from './Profile.js';
+import {Maps} from './Maps.js';
 import Settings from "./Settings.js";
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View, Image} from "react-native";
@@ -26,7 +27,7 @@ class HomeScreen extends React.Component {
             <View style={{ alignItems: 'center',justifyContent: 'center'}}>
 
                 <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('./assets/background.png')} style={styles.background}>
-                    <Text>Banan głowny!</Text>
+                    <Maps/>
                 </ImageBackground>
             </View>
         );

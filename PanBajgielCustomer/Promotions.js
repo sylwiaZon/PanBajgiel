@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import {Dimensions, Button } from "react-native";
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
 import QRCode from 'react-native-qrcode-svg';
+import {UserModel} from "./userModel.js";
 
 
 var {width, height} = Dimensions.get('window');
@@ -15,10 +16,11 @@ constructor() {
     super();
 
    this.state = {
-    
+    login: global.login,
     promotions: [],
     point:''
     };
+
   }
 componentDidMount = () => {
    url = 'http://13.90.100.215:8081/user?login='+this.state.login
@@ -70,6 +72,7 @@ getPromotions(){
       )
     })
 
+
 }
   render() {
  
@@ -90,6 +93,7 @@ for(i=0;i<=this.state.point.points;i+=10){
     return (
         <ScrollView style={styles.scrollview}>
           {this.getPromotions()}
+          
         </ScrollView>
     )
   }

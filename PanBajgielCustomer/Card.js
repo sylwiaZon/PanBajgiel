@@ -3,6 +3,7 @@ import { StyleSheet,ImageBackground, Text, View, Image, ScrollView, AppRegistry,
 import React,{Component} from 'react';
 import { TabView,TabBar, SceneMap } from 'react-native-tab-view';
 import QRCode from 'react-native-qrcode-svg';
+import {UserModel} from "./userModel.js";
 
 var {width, height} = Dimensions.get('window');
 
@@ -15,14 +16,15 @@ constructor() {
     super();
 
    this.state = {
-    //tutaj podmienic na login z obiektu
+    login: global.login,
     points:'',
     name:'',
     };
+   
   }
 
 componentDidMount = () => {
-  url = 'http://13.90.100.215:80811/user?login='+this.state.login
+  url = 'http://13.90.100.215:8081/user?login='+this.state.login
 
   fetch(url, {
       method: "GET"
