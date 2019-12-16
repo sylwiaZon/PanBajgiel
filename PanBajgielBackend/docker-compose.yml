@@ -1,0 +1,19 @@
+version: '3'
+services:
+
+  web:
+    build: .
+    ports:
+      - 8081:8081
+
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/sylwia/panbajgiel/db/data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=panbajgiel
+      - MYSQL_USER=sylwia
+      - MYSQL_PASSWORD=strongDBP4ssword
+      - MYSQL_ROOT_PASSWORD=strongDBP4ssword
