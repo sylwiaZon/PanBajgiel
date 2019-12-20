@@ -23,7 +23,7 @@ constructor() {
 
   }
 componentDidMount = () => {
-   url = 'http://13.90.100.215:8081/user?login='+this.state.login
+   url = 'http://'+global.ip+':8081/user?login='+this.state.login
 
   fetch(url, {
       method: "GET"
