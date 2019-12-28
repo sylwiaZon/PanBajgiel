@@ -28,7 +28,7 @@ public class ProductRepository {
         return productsFromDataBase;
     }
 
-    public List<Product> findProducts(String productId){
+    public List<Product> getProduct(String productId){
         String sql = "Select * from product where id in ( "+ productId +")";
         List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
         if(productsFromDataBase.isEmpty()) {

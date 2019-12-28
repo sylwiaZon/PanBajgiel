@@ -1,6 +1,6 @@
 package tests.controllers;
 
-import com.Controllers.ProductController;
+import com.controllers.ProductController;
 import com.models.Product;
 import com.repositories.ProductRepository;
 import org.junit.Before;
@@ -60,7 +60,7 @@ public class ProductControllerIntegrationTests {
     @Test
     public void getProducts_with_id_should_return_products() throws Exception {
         List<Product> products = productHelper.getFirstProduct();
-        when(productRepository.findProducts("1")).thenReturn(products);
+        when(productRepository.getProduct("1")).thenReturn(products);
 
         mockMvc.perform(get("/product?id=1"))
                 .andExpect(status().isOk())
@@ -69,19 +69,19 @@ public class ProductControllerIntegrationTests {
                 .andExpect(jsonPath("$[0].name").value(products.get(0).getName()))
                 .andExpect(jsonPath("$[0].price").value(products.get(0).getPrice()));
 
-        verify(productRepository, times(1)).findProducts("1");
+        verify(productRepository, times(1)).getProduct("1");
         verifyNoMoreInteractions(productRepository);
     }
 
     @Test
     public void getProducts_with_id_should_return_NOT_FOUND() throws Exception {
         List<Product> products = productHelper.getProducts();
-        when(productRepository.findProducts("1")).thenReturn(null);
+        when(productRepository.getProduct("1")).thenReturn(null);
 
         mockMvc.perform(get("/product?id=1"))
                 .andExpect(status().isNotFound());
 
-        verify(productRepository, times(1)).findProducts("1");
+        verify(productRepository, times(1)).getProduct("1");
         verifyNoMoreInteractions(productRepository);
     }
 
