@@ -27,7 +27,7 @@ public class ShopRepository {
         return shopsFromDataBase;
     }
 
-    public List<Shop> findShops(String shopId){
+    public List<Shop> getShop(String shopId){
         String sql = "Select * from shop where id in ( "+ shopId +")";
         List<Shop> shopsFromDataBase = new ArrayList<Shop>(jdbcTemplate.query(sql, new ShopRowMapper()));
         if(shopsFromDataBase.isEmpty()){

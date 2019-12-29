@@ -25,7 +25,7 @@ public class ShopController {
             allShopsFromDataBase = shopRepository.getAllShopsFromDataBase();
         }
         else{
-            allShopsFromDataBase = shopRepository.findShops(shopId);
+            allShopsFromDataBase = shopRepository.getShop(shopId);
         }
         if(allShopsFromDataBase == null){
             return new ResponseEntity(HttpStatus.NOT_FOUND);

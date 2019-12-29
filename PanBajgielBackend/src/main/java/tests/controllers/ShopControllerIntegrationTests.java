@@ -62,7 +62,7 @@ public class ShopControllerIntegrationTests {
     @Test
     public void getShops_with_id_should_return_shops() throws Exception {
         List<Shop> shops = shopHelper.getFirstShop();
-        when(shopRepository.findShops("1")).thenReturn(shops);
+        when(shopRepository.getShop("1")).thenReturn(shops);
 
         mockMvc.perform(get("/shop?id=1"))
                 .andExpect(status().isOk())
@@ -71,19 +71,19 @@ public class ShopControllerIntegrationTests {
                 .andExpect(jsonPath("$[0].localization").value(shops.get(0).getLocalization()))
                 .andExpect(jsonPath("$[0].address").value(shops.get(0).getAddress()));
 
-        verify(shopRepository, times(1)).findShops("1");
+        verify(shopRepository, times(1)).getShop("1");
         verifyNoMoreInteractions(shopRepository);
     }
 
     @Test
     public void getShops_with_id_should_return_NOT_FOUND() throws Exception {
         List<Shop> shops = shopHelper.getFirstShop();
-        when(shopRepository.findShops("1")).thenReturn(null);
+        when(shopRepository.getShop("1")).thenReturn(null);
 
         mockMvc.perform(get("/shop?id=1"))
                 .andExpect(status().isNotFound());
 
-        verify(shopRepository, times(1)).findShops("1");
+        verify(shopRepository, times(1)).getShop("1");
         verifyNoMoreInteractions(shopRepository);
     }
 

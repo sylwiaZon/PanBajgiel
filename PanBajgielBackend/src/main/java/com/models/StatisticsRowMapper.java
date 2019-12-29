@@ -7,12 +7,12 @@ import java.sql.SQLException;
 
 public class StatisticsRowMapper{
 
-    public static class ShopStatisticsRowMapper implements RowMapper<Statistics.ShopStatistics> {
+    public static class ShopsStatisticsRowMapper implements RowMapper<Statistics.ShopsStatistics> {
 
         @Override
-        public Statistics.ShopStatistics mapRow(ResultSet rs, int rowNum) throws SQLException {
+        public Statistics.ShopsStatistics mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-            return new Statistics.ShopStatistics(rs.getString("address"),rs.getInt("amount"));
+            return new Statistics.ShopsStatistics(rs.getString("address"),rs.getInt("amount"));
         }
 
     }
@@ -26,5 +26,4 @@ public class StatisticsRowMapper{
         }
 
     }
-
 }
