@@ -1,4 +1,4 @@
-package com.Controllers;
+package com.controllers;
 
 import com.models.Product;
 import java.util.List;
@@ -24,7 +24,7 @@ public class ProductController {
             allProductsFromDataBase = productRepository.getAllProductsFromDataBase();
         }
         else{
-            allProductsFromDataBase = productRepository.findProducts(productId);
+            allProductsFromDataBase = productRepository.getProduct(productId);
         }
         if(allProductsFromDataBase == null){
             return new ResponseEntity(HttpStatus.NOT_FOUND);

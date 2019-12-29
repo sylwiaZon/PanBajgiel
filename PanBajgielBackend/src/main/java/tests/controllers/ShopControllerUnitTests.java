@@ -51,7 +51,7 @@ public class ShopControllerUnitTests {
     @Test
     public void getShops_with_id_should_return_shops() throws Exception {
         List<Shop> shops = shopHelper.getFirstShop();
-        when(shopRepository.findShops("1")).thenReturn(shops);
+        when(shopRepository.getShop("1")).thenReturn(shops);
         ResponseEntity<List<Shop>> responseShops = shopController.getShops("1");
         ResponseEntity<List<Shop>> expectedResponse = new ResponseEntity<List<Shop>>(shops, HttpStatus.OK);
         assertEquals(responseShops, expectedResponse);
@@ -59,7 +59,7 @@ public class ShopControllerUnitTests {
 
     @Test
     public void getShops_with_id_should_return_NOT_FOUND() throws Exception {
-        when(shopRepository.findShops("3")).thenReturn(null);
+        when(shopRepository.getShop("3")).thenReturn(null);
         ResponseEntity<List<Shop>> responseProducts = shopController.getShops("3");
         ResponseEntity<List<Shop>> expectedResponse = new ResponseEntity<List<Shop>>(HttpStatus.NOT_FOUND);
         assertEquals(responseProducts, expectedResponse);
