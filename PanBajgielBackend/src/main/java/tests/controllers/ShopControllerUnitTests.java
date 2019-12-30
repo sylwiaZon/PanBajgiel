@@ -1,7 +1,7 @@
 package tests.controllers;
 
 
-import com.Controllers.ShopController;
+import com.controllers.ShopController;
 import com.models.Shop;
 import com.repositories.ShopRepository;
 import org.junit.Before;
@@ -15,7 +15,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import tests.helpers.ShopHelper;
 import java.util.List;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
