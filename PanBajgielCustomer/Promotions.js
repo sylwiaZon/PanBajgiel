@@ -65,7 +65,7 @@ getPromotions(){
         	<View style={styles.container3}>
 				    <Text style={styles.textQr} >Gratulacje! Odbierz zniżkę !!</Text>
           	<QRCode
-      			 value={this.state.qrValue+'%'}
+      			 value={this.state.qrValue}
       			 size={0.4*width}
              color = "#94cfd5"
       			 />
