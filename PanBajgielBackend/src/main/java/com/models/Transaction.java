@@ -6,6 +6,15 @@ public class Transaction {
     private Integer shopId;
     private String date;
 
+    public Transaction(){
+    }
+
+    public Transaction(String login, Integer shop_id, String date){
+        this.userLogin=login;
+        this.shopId=shop_id;
+        this.date=date;
+    }
+
     public Transaction(Integer id, String login, Integer shop_id, String date){
         this.id = id;
         this.userLogin=login;
