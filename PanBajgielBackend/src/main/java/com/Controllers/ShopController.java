@@ -1,4 +1,4 @@
-package com.Controllers;
+package com.controllers;
 import com.models.Shop;
 import com.repositories.ShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
