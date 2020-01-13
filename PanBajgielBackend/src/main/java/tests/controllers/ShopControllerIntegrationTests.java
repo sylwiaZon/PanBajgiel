@@ -41,7 +41,7 @@ public class ShopControllerIntegrationTests {
     }
 
     @Test
-    public void getShops_should_return_products() throws Exception {
+    public void getShopsShouldReturnProducts() throws Exception {
         List<Shop> shops = shopHelper.getShops();
         when(shopRepository.getAllShopsFromDataBase()).thenReturn(shops);
 
@@ -60,7 +60,7 @@ public class ShopControllerIntegrationTests {
     }
 
     @Test
-    public void getShops_with_id_should_return_shops() throws Exception {
+    public void getShopsWithIdShouldReturnShops() throws Exception {
         List<Shop> shops = shopHelper.getFirstShop();
         when(shopRepository.getShop("1")).thenReturn(shops);
 
@@ -76,8 +76,7 @@ public class ShopControllerIntegrationTests {
     }
 
     @Test
-    public void getShops_with_id_should_return_NOT_FOUND() throws Exception {
-        List<Shop> shops = shopHelper.getFirstShop();
+    public void getShopsWithIdShouldReturnNOTFOUND() throws Exception {
         when(shopRepository.getShop("1")).thenReturn(null);
 
         mockMvc.perform(get("/shop?id=1"))
@@ -88,8 +87,7 @@ public class ShopControllerIntegrationTests {
     }
 
     @Test
-    public void getShops_should_return_NOT_FOUND() throws Exception {
-        List<Shop> shops = shopHelper.getShops();
+    public void getShopsShouldReturnNOTFOUND() throws Exception {
         when(shopRepository.getAllShopsFromDataBase()).thenReturn(null);
 
         mockMvc.perform(get("/shop"))

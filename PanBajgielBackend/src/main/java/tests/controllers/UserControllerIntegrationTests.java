@@ -41,7 +41,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void get_user_should_return_user() throws Exception {
+    public void getUserShouldReturnUser() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.getUser(responseUser.getLogin())).thenReturn(responseUser);
         mockMvc.perform(get("/user?login={login}",responseUser.getLogin()).header("Origin","*"))
@@ -55,7 +55,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void get_user_should_return_NOT_FOUND() throws Exception {
+    public void getUserShouldReturnNOTFOUND() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.getUser(responseUser.getLogin())).thenReturn(null);
         mockMvc.perform(get("/user?login={login}",responseUser.getLogin()).header("Origin","*")).andDo(print())
@@ -65,7 +65,39 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void login_should_return_logged_user() throws Exception {
+    public void changePasswordShouldReturnChangedUser() throws Exception {
+        User responseUser = userHelper.getUser();
+        when(userRepository.changePassword(any())).thenReturn(responseUser);
+        mockMvc.perform(post("/user/password")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(responseUser))
+                .header("Origin","*"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.login").value(responseUser.getLogin()))
+                .andExpect(jsonPath("$.password").value(responseUser.getPassword()))
+                .andExpect(jsonPath("$.name").value(responseUser.getName()));
+        verify(userRepository, times(1)).changePassword(any());
+        verifyNoMoreInteractions(userRepository);
+    }
+
+    @Test
+    public void changePasswordShouldReturnNOTFOUND() throws Exception {
+        User responseUser = userHelper.getUser();
+        when(userRepository.changePassword(any())).thenReturn(null);
+        mockMvc.perform(post("/user/password")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(responseUser))
+                .header("Origin","*"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+        verify(userRepository, times(1)).changePassword(any());
+        verifyNoMoreInteractions(userRepository);
+    }
+
+    @Test
+    public void loginShouldReturnLoggedUser() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.login(responseUser.getLogin(),responseUser.getPassword())).thenReturn(responseUser);
         mockMvc.perform(get("/user/login?login={login}&password={password}",responseUser.getLogin(), responseUser.getPassword()).header("Origin","*"))
@@ -79,7 +111,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void login_should_return_NOT_FOUND() throws Exception {
+    public void loginShouldReturnNOTFOUND() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.login(responseUser.getLogin(),responseUser.getPassword())).thenReturn(null);
         mockMvc.perform(get("/user/login?login={login}&password={password}",responseUser.getLogin(), responseUser.getPassword()).header("Origin","*"))
@@ -89,7 +121,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void register_should_return_registered_user() throws Exception {
+    public void registerShouldReturnRegisteredUser() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.register(any())).thenReturn(responseUser);
         mockMvc.perform(post("/user/register")
@@ -107,7 +139,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void register_should_return_CONFLICT() throws Exception {
+    public void registerShouldReturnCONFLICT() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.register(any())).thenReturn(null);
         mockMvc.perform(post("/user/register")
@@ -121,7 +153,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void delete_should_return_OK() throws Exception {
+    public void deleteShouldReturnOK() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.delete(responseUser.getLogin())).thenReturn(true);
         mockMvc.perform(delete("/user?login={login}",responseUser.getLogin()).header("Origin","*"))
@@ -131,7 +163,7 @@ public class UserControllerIntegrationTests {
     }
 
     @Test
-    public void delete_should_return_NOT_FOUND() throws Exception {
+    public void deleteShouldReturnNOTFOUND() throws Exception {
         User responseUser = userHelper.getUser();
         when(userRepository.delete(responseUser.getLogin())).thenReturn(false);
         mockMvc.perform(delete("/user?login={login}",responseUser.getLogin()).header("Origin","*"))

@@ -20,7 +20,7 @@ public class ProductController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Product>> getProducts(@RequestParam(value="id", defaultValue="all") String productId){
         List<Product> allProductsFromDataBase;
-        if(productId.equals("all")){
+        if("all".equals(productId)){
             allProductsFromDataBase = productRepository.getAllProductsFromDataBase();
         }
         else{

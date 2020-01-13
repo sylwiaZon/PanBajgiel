@@ -39,7 +39,7 @@ public class ProductControllerIntegrationTests {
     }
 
     @Test
-    public void getProducts_should_return_products() throws Exception {
+    public void getProductsShouldReturnProducts() throws Exception {
         List<Product> products = productHelper.getProducts();
         when(productRepository.getAllProductsFromDataBase()).thenReturn(products);
 
@@ -58,7 +58,7 @@ public class ProductControllerIntegrationTests {
     }
 
     @Test
-    public void getProducts_with_id_should_return_products() throws Exception {
+    public void getProductsWithIdShouldReturnProducts() throws Exception {
         List<Product> products = productHelper.getFirstProduct();
         when(productRepository.getProduct("1")).thenReturn(products);
 
@@ -74,8 +74,7 @@ public class ProductControllerIntegrationTests {
     }
 
     @Test
-    public void getProducts_with_id_should_return_NOT_FOUND() throws Exception {
-        List<Product> products = productHelper.getProducts();
+    public void getProductsWithIdShouldReturnNOTFOUND() throws Exception {
         when(productRepository.getProduct("1")).thenReturn(null);
 
         mockMvc.perform(get("/product?id=1"))
@@ -86,8 +85,7 @@ public class ProductControllerIntegrationTests {
     }
 
     @Test
-    public void getProducts_should_return_NOT_FOUND() throws Exception {
-        List<Product> products = productHelper.getProducts();
+    public void getProductsShouldReturnNOTFOUND() throws Exception {
         when(productRepository.getAllProductsFromDataBase()).thenReturn(null);
 
         mockMvc.perform(get("/product"))
