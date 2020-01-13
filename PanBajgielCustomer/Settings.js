@@ -21,7 +21,7 @@ export default class Settings extends React.Component {
     };
 
     handleDelete = () => {
-        let url = 'http://13.90.100.215:8081/user/delete/login='+this.state.login;
+        let url = 'http://'+global.ip+':8081/user/delete/login='+this.state.login;
 
         fetch(url, {method: "GET"})
             .then(function(response) {

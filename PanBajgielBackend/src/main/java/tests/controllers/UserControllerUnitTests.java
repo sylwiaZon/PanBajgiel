@@ -50,6 +50,24 @@ public class UserControllerUnitTests {
     }
 
     @Test
+    public void changePasswordShouldReturnUser() throws Exception {
+        User user = userHelper.getUser();
+        when(userRepository.changePassword(any())).thenReturn(user);
+        ResponseEntity<User> responseUser = userController.changePassword(user);
+        ResponseEntity<User> expectedResponse = new ResponseEntity<User>(user, HttpStatus.OK);
+        assertEquals(responseUser,expectedResponse);
+    }
+
+    @Test
+    public void changePasswordShouldReturnNOTFOUND() throws Exception {
+        User user = userHelper.getUser();
+        when(userRepository.changePassword(user)).thenReturn(null);
+        ResponseEntity<User> responseUser = userController.getUser(user.getLogin());
+        ResponseEntity<User> expectedResponse = new ResponseEntity(HttpStatus.NOT_FOUND);
+        assertEquals(responseUser,expectedResponse);
+    }
+
+    @Test
     public void loginShouldReturnLoggedUser() throws Exception {
         User user = userHelper.getUser();
         when(userRepository.login(user.getLogin(),user.getPassword())).thenReturn(user);

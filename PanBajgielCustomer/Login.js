@@ -26,7 +26,7 @@ export default class Login extends React.Component {
 
 
     authenticateUser = () => {
-        let url = 'http://13.90.100.215:8081/user/login?login='+this.state.login+'&password='+this.state.password
+        let url = 'http://'+global.ip+':8081/user/login?login='+this.state.login+'&password='+this.state.password
         global.login=this.state.login
         fetch(url, {method: "GET"})
         .then(function(response) {

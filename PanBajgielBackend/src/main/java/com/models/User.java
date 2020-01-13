@@ -39,6 +39,10 @@ public class User implements Serializable {
         return name;
     }
 
+    public void deletePassword() {
+        this.password = "";
+    }
+
     public Integer getPoints() {
         return points;
     }

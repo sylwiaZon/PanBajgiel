@@ -19,7 +19,7 @@ export default class Register extends React.Component {
     };
 
     register() {
-        fetch('http://52.142.162.240:8081/user/register/', {
+        fetch('http://'+global.ip+':8081/user/register/', {
             method: 'POST',
             body: JSON.stringify({
                 GlobalUserModel

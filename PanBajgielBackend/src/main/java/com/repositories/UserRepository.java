@@ -5,6 +5,8 @@ import com.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -26,7 +28,7 @@ public class UserRepository {
     }
 
     public User login(String login, String password){
-        String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";      // polecenie
+        String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";
         return getUserFromDB(sql);
     }
 
@@ -36,9 +38,15 @@ public class UserRepository {
     }
 
     public User updateState(String login, Integer state, String stateName){
-        String sql = "UPDATE user SET " + stateName + " = " + state + " WHERE login = \"" + login + "\";";      // polecenie
+        String sql = "UPDATE user SET " + stateName + " = " + state + " WHERE login = \"" + login + "\";";
         jdbcTemplate.execute(sql);
         return getUser(login);
+    }
+
+    public User changePassword(User user) {
+        String sql = "UPDATE user SET password = \"" + user.getPassword() + "\" where login = \"" + user.getLogin() + "\";";
+        jdbcTemplate.execute(sql);
+        return getUser(user.getLogin());
     }
 
     public User register(User user){
