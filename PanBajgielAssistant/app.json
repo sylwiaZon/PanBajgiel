@@ -13,9 +13,8 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/splash.gif",
+      "resizeMode": "cover"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -25,9 +24,6 @@
     ],
     "ios": {
       "supportsTablet": true
-    },
-    "entryPoint": "node_modules/expo/AppEntry.js"
-  },
-  "displayName": "PanBajgiel",
-  "name": "PanBajgiel"
+    }
+  }
 }

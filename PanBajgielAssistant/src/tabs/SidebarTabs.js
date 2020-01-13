@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#55858A',
         position: 'absolute',
         zIndex: 2,
-        elevation: 50
+        elevation: 50,
     },
     tabContainer: {
         alignItems: 'center',
