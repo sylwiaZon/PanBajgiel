@@ -48,7 +48,7 @@ public class UserControllerIntegrationTests {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.login").value(responseUser.getLogin()))
-                .andExpect(jsonPath("$.password").value(responseUser.getPassword()))
+                .andExpect(jsonPath("$.password").value(""))
                 .andExpect(jsonPath("$.name").value(responseUser.getName()));
         verify(userRepository, times(1)).getUser(responseUser.getLogin());
         verifyNoMoreInteractions(userRepository);
@@ -61,6 +61,38 @@ public class UserControllerIntegrationTests {
         mockMvc.perform(get("/user?login={login}",responseUser.getLogin()).header("Origin","*")).andDo(print())
                 .andExpect(status().isNotFound());
         verify(userRepository, times(1)).getUser(responseUser.getLogin());
+        verifyNoMoreInteractions(userRepository);
+    }
+
+    @Test
+    public void changePasswordShouldReturnChangedUser() throws Exception {
+        User responseUser = userHelper.getUser();
+        when(userRepository.changePassword(any())).thenReturn(responseUser);
+        mockMvc.perform(post("/user/password")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(responseUser))
+                .header("Origin","*"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.login").value(responseUser.getLogin()))
+                .andExpect(jsonPath("$.password").value(responseUser.getPassword()))
+                .andExpect(jsonPath("$.name").value(responseUser.getName()));
+        verify(userRepository, times(1)).changePassword(any());
+        verifyNoMoreInteractions(userRepository);
+    }
+
+    @Test
+    public void changePasswordShouldReturnNOTFOUND() throws Exception {
+        User responseUser = userHelper.getUser();
+        when(userRepository.changePassword(any())).thenReturn(null);
+        mockMvc.perform(post("/user/password")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(responseUser))
+                .header("Origin","*"))
+                .andDo(print())
+                .andExpect(status().isNotFound());
+        verify(userRepository, times(1)).changePassword(any());
         verifyNoMoreInteractions(userRepository);
     }
 
