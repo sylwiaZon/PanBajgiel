@@ -8,7 +8,7 @@ public class User implements Serializable {
     private String name;
     private Integer points;
     private Integer stamps;
-    private Integer client;
+    private Integer type;
 
     public User() {
     }
@@ -24,7 +24,7 @@ public class User implements Serializable {
         this.name = name;
         this.points = points;
         this.stamps = stamps;
-        this.client = client;
+        this.type = client;
     }
 
     public String getLogin() {
@@ -52,6 +52,6 @@ public class User implements Serializable {
     }
 
     public Integer getClient() {
-        return client;
+        return type;
     }
 }

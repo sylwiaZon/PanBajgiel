@@ -20,7 +20,7 @@ public class UserRepository {
 
     private User getUserFromDB(String sql){
         List<User> users = jdbcTemplate.query(sql, new UserRowMapper());
-        if(users.isEmpty()) {
+        if(!users.isEmpty()) {
             return users.get(0);
         } else {
             return null;
