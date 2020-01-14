@@ -1,4 +1,4 @@
-package com.Controllers;
+package com.controllers;
 import com.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
