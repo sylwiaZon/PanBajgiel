@@ -1,8 +1,10 @@
 package tests.controllers;
 
-import com.controllers.ProductController;
+import com.Controllers.ProductController;
 import com.models.Product;
+import com.models.Transaction;
 import com.repositories.ProductRepository;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -12,19 +14,24 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import tests.helpers.ProductHelper;
+import tests.helpers.TransactionHelper;
+
 import java.util.List;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
 public class ProductControllerIntegrationTests {
 
     private ProductHelper productHelper;
+    private TransactionHelper transactionHelper;
     private MockMvc mockMvc;
 
     @Mock
     private ProductRepository productRepository;
+
 
     @InjectMocks
     private ProductController productController;
@@ -32,6 +39,7 @@ public class ProductControllerIntegrationTests {
     @Before
     public void init(){
         productHelper = new ProductHelper();
+        transactionHelper = new TransactionHelper();
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders
                 .standaloneSetup(productController)
@@ -74,6 +82,23 @@ public class ProductControllerIntegrationTests {
     }
 
     @Test
+    public void addTransactionShouldReturnOK() throws Exception {
+        Transaction transaction = transactionHelper.getTransaction();
+        when(productRepository.addNewTransaction(any())).thenReturn(true);
+        mockMvc.perform(post("/product/transaction")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(transaction))
+                .header("Origin","*"))
+                .andDo(print())
+                .andExpect(status().isOk());
+        verify(productRepository, times(1)).addNewTransaction(transaction);
+        verifyNoMoreInteractions(productRepository);
+
+    }
+
+
+
+    @Test
     public void getProductsWithIdShouldReturnNOTFOUND() throws Exception {
         when(productRepository.getProduct("1")).thenReturn(null);
 
@@ -94,4 +119,6 @@ public class ProductControllerIntegrationTests {
         verify(productRepository, times(1)).getAllProductsFromDataBase();
         verifyNoMoreInteractions(productRepository);
     }
+
+
 }

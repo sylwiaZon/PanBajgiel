@@ -11,6 +11,11 @@ public class Details {
         this.amount=amount;
 
     }
+    public Details(Integer productId, Integer amount){
+        this.productId=productId;
+        this.amount=amount;
+
+    }
 
     public Integer getTransactionId() {
         return transactionId;
@@ -22,5 +27,9 @@ public class Details {
 
     public Integer getAmount() {
         return amount;
+    }
+
+    public void setTransactionId(Integer transactionId){
+        this.transactionId=transactionId;
     }
 }

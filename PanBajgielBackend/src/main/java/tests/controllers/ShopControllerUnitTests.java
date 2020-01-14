@@ -1,7 +1,7 @@
 package tests.controllers;
 
 
-import com.controllers.ShopController;
+import com.Controllers.ShopController;
 import com.models.Shop;
 import com.repositories.ShopRepository;
 import org.junit.Before;
