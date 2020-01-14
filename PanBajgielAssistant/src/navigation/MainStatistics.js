@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, Text, View,Dimensions } from 'react-native';
+import { StyleSheet, Text, View,Dimensions, ScrollView } from 'react-native';
 var {width, height} = Dimensions.get('window');
 
 
@@ -76,6 +76,7 @@ constructor() {
 
   render() {
   return (
+  <ScrollView>
     <View style={styles.container}>
  	  <Text style={styles.title}>
  	  	Rankingi z ostatnich 7 dni
@@ -92,6 +93,7 @@ constructor() {
        {this.getTopProducts()}
        </View>
     </View>
+    </ScrollView>
   );
 }
 }
@@ -101,6 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   	justifyContent: 'center',
+    
 
   },
   ranking:{
@@ -114,6 +117,7 @@ const styles = StyleSheet.create({
   title:{
   	fontSize:width*0.05,
   	fontWeight:'bold',
+    marginTop: 150,
   	
   },
   title2: {

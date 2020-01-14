@@ -29,10 +29,9 @@ constructor() {
          FirstRoute = () => (
     <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'ProfileScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
                
-                <ImageBackground source={require('../../assets/background.png')} style={styles.background}>
-                 
+               
                  <MainStatistics/>
-                </ImageBackground>
+               
             </View>
 )
 
@@ -40,10 +39,9 @@ SecondRoute = () => (
 
   <View  accessible={true} testID="ProfileScreenStamps" accessibilityLabel={'ProfileScreenStamps'} style={{ alignItems: 'center',justifyContent: 'center'}}>
               
-                <ImageBackground source={require('../../assets/background.png')} style={styles.background}>
-                 
+                
                    <ShopStatistics/>
-                </ImageBackground>
+                
             </View>
 )
 
@@ -60,7 +58,8 @@ initialLayout = { width: Dimensions.get('window').width };
 
     return (
       
-
+ <ImageBackground source={require('../../assets/background.png')} style={styles.background}>
+                 
 
     <TabView
         navigationState={this.state}
@@ -75,13 +74,14 @@ initialLayout = { width: Dimensions.get('window').width };
           labelStyle={{fontSize:height*0.02}}
             inactiveColor="#ffffff"
             activeColor="#000000"
-            style={{backgroundColor:'#bef7e8', color:'"#ffffff"', padding:5, textAlign: 'center'}}
+            style={{backgroundColor:'#60939b', color:'"#ffffff"', padding:5, textAlign: 'center'}}
             indicatorStyle={{backgroundColor:'#48858d'}}
             />}
         onIndexChange={index => this.setState({ index })}
         style={styles.container}
         
       />
+      </ImageBackground>
   );
   }
 }

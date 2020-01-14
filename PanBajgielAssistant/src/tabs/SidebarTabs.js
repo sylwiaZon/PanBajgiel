@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, Image, StyleSheet, Dimensions } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 var {width, height} = Dimensions.get('window');
-
+global.bajgiel=false;
 const styles = StyleSheet.create({
     tab: {
         flexDirection: 'row',
@@ -61,23 +61,29 @@ const SidebarTabs = ({ navigation, descriptors }) => {
             {routes.map((route, tabIndex) => {
                 const { routeName, params } = route;
                 let icon = 'cogs';
+                let flag=true;
                 const color = tabIndex === index ? 'white' : '#bdb9b9';
-                if (routeName === 'Profile'){icon =  'user'}
-                else if (routeName === 'Transaction'){icon = 'money'}
-                else if (routeName === 'Stats'){icon = 'line-chart'}
-                else if (routeName === 'Prices'){icon = 'food-croissant'}
-                else {icon = 'cogs'}
+                if (routeName === 'Profile'){icon =  'user';}
+                else if (routeName === 'Transaction'){icon = 'money';}
+                else if (routeName === 'Stats'){icon = 'line-chart';}
+                else if (routeName === 'Prices'){icon = 'bajgiel';}
+                else {icon = 'cogs';}
+
+                 
                 return (
                     <View>
                     <View style = {styles.tab}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate(routeName)}
+                        onPress={() => {navigation.navigate(routeName); {routeName==='Prices' ? global.bajgiel=true : global.bajgiel=false}; {console.log(global.bajgiel)}}}
                         key={route.routeName}>
-                        <FontAwesome name={icon} size={0.05 *height} color={color} style={{ marginRight: 10 }} />
+
+                        {(icon=='bajgiel') ? <Image  source={global.bajgiel ? require( '../../assets/ikona.png') : require( '../../assets/ikonaGray.png')} style={{width:0.06*height, height:0.06*height}}  /> :  <FontAwesome name={icon} size={0.05 *height} color={color} style={{ marginRight: 10 }} />}
+                       
                     </TouchableOpacity>
                     </View>
                     </View>
                 );
+            
             })}
         </View>
     </View>

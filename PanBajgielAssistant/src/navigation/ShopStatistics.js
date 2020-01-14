@@ -176,6 +176,7 @@ shop=[{x:lastDays[0], y:0},{x:lastDays[1],y:0},{x:lastDays[2],y:0},{x:lastDays[3
 
   render() {
   return (
+    
   <ScrollView style={{width:width}}>
     <View style={styles.container}>
  	  <View style={styles.picker}>

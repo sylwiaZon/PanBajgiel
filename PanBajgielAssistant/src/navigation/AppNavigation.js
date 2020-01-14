@@ -6,6 +6,7 @@ import {View, Text, Dimensions, ImageBackground, StyleSheet}from "react-native";
 import {Header} from  'react-native-elements'
 import {createStackNavigator} from "react-navigation-stack";
 import {Transaction} from "./Transaction.js";
+import {Prices} from "./Prices.js";
 
 var {width, height} = Dimensions.get('window');
 var formattedDate = new Date();
@@ -31,12 +32,14 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         alignItems: 'center',
-        opacity:0.8
+        opacity:0.8,
     },
       container: {
     marginTop: 0,
     width:0.86 * width,
     marginLeft:0.14*width,
+    justifyContent:'center',
+    alignItems:'center'
     
   },
 });
@@ -50,7 +53,7 @@ class ProfileScreen extends React.Component {
                     centerComponent={{ text: 'UŻYTKOWNIK', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
                             justifyContent: 'center',}}}
                     containerStyle={{
-                        backgroundColor: '#bef7e8',
+                        backgroundColor: '#60939b',
                         height: 0.06 * height
                     }}
                 />
@@ -70,7 +73,7 @@ class TransactionScreen extends React.Component {
                     centerComponent={{ text: 'TRANSAKCJA', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
                             justifyContent: 'center',}}}
                     containerStyle={{
-                        backgroundColor: '#bef7e8',
+                        backgroundColor: '#60939b',
                         height: 0.06 * height
                     }}
                 />
@@ -101,10 +104,11 @@ class PricesScreen extends React.Component {
                     centerComponent={{ text: 'CENNIK', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
                             justifyContent: 'center',}}}
                     containerStyle={{
-                        backgroundColor: '#bef7e8',
+                        backgroundColor: '#60939b',
                         height: 0.06 * height
                     }}
                 />
+                <Prices/>
                 </ImageBackground>
             </View>
         );
@@ -119,7 +123,7 @@ class SettingsScreen extends React.Component {
                     centerComponent={{ text: 'USTAWIENIA', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
                             justifyContent: 'center',}}}
                     containerStyle={{
-                    backgroundColor: '#bef7e8',
+                    backgroundColor: '#60939b',
                         height: 0.06 * height
                 }}
                 />
