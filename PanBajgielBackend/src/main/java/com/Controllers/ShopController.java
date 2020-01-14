@@ -21,7 +21,7 @@ public class ShopController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Shop>> getShops(@RequestParam(value="id", defaultValue="all") String shopId){
         List<Shop> allShopsFromDataBase;
-        if( shopId.equals("all")){
+        if( "all".equals(shopId)){
             allShopsFromDataBase = shopRepository.getAllShopsFromDataBase();
         }
         else{

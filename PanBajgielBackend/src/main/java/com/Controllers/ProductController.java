@@ -20,11 +20,11 @@ public class ProductController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Product>> getProducts(@RequestParam(value="id", defaultValue="all") String productId){
         List<Product> allProductsFromDataBase;
-        if(productId.equals("all")){
+        if("all".equals(productId)){
             allProductsFromDataBase = productRepository.getAllProductsFromDataBase();
         }
         else{
-            allProductsFromDataBase = productRepository.findProducts(productId);
+            allProductsFromDataBase = productRepository.getProduct(productId);
         }
         if(allProductsFromDataBase == null){
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -34,13 +34,14 @@ public class ProductController {
         }
     }
 
+
     @RequestMapping(value = "/transaction", method = RequestMethod.POST)
-    public ResponseEntity<Object> addTransaction(@RequestBody Transaction transcaction){
-        boolean action = productRepository.addNewTransaction(transcaction);
+    public ResponseEntity<Object> addTransaction(@RequestBody Transaction transaction){
+        boolean action = productRepository.addNewTransaction(transaction);
         if(action) {
             return new ResponseEntity(HttpStatus.OK);
         } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.CONFLICT);
         }
     }
 
@@ -54,7 +55,7 @@ public class ProductController {
         if(action) {
             return new ResponseEntity(HttpStatus.OK);
         } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.CONFLICT);
         }
     }
 }

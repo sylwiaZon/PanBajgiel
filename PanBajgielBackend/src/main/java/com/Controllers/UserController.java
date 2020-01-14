@@ -1,10 +1,10 @@
 package com.Controllers;
-import com.models.User;
 import com.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.models.User;
 
 @RestController
 @RequestMapping("/user")
@@ -13,12 +13,22 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-
     @RequestMapping(method = RequestMethod.GET )
     public ResponseEntity<User> getUser(@RequestParam("login") String login){
         User foundUser = userRepository.getUser(login);
-        if(foundUser!=null){
+        if(foundUser != null){
+            foundUser.deletePassword();
             return new ResponseEntity<User>(foundUser, HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(value = "/password", method = RequestMethod.POST )
+    public ResponseEntity<User> changePassword(@RequestBody User user){
+        User changedUser = userRepository.changePassword(user);
+        if(changedUser != null){
+            return new ResponseEntity<User>(changedUser , HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
