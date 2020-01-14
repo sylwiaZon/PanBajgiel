@@ -7,26 +7,49 @@ import {
     ImageBackground,
     TouchableOpacity,
     TextInput,
-    KeyboardAvoidingView
+    KeyboardAvoidingView, Alert
 } from 'react-native';
 
 export default class Register extends React.Component {
-    /*constructor(props){
-        super(props);
-        this.state={
-
+    constructor() {
+        super();
+        this.state = {
+            password: '',
+            login: ''
         }
+        this.setPassword = this.setPassword.bind(this);
+        this.setLogin = this.setLogin.bind(this);
+    }
+
+    setPassword = (event) => {
+        this.setState({ password: event.nativeEvent.text });
     };
 
-    register() {
-        fetch('http://'+global.ip+':8081/user/register/', {
-            method: 'POST',
-            body: JSON.stringify({
-                GlobalUserModel
-            }),
-        });
-    }*/
+    setLogin= (event) => {
+        this.setState({ login: event.nativeEvent.text })
+    };
 
+    handleRegister = () => {
+        global.userLogin = this.state.login;
+        global.userPassword = this.state.password;
+        fetch('http://' + global.ip + ':8081/user/register', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                login: 'test',
+                password: 'test',
+                name: 'test',
+                points: 0,
+                stamps: 0,
+                client: 100,
+            }),
+        }).then((response) => {console.log('response:',response.status);
+        });
+        this.props.navigation.navigate('App');
+    };
 
     render() {
         return(
@@ -76,7 +99,7 @@ export default class Register extends React.Component {
                             </View>
                         </KeyboardAvoidingView>
                     </View>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('App')} style = {styles.buttonContainer}>
+                    <TouchableOpacity onPress={this.handleRegister} style = {styles.buttonContainer}>
                         <Text style = {styles.buttonText}>
                             Zarejestruj
                         </Text>

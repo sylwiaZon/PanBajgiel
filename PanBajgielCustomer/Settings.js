@@ -1,16 +1,23 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, ImageBackground, Button, TouchableOpacity, TextInput} from 'react-native';
 import Dialog from "react-native-dialog";
-import PasswordChange from "./PasswordChange.js";
-import {UserModel} from "./userModel.js";
-
 
 export default class Settings extends React.Component {
-    state = {
-        dialogVisible: false,
-        passwordPopUp: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            newPassword: '',
+            dialogVisible: false,
+            passwordPopUp: false
+        }
+
+        this.setPassword = this.setPassword.bind(this);
+    }
+
+    setPassword = (event) => {
+        this.setState({ newPassword: event.nativeEvent.text })
     };
-   
+
 
     showDeletionDialog = () => {
         this.setState({ dialogVisible: true });
@@ -34,12 +41,34 @@ export default class Settings extends React.Component {
             });
     };
 
+
+    handlePasswordChange = () => {
+        console.log(this.state.newPassword);
+        console.log(global.userLogin);
+        fetch('http://' + global.ip + ':8081/user/password', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                login: global.userLogin,
+                password: this.state.newPassword,
+                name: global.userName,
+                points: global.userPoints,
+                stamps: global.userStamps,
+                client: global.userClient,
+            }),
+        }).then((response) => {console.log('response:',response.status);
+        this.setState({passwordPopUp: false});
+        })
+    };
+
     showPasswordChange = () => {
         this.setState({ passwordPopUp: true });
     };
 
     submit = () => {
-        //console.log(bla);
         this.setState({passwordPopUp: false})
     };
 
@@ -90,9 +119,10 @@ export default class Settings extends React.Component {
                                         returnKeyType = "go"
                                         autoCapitalize = "none"
                                         autoCorrect = {false}
+                                        onChange={this.setPassword}
                                     />
                                     <TouchableOpacity style = {styles.buttonContainer}
-                                                      onPress = {this.submit}>
+                                                      onPress = {this.handlePasswordChange}>
                                         <Text style = {styles.buttonText}>
                                             Zmień hasło
                                         </Text>

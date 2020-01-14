@@ -4,15 +4,16 @@ import {UserModel} from "./userModel.js";
 
 
 export default class Login extends React.Component {
-    constructor() {
-        super();
-        state = {
+    constructor(props) {
+        super(props);
+        this.state = {
             login: '',
             password: '',
-        }
+        };
 
-        this.setLogin = this.setLogin.bind(this)
-        this.setPassword = this.setPassword.bind(this)
+        this.setLogin = this.setLogin.bind(this);
+        this.setPassword = this.setPassword.bind(this);
+        this.authenticateUser = this.authenticateUser.bind(this);
     }
 
     setLogin(event) {
@@ -26,22 +27,22 @@ export default class Login extends React.Component {
 
 
     authenticateUser = () => {
-        let url = 'http://'+global.ip+':8081/user/login?login='+this.state.login+'&password='+this.state.password
-        global.login=this.state.login
+        let url = 'http://'+global.ip+':8081/user?login='+this.state.login+'&password='+this.state.password
+        global.login=this.state.login;
         fetch(url, {method: "GET"})
-        .then(function(response) {
-        if (response.status==200){
-            this.props.navigation.navigate('App')
-        }
-        if(response.status==404){
-            Alert.alert("Złe hasło!!!")
-        }})
-        .catch((error) => {
-            this.props.navigation.navigate('App')
-            console.error(error)
-            
-            
-        });
+            .then(function(response) {
+                if (response.status==200){
+                    this.props.navigation.navigate('App')
+                }
+                if(response.status==404){
+                    Alert.alert("Złe hasło!!!")
+                }})
+            .catch((error) => {
+                this.props.navigation.navigate('App')
+                console.error(error)
+
+
+            });
     }
 
     do = () => {
@@ -53,43 +54,40 @@ export default class Login extends React.Component {
         return(
             <View style = {styles.container}>
                 <ImageBackground style = {styles.backgroundImage}
-                       source= {require('./assets/background2.png')} >
+                                 source= {require('./assets/background2.png')} >
                     <View style = {styles.logoContainer}>
                         <Image style = {styles.logo}
                                source= {require('./assets/icon.png')} />
-                           <Text style = {styles.title}> Zaloguj się, aby korzystać z aplikacji</Text>
-                </View>
-                <View style = {styles.formContainer}>
-                    <View style = {styles.container2}>
-                        <TextInput
-                            placeholder = "login"
-                            textAlign = 'center'
-                            placeholderTextColor = 'rgba(33,52,54,0.7)'
-                            style = {styles.input}
-                            returnKeyType = "next"
-                            autoCapitalize = "none"
-                            autoCorrect = {false}
-                            onSubmitEditing = {() => this.passwordInput.focus()}
-                            //onChangeText={(login) => this.setState({login})}
-                            onChange={this.setLogin}
-                            //onchange={this.props.onchange()}
-                            //value = {this.state.login}
-                        />
-                        <TextInput
-                            ref = {(input) => this.passwordInput = input}
-                            textAlign = 'center'
-                            placeholder = "hasło"
-                            placeholderTextColor = 'rgba(33,52,54,0.7)'
-                            style = {styles.input}
-                            secureTextEntry
-                            returnKeyType = "go"
-                            autoCapitalize = "none"
-                            autoCorrect = {false}
-                            onChange={this.setPassword}
-                            //value = {this.state.password}
-                        />
+                        <Text style = {styles.title}> Zaloguj się, aby korzystać z aplikacji</Text>
                     </View>
-                </View>
+                    <View style = {styles.formContainer}>
+                        <View style = {styles.container2}>
+                            <TextInput
+                                placeholder = "login"
+                                textAlign = 'center'
+                                placeholderTextColor = 'rgba(33,52,54,0.7)'
+                                style = {styles.input}
+                                returnKeyType = "next"
+                                autoCapitalize = "none"
+                                autoCorrect = {false}
+                                onSubmitEditing = {() => this.passwordInput.focus()}
+                                onChange={this.setLogin}
+                            />
+                            <TextInput
+                                ref = {(input) => this.passwordInput = input}
+                                textAlign = 'center'
+                                placeholder = "hasło"
+                                placeholderTextColor = 'rgba(33,52,54,0.7)'
+                                style = {styles.input}
+                                secureTextEntry
+                                returnKeyType = "go"
+                                autoCapitalize = "none"
+                                autoCorrect = {false}
+                                onChange={this.setPassword}
+                                //value = {this.state.password}
+                            />
+                        </View>
+                    </View>
                     <TouchableOpacity onPress={this.authenticateUser} style = {styles.buttonContainerLog}>
                         <Text style = {styles.buttonTextLog}>
                             Zaloguj
@@ -100,7 +98,7 @@ export default class Login extends React.Component {
                     </Text>
                     <View>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}
-                            style = {styles.buttonContainer}>
+                                          style = {styles.buttonContainer}>
                             <Text style = {styles.bottom}>
                                 Załóż konto
                             </Text>
