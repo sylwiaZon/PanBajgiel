@@ -26,7 +26,7 @@ public class ProductRepository {
         return productsFromDataBase;
     }
 
-    public List<Product> findProducts(String productId){
+    public List<Product> getProduct(String productId){
         String sql = "Select * from product where id in ( "+ productId +")";
         List<Product> productsFromDataBase = new ArrayList<Product>(jdbcTemplate.query(sql, new ProductRowMapper()));
         if(productsFromDataBase.isEmpty()) {
@@ -37,7 +37,12 @@ public class ProductRepository {
 
     public boolean addNewTransaction(Transaction transaction){
         var sql = String.format("INSERT INTO transaction(user_login,shop_id,date) VALUES ('%s', %d,'%s')",transaction.getUserLogin(), transaction.getShopId(),transaction.getDate());
-        jdbcTemplate.execute(sql);
+        try {
+            jdbcTemplate.execute(sql);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
         return true;
     }
 
@@ -48,7 +53,13 @@ public class ProductRepository {
             sql += detailString;
         }
         sql = sql.substring(0,sql.length()-1);
-        jdbcTemplate.execute(sql);
+        try
+        {
+            jdbcTemplate.execute(sql);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
         return true;
     }
 
@@ -59,7 +70,7 @@ public class ProductRepository {
             Integer lastTransactionId = lastTransaction.get(0).getId();
             return lastTransactionId;
         } else {
-            return null;
+            return 1;
         }
     }
 }

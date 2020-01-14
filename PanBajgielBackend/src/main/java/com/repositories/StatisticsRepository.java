@@ -27,57 +27,50 @@ public class StatisticsRepository {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, -7);
         Date date = calendar.getTime();
-        SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd");
-        String strDate = format.format(date);
-        return strDate;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
     }
 
     public List<Statistics.ShopsStatistics> getTopShops() {
         String sql = "select s.address, sum(d.amount) as amount from transaction t inner join shop s on  t.shop_id = s.id \n" +
                 "\tinner join details d on t.id = d.transaction_id where t.date > \"" + getDate() + "\" group by s.address order by amount desc limit 3;";
-        List<Statistics.ShopsStatistics> statistics = jdbcTemplate.query(sql, new StatisticsRowMapper.ShopsStatisticsRowMapper());
-        if (statistics.size() > 0) {
-            return statistics;
-        } else {
-            return null;
-        }
+        return jdbcTemplate.query(sql, new StatisticsRowMapper.ShopsStatisticsRowMapper());
     }
 
     public List<Statistics.BajgielStatistics> getTopBajgiels() {
         String sql = "select p.name, sum(d.amount) as amount from transaction t inner join details d on t.id = d.transaction_id \n" +
                 "\tinner join product p on p.id = d.product_id where t.date > \"" + getDate() + "\" group by p.name order by amount desc limit 3;";
-        List<Statistics.BajgielStatistics> statistics = jdbcTemplate.query(sql, new StatisticsRowMapper.BajgielStatisticsRowMapper());
-        if (statistics.size() > 0) {
-            return statistics;
-        } else {
-            return null;
-        }
+        return jdbcTemplate.query(sql, new StatisticsRowMapper.BajgielStatisticsRowMapper());
     }
 
     private String getShopName(int shopId) {
         String sql = "Select * from shop where id = " + shopId + ";";
         List<Shop> shopsFromDataBase = new ArrayList<Shop>(jdbcTemplate.query(sql, new ShopRowMapper()));
-        if (shopsFromDataBase.isEmpty()) {
-            return null;
-        }
         return shopsFromDataBase.get(0).getAddress();
+    }
+
+    private List<Statistics.DailyStatistics> getDailyStatistics(int shopId) {
+        String sql = "select t.date, sum(d.amount) as amount from transaction t inner join details d on t.id = d.transaction_id  \n" +
+                "inner join shop s on s.id = t.shop_id where t.date > \"" + getDate() + "\" and s.id = " + shopId + " group by t.date order by amount desc;";
+        return new ArrayList<Statistics.DailyStatistics>(jdbcTemplate.query(sql, new StatisticsRowMapper.DailyStatisticsRowMapper()));
     }
 
     public Statistics.ShopStatistics getShopStatistics (Integer shopId){
         String sql = "select p.name, sum(d.amount) as amount from transaction t inner join details d on t.id = d.transaction_id  inner join shop s on s.id = t.shop_id\n" +
-                "inner join product p on p.id = d.product_id where t.date > " + getDate() + " and s.id = " + shopId + " group by p.name order by amount desc;";
+                "inner join product p on p.id = d.product_id where t.date > \"" + getDate() + "\" and s.id = " + shopId + " group by p.name order by amount desc;";
         List<Statistics.BajgielStatistics> statistics = jdbcTemplate.query(sql, new StatisticsRowMapper.BajgielStatisticsRowMapper());
-        if (statistics.size() > 0) {
-            Statistics.ShopStatistics shopStatistics = new Statistics.ShopStatistics(statistics);
+        Statistics.ShopStatistics shopStatistics  = new Statistics.ShopStatistics(statistics);
+        if (statistics.isEmpty()) {
             int num = 0;
             for (Statistics.BajgielStatistics bajgielStatistics: statistics){
                 num += bajgielStatistics.getProductsNumber();
             }
-            shopStatistics.setProductsNumber(num);
-            shopStatistics.setShopName(getShopName(shopId));
-            return shopStatistics;
+            shopStatistics.setDailyStatistics(getDailyStatistics(shopId));
         } else {
-            return null;
+            shopStatistics.setDailyStatistics(new ArrayList<>());
         }
+        shopStatistics.setProductsNumber(0);
+        shopStatistics.setShopName(getShopName(shopId));
+        return shopStatistics;
     }
 }

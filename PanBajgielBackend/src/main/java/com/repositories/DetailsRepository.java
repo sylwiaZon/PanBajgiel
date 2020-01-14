@@ -17,11 +17,6 @@ public class DetailsRepository {
 
         public List<Details> getDetails(Integer transactionId) {
             String sql = "Select * from details where transaction_id = \"" + transactionId + " \";";
-            List<Details> details = jdbcTemplate.query(sql, new DetailsRowMapper());
-            if (details.size() > 0) {
-                return details;
-            } else {
-                return null;
-            }
+            return jdbcTemplate.query(sql, new DetailsRowMapper());
         }
 }

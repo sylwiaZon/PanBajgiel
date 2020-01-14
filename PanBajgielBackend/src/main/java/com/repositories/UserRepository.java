@@ -20,7 +20,7 @@ public class UserRepository {
 
     private User getUserFromDB(String sql){
         List<User> users = jdbcTemplate.query(sql, new UserRowMapper());
-        if(users.size() > 0) {
+        if(users.isEmpty()) {
             return users.get(0);
         } else {
             return null;
@@ -28,21 +28,25 @@ public class UserRepository {
     }
 
     public User login(String login, String password){
-        String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";      // polecenie
-        User user = getUserFromDB(sql);
-        return user;
+        String sql = "Select * from user where login = '" + login + "' and password = '" + password + "';";
+        return getUserFromDB(sql);
     }
 
     public User getUser(String login){
         String sql = "Select * from user where login = '" + login + "';";
-        User user = getUserFromDB(sql);
-        return user;
+        return getUserFromDB(sql);
     }
 
     public User updateState(String login, Integer state, String stateName){
-        String sql = "UPDATE user SET " + stateName + " = " + state + " WHERE login = \"" + login + "\";";      // polecenie
+        String sql = "UPDATE user SET " + stateName + " = " + state + " WHERE login = \"" + login + "\";";
         jdbcTemplate.execute(sql);
         return getUser(login);
+    }
+
+    public User changePassword(User user) {
+        String sql = "UPDATE user SET password = \"" + user.getPassword() + "\" where login = \"" + user.getLogin() + "\";";
+        jdbcTemplate.execute(sql);
+        return getUser(user.getLogin());
     }
 
     public User register(User user){

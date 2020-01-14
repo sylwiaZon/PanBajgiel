@@ -26,4 +26,12 @@ public class StatisticsRowMapper{
         }
 
     }
+
+    public static class DailyStatisticsRowMapper implements RowMapper<Statistics.DailyStatistics> {
+
+        @Override
+        public Statistics.DailyStatistics mapRow(ResultSet rs, int rowNum) throws SQLException {
+            return new Statistics.DailyStatistics(rs.getString("date"),rs.getInt("amount"));
+        }
+    }
 }
