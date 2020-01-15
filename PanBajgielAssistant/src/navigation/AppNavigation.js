@@ -5,6 +5,7 @@ import {View, Text, Dimensions, ImageBackground, StyleSheet}from "react-native";
 import {Header} from  'react-native-elements'
 import {createStackNavigator} from "react-navigation-stack";
 import {Transaction} from "./Transaction.js";
+import Settings from "./Settings.js";
 
 
 var {width, height} = Dimensions.get('window');
@@ -114,6 +115,7 @@ class SettingsScreen extends React.Component {
                         height: 0.06 * height
                 }}
                 />
+                <Settings/>
                 </ImageBackground>
             </View>
         );

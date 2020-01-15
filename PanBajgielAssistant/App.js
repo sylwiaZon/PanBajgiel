@@ -3,6 +3,8 @@ import { StyleSheet, View } from 'react-native';
 
 import Navigation from './src/navigation/AppNavigation';
 
+global.userName = '';
+
 export default function App() {
   return (
       <View style={styles.container}>
