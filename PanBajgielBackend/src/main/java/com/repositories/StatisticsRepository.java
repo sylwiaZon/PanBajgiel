@@ -61,7 +61,7 @@ public class StatisticsRepository {
         List<Statistics.BajgielStatistics> statistics = jdbcTemplate.query(sql, new StatisticsRowMapper.BajgielStatisticsRowMapper());
         Statistics.ShopStatistics shopStatistics  = new Statistics.ShopStatistics(statistics);
         int num = 0;
-        if (statistics.isEmpty()) {
+        if (!statistics.isEmpty()) {
             for (Statistics.BajgielStatistics bajgielStatistics: statistics){
                 num += bajgielStatistics.getProductsNumber();
             }

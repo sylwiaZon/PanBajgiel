@@ -19,7 +19,6 @@ public class StatisticsController {
     @Autowired
     private StatisticsRepository statisticsRepository;
 
-    //Method to get statistics for all of the shops
     @RequestMapping(value = "/shops", method = RequestMethod.GET )
     public ResponseEntity<List<Statistics.ShopsStatistics>> getShopsStatistics() {
         List<Statistics.ShopsStatistics> statistics = statisticsRepository.getTopShops();
@@ -30,7 +29,6 @@ public class StatisticsController {
         }
     }
 
-    //Method to get statistics for all of the products
     @RequestMapping(value = "/bajgiels", method = RequestMethod.GET )
     public ResponseEntity<List<Statistics.BajgielStatistics>> getBajgielsStatistics() {
         List<Statistics.BajgielStatistics> statistics = statisticsRepository.getTopBajgiels();
@@ -41,7 +39,6 @@ public class StatisticsController {
         }
     }
 
-    //Method to get statistics for specific shop
     @RequestMapping(value = "/shop", method = RequestMethod.GET )
     public ResponseEntity<Statistics.ShopStatistics> getShopStatistics(@RequestParam("id") Integer id) {
         Statistics.ShopStatistics statistics = statisticsRepository.getShopStatistics(id);
