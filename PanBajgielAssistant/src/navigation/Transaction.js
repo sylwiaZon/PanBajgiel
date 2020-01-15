@@ -539,7 +539,6 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         margin: width *0.02,
         justifyContent: 'center',
-         backgroundColor:'#55858A'
 
     },
     buttonText2: {

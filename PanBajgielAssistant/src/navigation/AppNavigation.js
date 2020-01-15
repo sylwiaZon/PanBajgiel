@@ -6,6 +6,7 @@ import {Header} from  'react-native-elements'
 import {createStackNavigator} from "react-navigation-stack";
 import {Transaction} from "./Transaction.js";
 import Settings from "./Settings.js";
+import Login from "./Login";
 
 
 var {width, height} = Dimensions.get('window');
@@ -251,7 +252,7 @@ const sidebarNavigator = createSidebarNavigator(
         Settings: SettingsStack
     },
     {
-        initialRouteName: 'Profile',
+        initialRouteName: 'Settings',
     },
 );
 
