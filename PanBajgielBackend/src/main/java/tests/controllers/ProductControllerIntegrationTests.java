@@ -1,6 +1,6 @@
 package tests.controllers;
 
-import com.Controllers.ProductController;
+import com.controllers.ProductController;
 import com.models.Product;
 import com.models.Transaction;
 import com.repositories.ProductRepository;
@@ -19,7 +19,6 @@ import tests.helpers.TransactionHelper;
 import java.util.List;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
@@ -89,14 +88,53 @@ public class ProductControllerIntegrationTests {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(transaction))
                 .header("Origin","*"))
-                .andDo(print())
                 .andExpect(status().isOk());
-        verify(productRepository, times(1)).addNewTransaction(transaction);
+        verify(productRepository, times(1)).addNewTransaction(any());
         verifyNoMoreInteractions(productRepository);
-
     }
 
+    @Test
+    public void addTransactionShouldReturnCONFLICT() throws Exception {
+        Transaction transaction = transactionHelper.getTransaction();
+        when(productRepository.addNewTransaction(any())).thenReturn(false);
+        mockMvc.perform(post("/product/transaction")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(transaction))
+                .header("Origin","*"))
+                .andExpect(status().isConflict());
+        verify(productRepository, times(1)).addNewTransaction(any());
+        verifyNoMoreInteractions(productRepository);
+    }
 
+    @Test
+    public void addDetailsShouldReturnOK() throws Exception {
+        List details = transactionHelper.getDetails();
+        when(productRepository.getLastTransactionId()).thenReturn(1);
+        when(productRepository.addNewTransactionDetails(any())).thenReturn(true);
+        mockMvc.perform(post("/product/transactionDetails")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(details))
+                .header("Origin","*"))
+                .andExpect(status().isOk());
+        verify(productRepository, times(1)).getLastTransactionId();
+        verify(productRepository, times(1)).addNewTransactionDetails(any());
+        verifyNoMoreInteractions(productRepository);
+    }
+
+    @Test
+    public void addDetailsShouldReturnCONFLICT() throws Exception {
+        List details = transactionHelper.getDetails();
+        when(productRepository.getLastTransactionId()).thenReturn(1);
+        when(productRepository.addNewTransactionDetails(any())).thenReturn(false);
+        mockMvc.perform(post("/product/transactionDetails")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(new ObjectMapper().writeValueAsString(details))
+                .header("Origin","*"))
+                .andExpect(status().isConflict());
+        verify(productRepository, times(1)).getLastTransactionId();
+        verify(productRepository, times(1)).addNewTransactionDetails(any());
+        verifyNoMoreInteractions(productRepository);
+    }
 
     @Test
     public void getProductsWithIdShouldReturnNOTFOUND() throws Exception {
@@ -119,6 +157,4 @@ public class ProductControllerIntegrationTests {
         verify(productRepository, times(1)).getAllProductsFromDataBase();
         verifyNoMoreInteractions(productRepository);
     }
-
-
 }

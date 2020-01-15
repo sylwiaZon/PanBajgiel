@@ -60,8 +60,8 @@ public class StatisticsRepository {
                 "inner join product p on p.id = d.product_id where t.date > \"" + getDate() + "\" and s.id = " + shopId + " group by p.name order by amount desc;";
         List<Statistics.BajgielStatistics> statistics = jdbcTemplate.query(sql, new StatisticsRowMapper.BajgielStatisticsRowMapper());
         Statistics.ShopStatistics shopStatistics  = new Statistics.ShopStatistics(statistics);
+        int num = 0;
         if (statistics.isEmpty()) {
-            int num = 0;
             for (Statistics.BajgielStatistics bajgielStatistics: statistics){
                 num += bajgielStatistics.getProductsNumber();
             }
@@ -69,7 +69,7 @@ public class StatisticsRepository {
         } else {
             shopStatistics.setDailyStatistics(new ArrayList<>());
         }
-        shopStatistics.setProductsNumber(0);
+        shopStatistics.setProductsNumber(num);
         shopStatistics.setShopName(getShopName(shopId));
         return shopStatistics;
     }

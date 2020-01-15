@@ -13,6 +13,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    //Method to get user - used by user of worker app
     @RequestMapping(method = RequestMethod.GET )
     public ResponseEntity<User> getUser(@RequestParam("login") String login){
         User foundUser = userRepository.getUser(login);
@@ -24,6 +25,7 @@ public class UserController {
         }
     }
 
+    //Method to change password
     @RequestMapping(value = "/password", method = RequestMethod.POST )
     public ResponseEntity<User> changePassword(@RequestBody User user){
         User changedUser = userRepository.changePassword(user);
@@ -34,6 +36,7 @@ public class UserController {
         }
     }
 
+    //Method to login
     @RequestMapping(value = "/login", method = RequestMethod.GET )
     public ResponseEntity<User> login(@RequestParam("login") String login, @RequestParam("password") String password){
         User foundUser = userRepository.login(login,password);
@@ -44,16 +47,19 @@ public class UserController {
         }
     }
 
+    //Method to update mount of points - used by user of worker app
     @RequestMapping(value = "/update/points", method = RequestMethod.GET)
     public ResponseEntity<User> updatePoints(@RequestParam("login") String login, @RequestParam("points") Integer points){
         return updateUserState(login, points, "points");
     }
 
+    //Method to update mount of stamps - used by user of worker app
     @RequestMapping(value = "/update/stamps", method = RequestMethod.GET)
     public ResponseEntity<User> updateStamps(@RequestParam("login") String login, @RequestParam("stamps") Integer stamps){
         return updateUserState(login, stamps, "stamps");
     }
 
+    //Method helping change amount of stamps or points
     private ResponseEntity<User> updateUserState(String login, Integer state, String stateName){
         User foundUser = userRepository.updateState(login,state,stateName);
         if(foundUser!=null){
@@ -63,6 +69,7 @@ public class UserController {
         }
     }
 
+    //Method to register user
     @RequestMapping(value = "/register", method = RequestMethod.POST )
     public ResponseEntity<User> register(@RequestBody User user){
         User registeredUser = userRepository.register(user);
@@ -73,6 +80,7 @@ public class UserController {
         }
     }
 
+    //Method to delete user
     @RequestMapping(method = RequestMethod.DELETE)
     public ResponseEntity<Object> delete(@RequestParam String login) {
         boolean action = userRepository.delete(login);

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TransactionRowMapper implements RowMapper<Transaction> {
+    //Class in charge of translating sql response into object
 
     @Override
     public Transaction mapRow(ResultSet rs, int rowNum) throws SQLException {

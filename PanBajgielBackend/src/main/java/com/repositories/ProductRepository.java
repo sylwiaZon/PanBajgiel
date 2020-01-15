@@ -63,12 +63,11 @@ public class ProductRepository {
         return true;
     }
 
-    public Integer getLastTranscatonId(){
+    public Integer getLastTransactionId(){
         var sql = "SELECT  * from transaction ORDER BY id DESC LIMIT 1";
         List<Transaction> lastTransaction = jdbcTemplate.query(sql, new TransactionRowMapper());
-        if(lastTransaction.size() > 0) {
-            Integer lastTransactionId = lastTransaction.get(0).getId();
-            return lastTransactionId;
+        if(!lastTransaction.isEmpty()) {
+            return lastTransaction.get(0).getId();
         } else {
             return 1;
         }

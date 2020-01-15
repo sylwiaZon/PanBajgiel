@@ -24,7 +24,7 @@ public class StatisticsControllerUnitTests {
     private StatisticsRepository statisticsRepository;
 
     @InjectMocks
-    private com.Controllers.StatisticsController statisticsController;
+    private com.controllers.StatisticsController statisticsController;
 
     @Before
     public void init() {

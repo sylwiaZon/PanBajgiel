@@ -1,4 +1,4 @@
-package com.Controllers;
+package com.controllers;
 
 import com.models.Details;
 import com.models.Product;
@@ -17,6 +17,7 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
+    //Method to get products either by id or all of them
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Product>> getProducts(@RequestParam(value="id", defaultValue="all") String productId){
         List<Product> allProductsFromDataBase;
@@ -34,7 +35,7 @@ public class ProductController {
         }
     }
 
-
+    //Method to add transactions
     @RequestMapping(value = "/transaction", method = RequestMethod.POST)
     public ResponseEntity<Object> addTransaction(@RequestBody Transaction transaction){
         boolean action = productRepository.addNewTransaction(transaction);
@@ -45,9 +46,10 @@ public class ProductController {
         }
     }
 
-    @RequestMapping(value = "/transaction_details", method = RequestMethod.POST )
+    //Method to add transaction details
+    @RequestMapping(value = "/transactionDetails", method = RequestMethod.POST )
     public ResponseEntity<Object> addTransactionDetails(@RequestBody List<Details> details){
-        Integer transactionId = productRepository.getLastTranscatonId();
+        Integer transactionId = productRepository.getLastTransactionId();
         for(var detail : details){
             detail.setTransactionId(transactionId);
         }

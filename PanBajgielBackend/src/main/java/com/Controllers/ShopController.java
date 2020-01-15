@@ -18,6 +18,7 @@ public class ShopController {
     @Autowired
     private ShopRepository shopRepository;
 
+    //Method to get shops either by id or all of them
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Shop>> getShops(@RequestParam(value="id", defaultValue="all") String shopId){
         List<Shop> allShopsFromDataBase;

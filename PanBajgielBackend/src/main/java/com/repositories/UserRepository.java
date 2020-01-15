@@ -63,7 +63,6 @@ public class UserRepository {
         }
     }
 
-
     public boolean delete(String login){
        String sql =
                 String.format("DELETE FROM user WHERE login = '" + login + "';");

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class StatisticsRowMapper{
+    //Class in charge of translating sql response into object
 
     public static class ShopsStatisticsRowMapper implements RowMapper<Statistics.ShopsStatistics> {
 

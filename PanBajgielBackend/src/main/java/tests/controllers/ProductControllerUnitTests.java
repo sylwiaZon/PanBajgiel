@@ -1,5 +1,5 @@
 package tests.controllers;
-import com.Controllers.ProductController;
+import com.controllers.ProductController;
 import com.models.Details;
 import com.models.Product;
 import com.models.Transaction;
@@ -106,6 +106,5 @@ public class ProductControllerUnitTests {
         ResponseEntity<Object> expectedResponse = new ResponseEntity<Object>(HttpStatus.CONFLICT);
         assertEquals(response, expectedResponse);
     }
-
 
 }

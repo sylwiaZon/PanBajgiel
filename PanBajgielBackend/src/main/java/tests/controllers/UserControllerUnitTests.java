@@ -1,6 +1,6 @@
 package tests.controllers;
 
-import com.Controllers.UserController;
+import com.controllers.UserController;
 import com.models.User;
 import com.repositories.UserRepository;
 import org.junit.Before;
