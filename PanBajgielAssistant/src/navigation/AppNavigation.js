@@ -1,16 +1,27 @@
 import React from 'react';
+import {Statistics} from "./Statistics.js";
 import { createAppContainer } from 'react-navigation';
 import { createSidebarNavigator } from '../tabs';
 import {View, Text, Dimensions, ImageBackground, StyleSheet}from "react-native";
 import {Header} from  'react-native-elements'
 import {createStackNavigator} from "react-navigation-stack";
 import {Transaction} from "./Transaction.js";
-
+import {Prices} from "./Prices.js";
 
 var {width, height} = Dimensions.get('window');
 var formattedDate = new Date();
-var newDate = formattedDate.getDay().toString() + "/" + formattedDate.getMonth().toString() + "/" + formattedDate.getFullYear().toString();
+function formatDate(date){
 
+    var dd = date.getDate();
+    var mm = date.getMonth()+1;
+    var yyyy = date.getFullYear();
+    if(dd<10) {dd='0'+dd}
+    if(mm<10) {mm='0'+mm}
+    date = yyyy+'-'+mm+'-'+dd;
+    return date
+ }
+
+var newDate = formatDate(formattedDate)
 const styles = StyleSheet.create({
     header: {
         marginRight: 0.05 * width,
@@ -21,44 +32,36 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         alignItems: 'center',
-        opacity:0.8
-    }
+        opacity:0.8,
+    },
+      container: {
+    marginTop: 0,
+    width:0.86 * width,
+    marginLeft:0.14*width,
+    justifyContent:'center',
+    alignItems:'center'
+    
+  },
 });
 
-class ProfileScreen extends React.Component {
-    render() {
-        return(
-            <View style={{ alignItems: 'center',justifyContent: 'center'}}>
-                <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('../../assets/background.png')} style={styles.background}>
-                <Header
-                    centerComponent={{ text: 'UŻYTKOWNIK', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
-                            justifyContent: 'center',}}}
-                    containerStyle={{
-                        backgroundColor: '#bef7e8',
-                        height: 0.06 * height
-                    }}
-                />
-                </ImageBackground>
-            </View>
-        );
-    }
-}
+
+
 
 
 class TransactionScreen extends React.Component {
     render() {
         return(
-            <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'TransactionScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
-                <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('../../assets/background.png')} style={styles.background}>
+            <View  accessible={true} testID="TransactionScreen" accessibilityLabel={'TransactionScreen'} style={styles.container}>
+                <ImageBackground  source={require('../../assets/background.png')} style={styles.background}>
                 <Header
                     centerComponent={{ text: 'TRANSAKCJA', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
                             justifyContent: 'center',}}}
                     containerStyle={{
-                        backgroundColor: '#bef7e8',
+                        backgroundColor: '#60939b',
                         height: 0.06 * height
                     }}
                 />
-                <Transaction/>
+                 <Transaction/>
                 </ImageBackground>
             </View>
         );
@@ -68,34 +71,28 @@ class TransactionScreen extends React.Component {
 class StatsScreen extends React.Component {
     render() {
         return(
-            <View  accessible={true}  testID="ProductsScreen" accessibilityLabel={'StatsScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
-                <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('../../assets/background.png')} style={styles.background}>
-                <Header
-                    centerComponent={{ text: 'STATYSTYKI', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
-                            justifyContent: 'center',}}}
-                    containerStyle={{
-                        backgroundColor: '#bef7e8',
-                        height: 0.06 * height
-                    }}
-                />
-                </ImageBackground>
-            </View>
+        	
+             
+
+                <Statistics/>
+
         );
     }
 }
 class PricesScreen extends React.Component {
     render() {
         return(
-            <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'PricesScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
+            <View  accessible={true} testID="PricesScreen" accessibilityLabel={'PricesScreen'} style={styles.container}>
                 <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('../../assets/background.png')} style={styles.background}>
                 <Header
                     centerComponent={{ text: 'CENNIK', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
                             justifyContent: 'center',}}}
                     containerStyle={{
-                        backgroundColor: '#bef7e8',
+                        backgroundColor: '#60939b',
                         height: 0.06 * height
                     }}
                 />
+                <Prices/>
                 </ImageBackground>
             </View>
         );
@@ -104,13 +101,13 @@ class PricesScreen extends React.Component {
 class SettingsScreen extends React.Component {
     render() {
         return(
-            <View  accessible={true} testID="SettingsScreen" accessibilityLabel={'SettingsScreen'}>
-                <ImageBackground accessible={true} testID="HomeScreen" accessibilityLabel={'HomeScreen'} source={require('../../assets/background.png')} style={styles.background}>
+            <View  accessible={true} testID="SettingsScreen" accessibilityLabel={'SettingsScreen'} style={styles.container}>
+                <ImageBackground  source={require('../../assets/background.png')} style={styles.background}>
                 <Header
                     centerComponent={{ text: 'USTAWIENIA', style: { flex:1, color: '#fff', fontSize: 0.02 * height, alignItems: 'center',
                             justifyContent: 'center',}}}
                     containerStyle={{
-                    backgroundColor: '#bef7e8',
+                    backgroundColor: '#60939b',
                         height: 0.06 * height
                 }}
                 />
@@ -119,6 +116,7 @@ class SettingsScreen extends React.Component {
         );
     }
 }
+
 
 export const PricesStack = createStackNavigator({Prices: PricesScreen, },
     {defaultNavigationOptions: {
@@ -192,29 +190,7 @@ export const StatsStack = createStackNavigator({Stats: StatsScreen, },
                 flex:1
             },}})
 
-export const ProfileStack = createStackNavigator({Profile: ProfileScreen, },
-    {defaultNavigationOptions: {
-            title: '',
-            headerRight: <Text style = {styles.header}>{newDate}</Text>,
-            headerRightContainerStyle: {
-                marginRight: 0.05 * width,
-                color: 'white',
-                fontSize: 0.02 * height
-            },
-            headerStyle: {
-                backgroundColor: '#55858A',
-                height: 0.07 * height,
-                width: width,
-                marginLeft: 0,
-                position: 'absolute',
-                zIndex: 1,
-                elevation: 50
-            },
-            headerTintColor: '#FFFFFF',
-            headerTitleStyle: {
-                textAlign:"center",
-                flex:1
-            },}})
+
 
 export const TransactionStack = createStackNavigator({Profile: TransactionScreen, },
     {defaultNavigationOptions: {
@@ -242,14 +218,14 @@ export const TransactionStack = createStackNavigator({Profile: TransactionScreen
 
 const sidebarNavigator = createSidebarNavigator(
     {
-        Profile: ProfileStack,
+        
         Transaction: TransactionStack,
         Stats: StatsStack,
         Prices: PricesStack,
         Settings: SettingsStack
     },
     {
-        initialRouteName: 'Profile',
+        initialRouteName: 'Transaction',
     },
 );
 

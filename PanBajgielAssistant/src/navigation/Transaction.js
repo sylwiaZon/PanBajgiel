@@ -508,7 +508,7 @@ const styles = StyleSheet.create({
     qrButtonsContainer:{
     	borderRightWidth: 2,
        borderRightColor: 'white',
-       marginLeft: width*0.2,
+       marginLeft: width*0.03,
        marginRight: width*0.03,
        paddingRight:width*0.03
     },
@@ -576,7 +576,7 @@ const styles = StyleSheet.create({
   width: 0.11 * width, 
   height: 0.11 * width,
   marginRight: 0.05 * width,
-  marginLeft: 0.1 * width
+  marginLeft: 0.05 * width
 },
 dialogTextContainer:{
     margin: width*0.05

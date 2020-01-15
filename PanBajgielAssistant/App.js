@@ -3,10 +3,15 @@ import { StyleSheet, View } from 'react-native';
 
 import Navigation from './src/navigation/AppNavigation';
 
+
+import AppContainer from './src/navigation/index';
+
+global.ip='104.211.12.200'
 export default function App() {
   return (
+
       <View style={styles.container}>
-        <Navigation/>
+        <AppContainer/>
       </View>
   );
 }
@@ -14,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#55858A',
     alignItems: 'center',
     justifyContent: 'center',
   },
