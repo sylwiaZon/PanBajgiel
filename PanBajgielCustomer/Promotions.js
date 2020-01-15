@@ -18,8 +18,7 @@ constructor() {
    this.state = {
     login: global.login,
     promotions: [],
-    point:'',
-    qrValue:''
+    point:''
     };
 
   }
@@ -44,9 +43,7 @@ componentDidMount = () => {
 }
 
 getPromotions(){
-      
     return this.state.promotions.map((item,index) => {
-       
       return ( 
         <View style={styles.rowContainer}>
         <View style={styles.insideContainer}>
@@ -54,41 +51,33 @@ getPromotions(){
 
          <Text style={styles.text}> Promocja {item} %</Text>
         </View>
-		<View style={styles.insideContainer2}>
-		 <TouchableOpacity onPress={() => {this.setState({ visible: true, qrValue: item});}}>
-              <View style={{width:width*0.5, textAlign:'center', alignItems:'center', justifyContent:'center'}}>
-             <Text style={styles.textButton}>OK</Text>
-           </View>
-           </TouchableOpacity>
-  			<Dialog visible={this.state.visible} onTouchOutside={() => {this.setState({ visible: false });}}>
-    		<DialogContent>
-        	<View style={styles.container3}>
-				    <Text style={styles.textQr} >Gratulacje! Odbierz zniżkę !!</Text>
-          	<QRCode
-      			 value={this.state.qrValue}
-      			 size={0.4*width}
-             color = "#94cfd5"
-      			 />
-            
-              <TouchableOpacity onPress={() => {this.setState({ visible: false});}}>
+    <View style={styles.insideContainer2}>
+      <Button title="Pobierz QR" onPress={() => {this.setState({ visible: true });}}/>
+        <Dialog visible={this.state.visible} onTouchOutside={() => {this.setState({ visible: false });}}>
+        <DialogContent>
+          <View style={styles.container3}>
+            <Text style={styles.textQr} >Gratulacje! Odbierz zniżkę !!</Text>
+            <QRCode
+             value='Jeśli nie chcesz mojej zguby mopsa daj mi luby !'
+             size={0.4*width}
+             color = "#94cfd5"/>
             <View style={styles.insideContainer3}>
-             <Text style={styles.textButton}>OK</Text>
-             </View>
-           </TouchableOpacity>
-           	
+              <Button title='OK' onPress={() => {this.setState({ visible: false});}}/>
+            </View>
           </View>
-    		</DialogContent>
-  			</Dialog>
+        </DialogContent>
+        </Dialog>
           </View>
     </View>
       )
     })
 
-}
-setPromotions(){
-   this.state.promotions = [];
 
-  for(i=0;i<=this.state.point.points;i+=10){
+}
+  render() {
+ 
+ 
+for(i=0;i<=this.state.point.points;i+=10){
     var x = i;
     if(x%100==0 && x!=0){
       x/=10;
@@ -99,20 +88,16 @@ setPromotions(){
   }
   if(this.state.point.points%100!=0 && this.state.point.points>100){
     this.state.promotions.push(Math.floor(this.state.point.points/10))
-   
   };
-}
-render() {
-      {this.setPromotions()}
 
     return (
         <ScrollView style={styles.scrollview}>
           {this.getPromotions()}
+          
         </ScrollView>
     )
   }
 }
-
 
 
 const styles = StyleSheet.create({
@@ -122,11 +107,11 @@ img: {
  
 },
 scrollview:{
-	width: '100%',
-	marginLeft: 0.08 * width,
+  width: '100%',
+  marginLeft: 0.08 * width,
 },
 text: {
-	fontSize: 0.05 * width,
+  fontSize: 0.05 * width,
     margin: width* 0.05, 
     color: "#000000",
     textAlign: 'left',
@@ -143,45 +128,43 @@ rowContainer: {
     padding:0.02*width,
   },
 insideContainer:{
-	flexDirection: 'row',
-	width:0.8*width,
-	marginLeft:0.05*width,
+  flexDirection: 'row',
+  width:0.8*width,
+  marginLeft:0.05*width,
 
 },
 insideContainer2:{
-	flexDirection: 'row',
-	width:'50%',
-	marginLeft:'25%',
-	justifyContent: 'center',
-	backgroundColor:"#94cfd5",
-	marginBottom:0.02*width,
-	borderRadius: 10,
+  flexDirection: 'row',
+  width:'50%',
+  marginLeft:'25%',
+  justifyContent: 'center',
+  backgroundColor:"#94cfd5",
+  marginBottom:0.02*width,
+  borderRadius: 10,
 
 },
 insideContainer3:{
-	width:0.4*width,
-	padding:0.01*width,
-	justifyContent: 'center',
-	backgroundColor:"#94cfd5",
-	margin:0.06*width,
-	borderRadius: 15,
-  textAlign: 'center',
-  alignItems: 'center'
+  width:'60%',
+  padding:0.01*width,
+  justifyContent: 'center',
+  backgroundColor:"#94cfd5",
+  margin:0.06*width,
+  borderRadius: 15,
 },
 
 container3:{
-	textAlign: 'center',
-	justifyContent: 'center',
-	alignItems: 'center'
+  textAlign: 'center',
+  justifyContent: 'center',
+  alignItems: 'center'
 },
 
 textButton:{
-	fontSize: 0.04 * width,
-	padding:0.02*width,
-	color: "#000000",
+  fontSize: 0.05 * width,
+  padding:0.02*width,
+  color: "#000000",
 },
 textQr:{
-  	fontSize: 0.05 * width,
-	padding:0.08*width, 
+    fontSize: 0.05 * width,
+  padding:0.08*width, 
 },
   });

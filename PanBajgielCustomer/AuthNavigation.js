@@ -4,6 +4,8 @@ import Login from "./Login.js";
 import Register from "./Register.js";
 import {createStackNavigator} from "react-navigation-stack";
 
+
+
 const AuthNavigation = createStackNavigator(
     {
         Login: { screen: Login },

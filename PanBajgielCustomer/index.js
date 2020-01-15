@@ -3,11 +3,12 @@ import AuthNavigation from './AuthNavigation.js'
 import AppStacker from "./AppNavigation.js"
 import {PromotionsStack, ProfileStack, ProductsStack, HomeStack, SettingsStack} from "./AppNavigation.js"
 import Icon from "react-native-vector-icons/FontAwesome5";
-import {Image} from "react-native";
+import {Image,AsyncStorage} from "react-native";
 import React from "react";
 import {createBottomTabNavigator} from "react-navigation-tabs";
 
 
+// AsyncStorage.clear();
 const SwitchNavigator = createSwitchNavigator(
     {
         Auth: AuthNavigation,

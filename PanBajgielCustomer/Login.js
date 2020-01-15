@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, AppRegistry, Alert} from 'react-native';
+import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, AppRegistry, Alert,AsyncStorage} from 'react-native';
 import {UserModel} from "./userModel.js";
 
 
@@ -10,31 +10,65 @@ export default class Login extends React.Component {
             login: '',
             password: '',
         }
+        
+        
 
         this.setLogin = this.setLogin.bind(this)
         this.setPassword = this.setPassword.bind(this)
+
+        AsyncStorage.getItem('user', (err, result) => {
+            console.log(JSON.parse(result));
+           if(result!=null){
+                      if(JSON.parse(result).name!=null){
+                        //console.log('aaaaa')
+                        global.login=JSON.parse(result).name;
+                         this.props.navigation.navigate('App')
+                         //console.log(global.login);
+                      }
+                }
+        });
     }
 
     setLogin(event) {
+
         this.setState({ login: event.nativeEvent.text })
+      
 
     }
 
     setPassword(event) {
+
+        
         this.setState({ password: event.nativeEvent.text })
     }
 
-
+  
     authenticateUser = () => {
+        
         let url = 'http://'+global.ip+':8081/user/login?login='+this.state.login+'&password='+this.state.password
         global.login=this.state.login
         fetch(url, {method: "GET"})
         .then(function(response) {
         if (response.status==200){
+
+                   let UID123_object = {
+          name: global.login,
+          number: 30,
+        };
+        // You only need to define what will be added or updated
+
+
+        AsyncStorage.setItem('user', JSON.stringify(UID123_object), () => {
+            AsyncStorage.getItem('user', (err, result) => {
+              console.log(result);
+          });
+        });
+
             this.props.navigation.navigate('App')
         }
         if(response.status==404){
             Alert.alert("Złe hasło!!!")
+            
         }})
         .catch((error) => {
             this.props.navigation.navigate('App')
