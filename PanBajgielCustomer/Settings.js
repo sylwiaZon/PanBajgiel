@@ -7,20 +7,37 @@ export default class Settings extends React.Component {
         super(props);
         this.state = {
             newPassword: '',
+            backupPasswordTest: '',
             dialogVisible: false,
-            passwordPopUp: false
-        }
+            passwordPopUp: false,
+            dialogPasswordVisible: false,
+        };
 
         this.setPassword = this.setPassword.bind(this);
+        this.setBackupPassword = this.setBackupPassword.bind(this);
+        this.showDeletionDialog = this.showDeletionDialog.bind(this);
+        this.showPasswordDialog = this.showPasswordDialog.bind(this);
+        this.hidePasswordDialog = this.hidePasswordDialog.bind(this);
     }
 
     setPassword = (event) => {
-        this.setState({ newPassword: event.nativeEvent.text })
+        this.setState({ newPassword: event.nativeEvent.text });
     };
 
+    setBackupPassword = (event) => {
+        this.setState({ backupPasswordTest: event.nativeEvent.text });
+    };
 
     showDeletionDialog = () => {
         this.setState({ dialogVisible: true });
+    };
+
+    showPasswordDialog = () => {
+        this.setState({dialogPasswordVisible: true})
+    };
+
+    hidePasswordDialog = () => {
+        this.setState({dialogPasswordVisible: false})
     };
 
     handleCancel = () => {
@@ -43,29 +60,28 @@ export default class Settings extends React.Component {
 
 
     handlePasswordChange = () => {
-        console.log(this.state.newPassword);
-        console.log(global.userLogin);
-        fetch('http://' + global.ip + ':8081/user/password', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                login: global.userLogin,
-                password: this.state.newPassword,
-                name: global.userName,
-                points: global.userPoints,
-                stamps: global.userStamps,
-                client: global.userClient,
-            }),
-        }).then((response) => {console.log('response:',response.status);
-        this.setState({passwordPopUp: false});
-        })
+        if(this.state.backupPasswordTest === this.state.newPassword){
+            fetch('http://' + global.ip + ':8081/user/password', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    login: global.login,
+                    password: this.state.newPassword
+                }),
+            }).then((response) => {console.log('response:',response.status);
+                this.setState({passwordPopUp: false});
+            })
+        }
+        else {
+            this.showPasswordDialog();
+        }
     };
 
     showPasswordChange = () => {
-        this.setState({ passwordPopUp: true });
+        this.setState({ passwordPopUp: !this.state.passwordPopUp });
     };
 
     submit = () => {
@@ -108,27 +124,47 @@ export default class Settings extends React.Component {
                                 Zmień hasło
                             </Text>
                         </TouchableOpacity>
-                            {this.state.passwordPopUp ?
-                                <View style = {styles.popUp}>
-                                    <TextInput
-                                        textAlign = 'center'
-                                        placeholder = "Wpisz nowe hasło"
-                                        placeholderTextColor = 'rgba(33,52,54,0.8)'
-                                        style = {styles.input}
-                                        secureTextEntry
-                                        returnKeyType = "go"
-                                        autoCapitalize = "none"
-                                        autoCorrect = {false}
-                                        onChange={this.setPassword}
-                                    />
-                                    <TouchableOpacity style = {styles.buttonContainer}
-                                                      onPress = {this.handlePasswordChange}>
-                                        <Text style = {styles.buttonText}>
-                                            Zmień hasło
-                                        </Text>
-                                    </TouchableOpacity>
-                                </View>
-                                : null}
+                        {this.state.passwordPopUp ?
+                            <View style = {styles.popUp}>
+                                <TextInput
+                                    textAlign = 'center'
+                                    placeholder = "Wpisz nowe hasło"
+                                    placeholderTextColor = 'rgba(33,52,54,0.8)'
+                                    style = {styles.input}
+                                    secureTextEntry
+                                    returnKeyType = "go"
+                                    autoCapitalize = "none"
+                                    autoCorrect = {false}
+                                    onChange={this.setPassword}
+                                />
+                                <TextInput
+                                    textAlign = 'center'
+                                    placeholder = "Potwierdź nowe hasło"
+                                    placeholderTextColor = 'rgba(33,52,54,0.8)'
+                                    style = {styles.input}
+                                    secureTextEntry
+                                    returnKeyType = "go"
+                                    autoCapitalize = "none"
+                                    autoCorrect = {false}
+                                    onChange={this.setBackupPassword}
+                                />
+                                <TouchableOpacity style = {styles.buttonContainer}
+                                                  onPress = {this.handlePasswordChange}>
+                                    <Text style = {styles.buttonText}>
+                                        Ustaw nowe hasło
+                                    </Text>
+                                </TouchableOpacity>
+                                {this.state.dialogPasswordVisible?
+                                    <Dialog.Container visible={this.state.dialogPasswordVisible}>
+                                        <Dialog.Title>Ostrzeżenie</Dialog.Title>
+                                        <Dialog.Description>
+                                            Hasła nie są jednakowe!
+                                        </Dialog.Description>
+                                        <Dialog.Button label="Wróć" onPress={this.hidePasswordDialog} />
+                                    </Dialog.Container>
+                                    : null}
+                            </View>
+                            : null}
                     </View>
                 </ImageBackground>
             </View>
@@ -162,7 +198,8 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         width: 300,
         borderRadius: 15,
-        marginBottom: 20,
+        marginBottom: 15,
+        marginTop: 10,
         alignItems: 'center',
     },
     buttonText: {
@@ -180,8 +217,7 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        marginBottom: 20,
-        marginTop: 30,
+        marginTop: 8,
         backgroundColor: 'rgba(255,255,255,0.5)',
         color: '#55858A',
         paddingHorizontal: 10,
