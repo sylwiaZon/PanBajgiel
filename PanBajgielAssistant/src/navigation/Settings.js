@@ -12,7 +12,7 @@ import {
     KeyboardAvoidingView,
     BackHandler
 } from 'react-native';
-
+import Dialog from "react-native-dialog";
 
 var {width, height} = Dimensions.get('window');
 
@@ -91,7 +91,7 @@ export default class Settings extends React.Component {
                                     <View style = {styles.popUp}>
                                         <TextInput
                                             textAlign = 'center'
-                                            placeholder = "Wpisz nowe hasło  "
+                                            placeholder = "Wpisz nowe hasło"
                                             placeholderTextColor = 'rgba(33,52,54,0.8)'
                                             style = {styles.input}
                                             secureTextEntry
@@ -100,12 +100,32 @@ export default class Settings extends React.Component {
                                             autoCorrect = {false}
                                             onChange={this.setPassword}
                                         />
-                                        <TouchableOpacity style = {styles.buttonContainerConfirm}
+                                        <TextInput
+                                            textAlign = 'center'
+                                            placeholder = "Potwierdź nowe hasło"
+                                            placeholderTextColor = 'rgba(33,52,54,0.8)'
+                                            style = {styles.input}
+                                            secureTextEntry
+                                            returnKeyType = "go"
+                                            autoCapitalize = "none"
+                                            autoCorrect = {false}
+                                            onChange={this.setBackupPassword}
+                                        />
+                                        <TouchableOpacity style = {styles.buttonContainer}
                                                           onPress = {this.handlePasswordChange}>
                                             <Text style = {styles.buttonText}>
-                                                Zmień hasło
+                                                Ustaw nowe hasło
                                             </Text>
                                         </TouchableOpacity>
+                                        {this.state.dialogPasswordVisible?
+                                            <Dialog.Container visible={this.state.dialogPasswordVisible}>
+                                                <Dialog.Title>Ostrzeżenie</Dialog.Title>
+                                                <Dialog.Description>
+                                                    Hasła nie są jednakowe!
+                                                </Dialog.Description>
+                                                <Dialog.Button label="Wróć" onPress={this.hidePasswordDialog} />
+                                            </Dialog.Container>
+                                            : null}
                                     </View>
                                     : null}
                             </View>
