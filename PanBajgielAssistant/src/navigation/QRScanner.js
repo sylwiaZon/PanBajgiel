@@ -23,15 +23,16 @@ export class Scanner extends React.Component {
     barcodeScanned: true,
   };
 
+//pobranie informacji o pozwoleniu na korzystanie z kamery urządzenia
   async componentWillMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ permissionsGranted: status === "granted" });
 
   }
 
-
   handleMountError = ({ message }) => console.error(message);
 
+//zczytanie danych ze zeskanowanego kodu QR
   onBarCodeScanned = code => {
     if(this.state.barcodeScanned){
       if ((global.scanning == "user")) {
@@ -51,7 +52,7 @@ export class Scanner extends React.Component {
     }
     this.setState({barcodeScanned:false});
   };
-
+//wyrenderowanie inforamcji o braku uprawnień do kamery
   renderNoPermissions = () => (
     <View style={styles.noPermissions}>
       <Text style={{ color: "white" }}>
@@ -60,6 +61,7 @@ export class Scanner extends React.Component {
     </View>
   );
 
+//wyrenderowanie kamery
   renderCamera = () => (
     <View style={{ flex: 1 }}>
       <Camera
