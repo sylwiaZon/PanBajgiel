@@ -127,7 +127,7 @@ export default class Settings extends React.Component {
 
                         <TouchableOpacity
                             style = {styles.buttonContainer}
-                            onPress = {this.showDeletionDialog}>
+                            onPress = {this.handleDelete}>
                             <Text style = {styles.buttonText}>
                                 Usuń konto
                             </Text>
