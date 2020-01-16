@@ -51,7 +51,7 @@ export class Transaction extends React.Component {
 //dodanie szczegółów transakcji
   fetchDetailsData() {
     this.detailsData();
-    fetch("http://" + global.ip + ":8081/product/transaction_details", {
+    fetch("http://" + global.ip + ":8081/product/transactionDetails", {
       method: "POST",
       headers: {
         Accept: "application/json",
