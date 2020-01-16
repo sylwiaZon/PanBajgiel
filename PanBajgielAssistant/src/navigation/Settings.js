@@ -34,22 +34,34 @@ export default class Settings extends React.Component {
 
 
     handlePasswordChange = () => {
-        console.log(this.state.newPassword);
-        console.log(global.userLogin);
-        fetch('http://' + global.ip + ':8081/user/password', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                login: global.login,
-                password: this.state.newPassword,
-            }),
-        }).then((response) => {console.log('response:',response.status);
-        this.setState({passwordPopUp: false});
-        })
+        if(this.state.backupPasswordTest === this.state.newPassword){
+            fetch('http://' + global.ip + ':8081/user/password', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    login: global.login,
+                    password: this.state.newPassword
+                }),
+            }).then((response) => {console.log('response:',response.status);
+                this.setState({passwordPopUp: false});
+            })
+        }
+        else {
+            this.showPasswordDialog();
+        }
     };
+
+    showPasswordDialog = () => {
+        this.setState({dialogPasswordVisible: true})
+    };
+
+    hidePasswordDialog = () => {
+        this.setState({dialogPasswordVisible: false})
+    };
+
 
     showPasswordChange = () => {
         this.setState({ passwordPopUp: true });
