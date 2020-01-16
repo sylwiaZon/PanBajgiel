@@ -21,15 +21,49 @@ export default class Settings extends React.Component {
         super(props);
         this.state = {
             newPassword: '',
+            backupPasswordTest: '',
             dialogVisible: false,
-            passwordPopUp: false
-        }
+            passwordPopUp: false,
+            dialogPasswordVisible: false,
+        };
 
         this.setPassword = this.setPassword.bind(this);
+        this.setBackupPassword = this.setBackupPassword.bind(this);
+        this.showDeletionDialog = this.showDeletionDialog.bind(this);
+        this.showPasswordDialog = this.showPasswordDialog.bind(this);
+        this.hidePasswordDialog = this.hidePasswordDialog.bind(this);
     }
 
     setPassword = (event) => {
-        this.setState({ newPassword: event.nativeEvent.text })
+        this.setState({ newPassword: event.nativeEvent.text });
+    };
+
+    setBackupPassword = (event) => {
+        this.setState({ backupPasswordTest: event.nativeEvent.text });
+    };
+
+    showDeletionDialog = () => {
+        this.setState({ dialogVisible: true });
+    };
+
+    showPasswordDialog = () => {
+        this.setState({dialogPasswordVisible: true})
+    };
+
+    hidePasswordDialog = () => {
+        this.setState({dialogPasswordVisible: false})
+    };
+
+    handleCancel = () => {
+        this.setState({ dialogVisible: false });
+    };
+
+    goToLogin = () => {
+        this.props.navigation.navigate('Auth');
+    }
+    
+    handleLogOut = () => {
+        BackHandler.exitApp();
     };
 
 
@@ -54,27 +88,12 @@ export default class Settings extends React.Component {
         }
     };
 
-    showPasswordDialog = () => {
-        this.setState({dialogPasswordVisible: true})
-    };
-
-    hidePasswordDialog = () => {
-        this.setState({dialogPasswordVisible: false})
-    };
-
-
     showPasswordChange = () => {
-        this.setState({ passwordPopUp: true });
-        //console.log("jestem tuuu")
+        this.setState({ passwordPopUp: !this.state.passwordPopUp });
     };
-        
 
     submit = () => {
         this.setState({passwordPopUp: false})
-    };
-
-    handleLogOut = () => {
-        BackHandler.exitApp();
     };
 
 
@@ -87,11 +106,20 @@ export default class Settings extends React.Component {
                     <KeyboardAvoidingView style = {styles.container2}>
                         <View style = {styles.container2}>
                             <View style = {styles.main}>
-                                <TouchableOpacity style = {styles.buttonContainer}>
-                                    <Text style = {styles.buttonText} onPress = {this.handleLogOut}>
+                                <TouchableOpacity style = {styles.buttonContainer} onPress = {this.handleLogOut}>
+                                    <Text style = {styles.buttonText}>
                                         Wyloguj się
                                     </Text>
                                 </TouchableOpacity>
+
+                                <Dialog.Container visible={this.state.dialogVisible}>
+                                    <Dialog.Title>Account delete</Dialog.Title>
+                                    <Dialog.Description>
+                                        Jesteś pewny, że chcesz usunąć swoje konto?
+                                    </Dialog.Description>
+                                    <Dialog.Button label="Wróć" onPress={this.handleCancel} />
+                                    <Dialog.Button label="Usuń" onPress={this.goToLogin} />
+                                </Dialog.Container>
 
                                 <TouchableOpacity style = {styles.buttonContainer}
                                                   onPress = {this.showPasswordChange}>
