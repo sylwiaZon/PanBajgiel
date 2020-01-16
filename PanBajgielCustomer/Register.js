@@ -10,9 +10,10 @@ import {
     KeyboardAvoidingView, Alert
 } from 'react-native';
 
-export default class Register extends React.Component {
-    constructor() {
-        super();
+
+export default class Register extends React.Component{
+    constructor(props) {
+        super(props);
         this.state = {
             password: '',
             login: '',
@@ -25,17 +26,32 @@ export default class Register extends React.Component {
 
     setPassword = (event) => {
         this.setState({ password: event.nativeEvent.text });
+
     };
 
     setLogin= (event) => {
-        this.setState({ login: event.nativeEvent.text })
+        this.setState({ login: event.nativeEvent.text });
     };
 
     setName= (event) => {
-        this.setState({ name: event.nativeEvent.text })
+        this.setState({ name: event.nativeEvent.text });
     };
 
-    handleRegister = () => {
+    validate = (text) => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/ ;
+        if(reg.test(text) === false)
+        {
+            Alert.alert("Email nie poprawny");
+           this.setState({ login: null});
+
+        }
+        else {
+            this.setState({ login: text});
+            this.fetchRegister();
+        }
+    } 
+
+    fetchRegister(){
         global.login = this.state.login;
         console.log(global.login);
         console.log(this.state);
@@ -48,14 +64,18 @@ export default class Register extends React.Component {
             body: JSON.stringify({
                 login: global.login,
                 password: this.state.password,
-                name: this.state.name,
-                points: 0,
-                stamps: 0,
-                client: 0,
+                name: this.state.name
+               
             }),
         }).then((response) => {console.log('response:',response.status);
         });
         this.props.navigation.navigate('App');
+    }
+
+
+
+    handleRegister = () => {
+        this.validate(this.state.login);
     };
 
     render() {
@@ -81,6 +101,7 @@ export default class Register extends React.Component {
                                     autoCorrect = {false}
                                     onSubmitEditing = {() => this.nameInput.focus()}
                                     onChange={this.setLogin}
+                                    ref="login"
                                 />
                                 <TextInput
                                     ref = {(input) => this.nameInput = input}
@@ -101,7 +122,7 @@ export default class Register extends React.Component {
                                     placeholderTextColor = 'rgba(33,52,54,0.8)'
                                     style = {styles.input}
                                     secureTextEntry
-                                    returnKeyType = "go"
+                                    //returnKeyType = "go"
                                     autoCapitalize = "none"
                                     autoCorrect = {false}
                                     onChange={this.setPassword}
