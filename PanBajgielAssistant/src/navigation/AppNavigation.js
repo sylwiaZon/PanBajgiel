@@ -7,9 +7,12 @@ import {Header} from  'react-native-elements'
 import {createStackNavigator} from "react-navigation-stack";
 import {Transaction} from "./Transaction.js";
 import {Prices} from "./Prices.js";
+import {Settings} from "./Settings.js";
 
+//głowny ekran nawigacji
 var {width, height} = Dimensions.get('window');
 var formattedDate = new Date();
+// funkcja do formatowania daty
 function formatDate(date){
 
     var dd = date.getDate();
@@ -21,7 +24,7 @@ function formatDate(date){
     return date
  }
 
-var newDate = formatDate(formattedDate)
+var newDate = formatDate(formattedDate) // data do wyświetlenia w headerze aplikacji
 const styles = StyleSheet.create({
     header: {
         marginRight: 0.05 * width,
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
 
 
 
-
+// ekran transakcji
 class TransactionScreen extends React.Component {
     render() {
         return(
@@ -67,7 +70,7 @@ class TransactionScreen extends React.Component {
         );
     }
 }
-
+//ekran statystyk
 class StatsScreen extends React.Component {
     render() {
         return(
@@ -79,6 +82,7 @@ class StatsScreen extends React.Component {
         );
     }
 }
+//ekran cennika
 class PricesScreen extends React.Component {
     render() {
         return(
@@ -98,6 +102,7 @@ class PricesScreen extends React.Component {
         );
     }
 }
+//ekran ustawiem
 class SettingsScreen extends React.Component {
     render() {
         return(
@@ -111,13 +116,14 @@ class SettingsScreen extends React.Component {
                         height: 0.06 * height
                 }}
                 />
+                 <Settings navigation={this.props.navigation} />
                 </ImageBackground>
             </View>
         );
     }
 }
 
-
+// nawigacja po aplikacji głównej
 export const PricesStack = createStackNavigator({Prices: PricesScreen, },
     {defaultNavigationOptions: {
             title: '',

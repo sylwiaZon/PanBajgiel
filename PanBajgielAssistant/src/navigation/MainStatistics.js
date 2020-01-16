@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View,Dimensions, ScrollView } from 'react-native';
 var {width, height} = Dimensions.get('window');
 
-
+//widok statystyk ogólnych
 export class MainStatistics extends React.Component {
 
 constructor() {
@@ -16,10 +16,13 @@ constructor() {
     };
   }
   
+  //pobranie statystyk 'top sklep' oraz 'top bajgiel' 
   componentDidMount = () => {
    url = 'http://'+global.ip+':8081/statistics/shops'
    url2 = 'http://'+global.ip+':8081/statistics/bajgiels'
 
+
+   //top sklep
   fetch(url, {
       method: "GET"
     })
@@ -36,7 +39,7 @@ constructor() {
       })
     .done()
 
-
+    //top bajgiel
      fetch(url2, {
       method: "GET"
     })
@@ -53,6 +56,8 @@ constructor() {
       })
     .done()
 }
+
+  //funckja wypisująca pobrane top sklepy
   getTopShops(){
   	return this.state.shops.map((item,index) => {
       return ( 
@@ -62,6 +67,8 @@ constructor() {
       )
     })
   }
+
+  //funkcja wypisująca pobrane top bajgle
   getTopProducts(){
   	return this.state.products.map((item,index) => {
   	

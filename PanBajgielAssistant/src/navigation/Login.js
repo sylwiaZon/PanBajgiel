@@ -1,27 +1,30 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, AppRegistry, Alert,AsyncStorage} from 'react-native';
+import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, AppRegistry, Alert,AsyncStorage, Dimensions} from 'react-native';
+var {width, height} = Dimensions.get('window');
 
-
+// widok i obsługa logowania
 export default class Login extends React.Component {
+
     constructor() {
         super();
+   
         state = {
             login: '',
             password: '',
+
         }
         
 
         this.setLogin = this.setLogin.bind(this)
         this.setPassword = this.setPassword.bind(this)
 
-        AsyncStorage.getItem('user', (err, result) => {
+        AsyncStorage.getItem('user', (err, result) => { // sprawdzenie  sesji, czy uzytkownik juz sie wczesniej logował
             console.log(JSON.parse(result));
            if(result!=null){
                       if(JSON.parse(result).name!=null){
-                        //console.log('aaaaa')
                         global.login=JSON.parse(result).name;
                          this.props.navigation.navigate('App')
-                         //console.log(global.login);
+  
                       }
                 }
         });
@@ -41,40 +44,43 @@ export default class Login extends React.Component {
     }
 
   
-    authenticateUser = () => {
+    async authenticateUser(){ // sprawdzenie danych logowania
         
         let url = 'http://'+global.ip+':8081/user/login?login='+this.state.login+'&password='+this.state.password
-        global.login=this.state.login
-        fetch(url, {method: "GET"})
+        var name = this.state.login;
+        await fetch(url, {method: "GET"})
         .then(function(response) {
 
         if (response.status==200){
-
-                   let UID123_object = {
-          name: global.login,
-          number: 30,
-        };
-        // You only need to define what will be added or updated
-
+            
+            global.login=name;
+            let UID123_object = {
+                  name: global.login,
+                  number: 30,
+                };
 
         AsyncStorage.setItem('user', JSON.stringify(UID123_object), () => {
             AsyncStorage.getItem('user', (err, result) => {
               console.log(result);
           });
         });
-
-            this.props.navigation.navigate('App')
+            
         }
         if(response.status==404){
             Alert.alert("Złe hasło!!!")
-            
-        }})
+            global.login=null;
+        }
+
+    })
+
         .catch((error) => {
-            //this.props.navigation.navigate('App')
+           
             console.error(error)
             
             
         });
+        if(global.login!=undefined && global.login!=null){this.props.navigation.navigate('App')}
+         
     }
 
     do = () => {
@@ -83,6 +89,7 @@ export default class Login extends React.Component {
 
 
     render() {
+       
 
         return(
             <View style = {styles.container}>
@@ -90,8 +97,8 @@ export default class Login extends React.Component {
                        source= {require('../../assets/background2.png')} >
                     <View style = {styles.logoContainer}>
                         <Image style = {styles.logo}
-                               source= {require('../../assets/icon.png')} />
-                           <Text style = {styles.title}> Zaloguj się, aby korzystać z aplikacji</Text>
+                               source= {require('../../assets/icon2.png')} />
+                        
                 </View>
                 <View style = {styles.formContainer}>
                     <View style = {styles.container2}>
@@ -124,7 +131,7 @@ export default class Login extends React.Component {
                         />
                     </View>
                 </View>
-                    <TouchableOpacity onPress={this.authenticateUser} style = {styles.buttonContainerLog}>
+                    <TouchableOpacity onPress={()=>{this.authenticateUser()}} style = {styles.buttonContainerLog}>
                         <Text style = {styles.buttonTextLog}>
                             Zaloguj
                         </Text>
@@ -148,18 +155,19 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     logo: {
-        width: 100,
-        height: 100,
+        width: width*0.4,
+        height: width*0.4,
         alignItems: 'center'
     },
     title: {
         color: '#55858A',
         marginTop: 10,
-        width: 200,
+        width: 250,
         textAlign: 'center',
         opacity: 0.9,
         fontWeight: 'bold',
         marginBottom: 20,
+        fontSize: 18,
     },
     backgroundImage:{
         flex: 1,
@@ -193,19 +201,21 @@ const styles = StyleSheet.create({
     buttonTextLog: {
         textAlign: 'center',
         color: '#FFFFFF',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize:20,
     },
     container2: {
         padding: 20
     },
     input: {
-        height: 40,
+        height: 50,
         marginBottom: 20,
         backgroundColor: 'rgba(255,255,255,0.5)',
         color: '#55858A',
         paddingHorizontal: 10,
         fontWeight: 'bold',
         borderRadius: 15,
-        width: 300
+        width: width*0.5,
+        fontSize: 20,
     },
 })

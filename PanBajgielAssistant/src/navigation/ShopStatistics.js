@@ -4,30 +4,9 @@ import { StyleSheet, Text, View, Picker,ScrollView, Dimensions } from 'react-nat
 import { VictoryPie,VictoryLegend, VictoryLabel,VictoryBar ,VictoryChart, VictoryTheme, VictoryAxis} from 'victory-native';
 
 var {width, height} = Dimensions.get('window');
+//widok statystyk dla konkretnego sklepu
+
 const graphicColor = ['#ffbb68', '#952270', '#ff44b9','#00abd8','#66e200','#81a100'];
-function formatDate(date){
-
-    var dd = date.getDate();
-    var mm = date.getMonth()+1;
-    var yyyy = date.getFullYear();
-    if(dd<10) {dd='0'+dd}
-    if(mm<10) {mm='0'+mm}
-    date = yyyy+'-'+mm+'-'+dd;
-    return date
- }
- function Last7Days () { //z dzisiaj
-    var result = ['','','','','','',''];
-    for (var i=0; i<7; i++) {
-        var d = new Date();
-        d.setDate(d.getDate() - i);
-        result[6-i]= formatDate(d)
-    }
-
-    return(result);
-}
-lastDays=Last7Days()
-
-shop=[{x:lastDays[0], y:0},{x:lastDays[1],y:0},{x:lastDays[2],y:0},{x:lastDays[3],y:0},{x:lastDays[4],y:0},{x:lastDays[5],y:0},{x:lastDays[6],y:0}];
 
 
 export class ShopStatistics extends React.Component {  
@@ -39,12 +18,12 @@ export class ShopStatistics extends React.Component {
     
     shops: [], // sklepy pobrac z baz	
     current:'none',		// statystyki wyswietlane dla tego sklepu
-    days:shop,	// ile w kolejnych dniach  , pobrac z bazy
+    days:[],	// ile w kolejnych dniach  , pobrac z bazy
     graphicData: [], //
     shopResponse: {"shopName":"przed C3","bajgielStatistics":[],"productsNumber":0,"dailyStatistics":[]},
     };
   }
-
+  // pobranie listy sklepów z bazy danych
  componentDidMount = () => {
    url = 'http://'+global.ip+':8081/shop'
   
@@ -69,7 +48,7 @@ export class ShopStatistics extends React.Component {
 
 }
 
-
+//funckja do formatowania daty
  formatDate(date){
 
     var dd = date.getDate();
@@ -80,6 +59,7 @@ export class ShopStatistics extends React.Component {
     date = yyyy+'-'+mm+'-'+dd;
     return date
  }
+ //funckja do wyznaczeni siedmiu ostatnich dat
  Last7Days () { //z dzisiaj
     var result = ['','','','','','',''];
     for (var i=0; i<7; i++) {
@@ -90,12 +70,13 @@ export class ShopStatistics extends React.Component {
 
     return(result);
 }
+//utworzenie wykresów
 getStatistics(){
 	this.createGraphicData();
 	this.createChart();
 }
+//przetworzenie danych otrzymanych od serwera na dane potrzebne do wykresu kołowego (wykresu sprzedaży poszczególnych typów bajgli)
 createGraphicData(){
-	//console.log('AAAAAAAAAA!!!!');
 	var wantedData=[];
 	bajgle = this.state.shopResponse.bajgielStatistics;
 	for( i =0; i<bajgle.length;i++){
@@ -105,7 +86,7 @@ createGraphicData(){
 	}
 	this.state.graphicData = wantedData;
 }
-
+//utworzenie 'selecta' z wyborem sklepów
   getShops(){
   	this.getStatistics()
 
@@ -120,10 +101,11 @@ createGraphicData(){
       )
     })
   }
-
+// przetworzenie pobranych danych o sprzedaży w ciągu ostatnich siedmiu dni na dane potrzebne do utworzenia wykresu słupkowego
+  
   createChart(){
 
-lastDays=Last7Days();
+lastDays=this.Last7Days();
 
 shop=[{x:lastDays[0], y:0},{x:lastDays[1],y:0},{x:lastDays[2],y:0},{x:lastDays[3],y:0},{x:lastDays[4],y:0},{x:lastDays[5],y:0},{x:lastDays[6],y:0}];
 	daily=this.state.shopResponse.dailyStatistics;
@@ -137,14 +119,14 @@ shop=[{x:lastDays[0], y:0},{x:lastDays[1],y:0},{x:lastDays[2],y:0},{x:lastDays[3
 	this.state.days = shop;
 
   }
-
+//funkcja aktualizująca dane na wykresach w przypadku zmiany wybranego sklepu
   updateDatas(itemValue,index){
   	this.setState({current: itemValue})
   	
  if(itemValue!='none'){
 
   		url2 = 'http://'+global.ip+':8081/statistics/shop?id='+itemValue;
-
+      // pobranie statytyskych wybranego sklepu
   	fetch(url2, {
 		      method: "GET"
 		    })
@@ -234,15 +216,15 @@ domainPadding={width*0.025}
 	</View>
 	<View style={styles.pieChart}>
       <VictoryPie
+
         animate={{ duration: 1000, easing: "bounce" }}
         data={this.state.graphicData}
-        radius={width*0.2}
+        radius={width*0.15}
         colorScale={graphicColor}
-        innerRadius={width*0.1}
+        innerRadius={width*0.075}
         width={width*0.8}
         height={width*0.5}
-        
-        
+        labelRadius={width*0.2}
         style={{labels:{ fill: "black", fontSize: width*0.03, }, }}
       />
 

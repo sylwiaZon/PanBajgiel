@@ -7,7 +7,7 @@ import {MainStatistics} from './MainStatistics.js';
 import {ShopStatistics} from './ShopStatistics.js';
 import {Header} from  'react-native-elements'
 var {width, height} = Dimensions.get('window');
-
+//widok TabView statystyk, generowanie zakładek dla statystyk głównych oraz statystyk konkretnego sklepu
 export class Statistics extends React.Component {
 
 
@@ -26,18 +26,19 @@ constructor() {
 
 
   render() {
+    //pierwsza zakladka
          FirstRoute = () => (
-    <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'ProfileScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
+    <View  accessible={true} testID="MainStatistics" accessibilityLabel={'MainStatistics'} style={{ alignItems: 'center',justifyContent: 'center'}}>
                
                
                  <MainStatistics/>
                
             </View>
 )
-
+//druga zakładka
 SecondRoute = () => (
 
-  <View  accessible={true} testID="ProfileScreenStamps" accessibilityLabel={'ProfileScreenStamps'} style={{ alignItems: 'center',justifyContent: 'center'}}>
+  <View  accessible={true} testID="ShopStatistics" accessibilityLabel={'ShopStatistics'} style={{ alignItems: 'center',justifyContent: 'center'}}>
               
                 
                    <ShopStatistics/>

@@ -4,7 +4,7 @@ import {Dimensions } from "react-native";
 var {width, height} = Dimensions.get('window');
 
 
-
+//widok cennika
 export class Prices extends React.Component {
 	render() {
 
@@ -15,7 +15,7 @@ export class Prices extends React.Component {
   	<View style={styles.rowContainer}>
   	<View style = {{justifyContent: 'center',
     alignItems: 'center', flex:'column'}} accessible={true} testID="mak" accessibilityLabel={'mak'}>
-          <Image  source={require('../../assets/Mak.png')} style={styles.img}/>
+          <Image accessible={true} testID="Mak" accessibilityLabel={'Mak'} source={require('../../assets/Mak.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z makiem{"\n"}1,80 zł
           </Text>
@@ -23,7 +23,7 @@ export class Prices extends React.Component {
 
     <View style = {{justifyContent: 'center',
     alignItems: 'center', flex:'column'}} accessible={true} testID="sezam" accessibilityLabel={'sezam'}>
-          <Image  source={require('../../assets/Sezam.png')} style={styles.img}/>
+          <Image accessible={true} testID="Sezam" accessibilityLabel={'Sezam'} source={require('../../assets/Sezam.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z sezamem{"\n"}1,80 zł
           </Text>
@@ -32,7 +32,7 @@ export class Prices extends React.Component {
   	<View style={styles.rowContainer}>
     <View style = {{justifyContent: 'center',
     alignItems: 'center', flex:'column'}} accessible={true} testID="ser" accessibilityLabel={'ser'}>
-          <Image  source={require('../../assets/Ser.png')} style={styles.img}/>
+          <Image  accessible={true} testID="Ser" accessibilityLabel={'Ser'} source={require('../../assets/Ser.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z serem{"\n"}1,80 zł
           </Text>

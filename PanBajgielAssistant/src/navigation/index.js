@@ -8,11 +8,12 @@ import React from "react";
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import Login from "./Login.js";
 
-// AsyncStorage.clear();
+
+// nawigacja pomiędzy ekranem logowania, a główną aplikacją
 const SwitchNavigator = createSwitchNavigator(
     {
-        Auth: Login,
-        App: AppStacker
+        Auth: {screen: Login},
+        App: {screen: AppStacker}
     },
     {
         initialRouteName: 'Auth'
