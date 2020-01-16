@@ -83,7 +83,7 @@ export class Transaction extends React.Component {
       .then(response => response.json())
       .then(responseJson => {
         console.log(responseJson);
-        global.shopId = responseJson.type;
+        global.shopId = responseJson.client;
       })
       .catch(error => {
         console.error(error);
