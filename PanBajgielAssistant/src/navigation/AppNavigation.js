@@ -7,6 +7,8 @@ import {createStackNavigator} from "react-navigation-stack";
 import {Transaction} from "./Transaction.js";
 
 
+
+
 var {width, height} = Dimensions.get('window');
 var formattedDate = new Date();
 var newDate = formattedDate.getDay().toString() + "/" + formattedDate.getMonth().toString() + "/" + formattedDate.getFullYear().toString();
@@ -78,6 +80,7 @@ class StatsScreen extends React.Component {
                         height: 0.06 * height
                     }}
                 />
+              
                 </ImageBackground>
             </View>
         );
@@ -252,5 +255,7 @@ const sidebarNavigator = createSidebarNavigator(
         initialRouteName: 'Profile',
     },
 );
+
+
 
 export default createAppContainer(sidebarNavigator);

@@ -11,8 +11,7 @@ export class TransactionModel {
     serAmount;
     price;
     shopId;
-    
-   
+    scanning;   
     constructor() {
     }
 }
