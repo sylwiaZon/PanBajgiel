@@ -11,24 +11,7 @@ import {
 } from 'react-native';
 
 export default class Register extends React.Component {
-    /*constructor(props){
-        super(props);
-        this.state={
-
-        }
-    };
-
-    register() {
-        fetch('http://'+global.ip+':8081/user/register/', {
-            method: 'POST',
-            body: JSON.stringify({
-                GlobalUserModel
-            }),
-        });
-    }*/
-
-
-    render() {
+ render() {
         return(
             <View style = {styles.container}>
                 <ImageBackground style = {styles.backgroundImage}
