@@ -15,10 +15,12 @@ export default class Register extends React.Component {
         super();
         this.state = {
             password: '',
-            login: ''
-        }
+            login: '',
+            name: '',
+        };
         this.setPassword = this.setPassword.bind(this);
         this.setLogin = this.setLogin.bind(this);
+        this.setName = this.setName.bind(this);
     }
 
     setPassword = (event) => {
@@ -29,9 +31,14 @@ export default class Register extends React.Component {
         this.setState({ login: event.nativeEvent.text })
     };
 
+    setName= (event) => {
+        this.setState({ name: event.nativeEvent.text })
+    };
+
     handleRegister = () => {
-        global.userLogin = this.state.login;
-        global.userPassword = this.state.password;
+        global.login = this.state.login;
+        console.log(global.login);
+        console.log(this.state);
         fetch('http://' + global.ip + ':8081/user/register', {
             method: 'POST',
             headers: {
@@ -39,12 +46,12 @@ export default class Register extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                login: 'test',
-                password: 'test',
-                name: 'test',
+                login: global.login,
+                password: this.state.password,
+                name: this.state.name,
                 points: 0,
                 stamps: 0,
-                client: 100,
+                client: 0,
             }),
         }).then((response) => {console.log('response:',response.status);
         });
@@ -73,6 +80,7 @@ export default class Register extends React.Component {
                                     autoCapitalize = "none"
                                     autoCorrect = {false}
                                     onSubmitEditing = {() => this.nameInput.focus()}
+                                    onChange={this.setLogin}
                                 />
                                 <TextInput
                                     ref = {(input) => this.nameInput = input}
@@ -84,6 +92,7 @@ export default class Register extends React.Component {
                                     autoCapitalize = "none"
                                     autoCorrect = {false}
                                     onSubmitEditing = {() => this.passwordInput.focus()}
+                                    onChange={this.setName}
                                 />
                                 <TextInput
                                     ref = {(input) => this.passwordInput = input}
@@ -95,6 +104,7 @@ export default class Register extends React.Component {
                                     returnKeyType = "go"
                                     autoCapitalize = "none"
                                     autoCorrect = {false}
+                                    onChange={this.setPassword}
                                 />
                             </View>
                         </KeyboardAvoidingView>
