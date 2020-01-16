@@ -9,8 +9,10 @@ import {
     TouchableOpacity,
     TextInput,
     Dimensions,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    BackHandler
 } from 'react-native';
+
 
 var {width, height} = Dimensions.get('window');
 
@@ -41,7 +43,7 @@ export default class Settings extends React.Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                login: global.userLogin,
+                login: global.login,
                 password: this.state.newPassword,
             }),
         }).then((response) => {console.log('response:',response.status);
@@ -51,12 +53,16 @@ export default class Settings extends React.Component {
 
     showPasswordChange = () => {
         this.setState({ passwordPopUp: true });
-        console.log("jestem tuuu")
+        //console.log("jestem tuuu")
     };
         
 
     submit = () => {
         this.setState({passwordPopUp: false})
+    };
+
+    handleLogOut = () => {
+        BackHandler.exitApp();
     };
 
 
@@ -70,7 +76,7 @@ export default class Settings extends React.Component {
                         <View style = {styles.container2}>
                             <View style = {styles.main}>
                                 <TouchableOpacity style = {styles.buttonContainer}>
-                                    <Text style = {styles.buttonText}>
+                                    <Text style = {styles.buttonText} onPress = {this.handleLogOut}>
                                         Wyloguj się
                                     </Text>
                                 </TouchableOpacity>
