@@ -299,7 +299,6 @@ export class Transaction extends React.Component {
     this.fetchProductsData();
     this.fetchShopInfo();
     this.transactionDate();
-    alert(global.shopId);
 
   }
 
