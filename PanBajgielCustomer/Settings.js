@@ -14,6 +14,7 @@ export default class Settings extends React.Component {
             dialogVisible: false,
             passwordPopUp: false,
             dialogPasswordVisible: false,
+            text: ''
         };
 
         this.setPassword = this.setPassword.bind(this);
@@ -53,6 +54,7 @@ export default class Settings extends React.Component {
         this.props.navigation.navigate('Auth');
     }
 
+
     handleDelete = () => {
         let url = 'http://'+global.ip+':8081/user?login='+global.login;
 
@@ -66,7 +68,7 @@ export default class Settings extends React.Component {
                 },
             }).then(() => {
                 AsyncStorage.clear();
-                BackHandler.exitApp();
+                this.props.navigation.navigate('Auth');
                 //console.log(global.login)
                 //console.log('removed');
             }).catch(err => {
@@ -137,7 +139,7 @@ export default class Settings extends React.Component {
                                 Jesteś pewny, że chcesz usunąć swoje konto?
                             </Dialog.Description>
                             <Dialog.Button label="Wróć" onPress={this.handleCancel} />
-                            <Dialog.Button label="Usuń" onPress={this.handleDelete} />
+                            <Dialog.Button label="Usuń" onPress={this.goToLogin} />
                         </Dialog.Container>
 
                         <TouchableOpacity style = {styles.buttonContainer}
