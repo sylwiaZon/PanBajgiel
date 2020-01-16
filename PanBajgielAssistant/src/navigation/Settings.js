@@ -51,7 +51,9 @@ export default class Settings extends React.Component {
     };
 
     hidePasswordDialog = () => {
-        this.setState({dialogPasswordVisible: false})
+        this.setState({dialogPasswordVisible: false});
+        this.refs.SecondInput.setNativeProps({text: ''});
+        this.refs.FirstInput.setNativeProps({text: ''});
     };
 
     handleCancel = () => {
@@ -61,7 +63,7 @@ export default class Settings extends React.Component {
     goToLogin = () => {
         this.props.navigation.navigate('Auth');
     }
-    
+
     handleLogOut = () => {
         BackHandler.exitApp();
     };
@@ -139,6 +141,7 @@ export default class Settings extends React.Component {
                                             autoCapitalize = "none"
                                             autoCorrect = {false}
                                             onChange={this.setPassword}
+                                            ref = "FirstInput"
                                         />
                                         <TextInput
                                             textAlign = 'center'
@@ -150,6 +153,7 @@ export default class Settings extends React.Component {
                                             autoCapitalize = "none"
                                             autoCorrect = {false}
                                             onChange={this.setBackupPassword}
+                                            ref = "SecondInput"
                                         />
                                         <TouchableOpacity style = {styles.buttonContainer}
                                                           onPress = {this.handlePasswordChange}>
