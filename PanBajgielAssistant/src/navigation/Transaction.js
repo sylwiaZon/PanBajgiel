@@ -28,14 +28,11 @@ export class Transaction extends React.Component {
       stamps: 0,
       points: 0,
       scanningPromotion: false,
-      scanningUser: false
+      scanningUser: false,
     };
   }
 
-  setScanningFalse() {
-    this.setState({ scanning: false });
-  }
-
+//dodanie transakcji
   fetchTransactionData() {
     this.transactionDate();
     fetch("http://" + global.ip + ":8081/product/transaction", {
@@ -51,7 +48,7 @@ export class Transaction extends React.Component {
       })
     });
   }
-
+//dodanie szczegółów transakcji
   fetchDetailsData() {
     this.detailsData();
     fetch("http://" + global.ip + ":8081/product/transaction_details", {
@@ -63,7 +60,7 @@ export class Transaction extends React.Component {
       body: JSON.stringify(this.state.details)
     });
   }
-
+//pobranie aktualnej ceny produktów
   fetchProductsData() {
     fetch("http://" + global.ip + ":8081/product")
       .then(response => response.json())
@@ -77,19 +74,18 @@ export class Transaction extends React.Component {
         console.log(error);
       });
   }
-
+//pobranie id sklepu
   fetchShopInfo() {
     fetch("http://" + global.ip + ":8081/user?login=" + global.login)
       .then(response => response.json())
       .then(responseJson => {
-        console.log(responseJson);
         global.shopId = responseJson.client;
       })
       .catch(error => {
         console.error(error);
       });
   }
-
+//pobranie informacji o pkt użytkownika
   fetchUserPointsandStampsInfo() {
     fetch("http://" + global.ip + ":8081/user?login=" + global.userLogin)
       .then(response => response.json())
@@ -104,11 +100,9 @@ export class Transaction extends React.Component {
         console.error(error);
       });
   }
-
+//wysłanie żadąnia, aktualizacja pieczątek klienta
   fetchStamps(newStampsNumber) {
-    let url =
-      "http://" +
-      global.ip +
+    let url ="http://" +global.ip +
       ":8081/user/update/stamps?login=" +
       global.userLogin +
       "&stamps=" +
@@ -118,7 +112,7 @@ export class Transaction extends React.Component {
       console.error(error);
     });
   }
-
+//wysłanie żadąnia, aktualizacja punktów klienta
   fetchPoints(newPointsNumber) {
     let url =
       "http://" +
@@ -132,7 +126,7 @@ export class Transaction extends React.Component {
       console.error(error);
     });
   }
-
+//zwiększenie ilości pieczątek za zakup
   updateStamps() {
     var newStampsNumber = this.state.stamps;
     if (newStampsNumber < 10) {
@@ -143,15 +137,14 @@ export class Transaction extends React.Component {
     }
     this.fetchStamps(newStampsNumber);
   }
-
+//zwiększenie ilości punktów za zakup
   updatePoints() {
-    var newPointsNumber = this.state.points;
-    var pointsFromPrice = global.price.toFixed();
-    newPointsNumber = newPointsNumber + Number(pointsFromPrice);
-    if (global.promotion != null && global.promotion != "free") {
-      newPointsNumber = newPointsNumber - Number(global.promotion);
+    var pointsNumber = this.state.points;
+    var points = parseInt(pointsNumber) + parseInt(global.price);
+    if(global.promotion != null && global.promotion != 'free'){
+        points = points - Number(global.promotion);
     }
-    this.fetchPoints(newPointsNumber);
+    this.fetchPoints(points);
   }
 
   changeToNumber(string) {
@@ -161,7 +154,7 @@ export class Transaction extends React.Component {
       return Number(string);
     }
   }
-
+//obliczenie ceny za zakup
   transactionPrice() {
     var promotion = 1;
     if (global.promotion != null && global.promotion != "free") {
@@ -175,7 +168,7 @@ export class Transaction extends React.Component {
     var ser = this.changeToNumber(global.serAmount);
     var wieloziarnisty = this.changeToNumber(global.wieloziarnistyAmount);
 
-    global.price =
+    var price =
       (mak * Number(this.state.products[0].price) +
         sol * Number(this.state.products[4].price) +
         posypka * Number(this.state.products[3].price) +
@@ -183,8 +176,9 @@ export class Transaction extends React.Component {
         ser * Number(this.state.products[2].price) +
         wieloziarnisty * Number(this.state.products[5].price)) *
       promotion;
+    global.price = Number(price.toFixed(2));
   }
-
+//pobranie daty
   transactionDate() {
     var day = new Date().getDate();
     var month = new Date().getMonth() + 1;
@@ -197,7 +191,7 @@ export class Transaction extends React.Component {
     }
     global.date = year + "-" + month + "-" + day;
   }
-
+//przygotowanie informacji o transakcji do wysłania
   detailsData() {
     if (global.sezamAmount != null) {
       this.state.details.push({
@@ -237,6 +231,7 @@ export class Transaction extends React.Component {
     }
   }
 
+//walidacja wpisanej ilości produktów
   onChanged(text, kind) {
     let newText = "";
     let numbers = "0123456789";
@@ -304,8 +299,8 @@ export class Transaction extends React.Component {
     this.fetchProductsData();
     this.fetchShopInfo();
     this.transactionDate();
-    this.fetchProductsData();
-    this.clear();
+    alert(global.shopId);
+
   }
 
   setUserLogin() {
@@ -318,6 +313,7 @@ export class Transaction extends React.Component {
     global.scanning = "promotion";
   }
 
+//czyszczenie danych
   clear() {
     global.promotion = null;
     global.userLogin = null;
@@ -354,6 +350,16 @@ export class Transaction extends React.Component {
     }
   }
 
+  closeQrPromotion() {
+    this.setState({ scanningPromotion: false });
+    global.scanning = null;
+  }
+  closeQrUser() {
+    this.setState({ scanningUser: false });
+    global.scanning = null;
+    this.fetchUserPointsandStampsInfo();
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -375,7 +381,6 @@ export class Transaction extends React.Component {
                   ref={input => {
                     this.textMak = input;
                   }}
-                  keyboardType={"numeric"}
                   placeholder="MAK"
                   textAlign="center"
                   placeholderTextColor="rgba(33,52,54,0.8)"
@@ -400,7 +405,6 @@ export class Transaction extends React.Component {
                   ref={input => {
                     this.textSol = input;
                   }}
-                  keyboardType={"numeric"}
                   placeholder="SÓL MORSKA"
                   textAlign="center"
                   placeholderTextColor="rgba(33,52,54,0.8)"
@@ -426,7 +430,6 @@ export class Transaction extends React.Component {
                   ref={input => {
                     this.textSezam = input;
                   }}
-                  keyboardType={"numeric"}
                   textAlign="center"
                   placeholder="SEZAM"
                   placeholderTextColor="rgba(33,52,54,0.8)"
@@ -452,7 +455,6 @@ export class Transaction extends React.Component {
                   ref={input => {
                     this.textSer = input;
                   }}
-                  keyboardType={"numeric"}
                   textAlign="center"
                   placeholder="SER"
                   placeholderTextColor="rgba(33,52,54,0.8)"
@@ -481,7 +483,6 @@ export class Transaction extends React.Component {
                   ref={input => {
                     this.textWieloziarnisty = input;
                   }}
-                  keyboardType={"numeric"}
                   textAlign="center"
                   placeholder="WIELOZIARNISTY"
                   placeholderTextColor="rgba(33,52,54,0.8)"
@@ -510,7 +511,6 @@ export class Transaction extends React.Component {
                   ref={input => {
                     this.textPosypka = input;
                   }}
-                  keyboardType={"numeric"}
                   textAlign="center"
                   placeholder="OSTRA POSYPKA"
                   placeholderTextColor="rgba(33,52,54,0.8)"
@@ -534,6 +534,27 @@ export class Transaction extends React.Component {
               <Text style={styles.buttonText}>Skanuj kod qr kilenta</Text>
             </TouchableOpacity>
 
+            <Dialog visible={this.state.scanningUser}>
+              <DialogContent>
+                <View style={styles.scannerText}>
+                  <Text style={{ fontSize: width * 0.06, color: "#55858A" }}>
+                    Zeskanuj kod QR użytkownika
+                  </Text>
+                </View>
+                <Scanner />
+                <View style={styles.dialogButtonContainer}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.closeQrUser();
+                    }}
+                    style={styles.buttonContainer2}
+                  >
+                    <Text style={styles.buttonText2}>Powrót</Text>
+                  </TouchableOpacity>
+                </View>
+              </DialogContent>
+            </Dialog>
+
             <TouchableOpacity
               onPress={() => {
                 this.setPromotion();
@@ -542,6 +563,26 @@ export class Transaction extends React.Component {
             >
               <Text style={styles.buttonText}>Skanuj kod qr nagrody</Text>
             </TouchableOpacity>
+            <Dialog visible={this.state.scanningPromotion}>
+              <DialogContent>
+                <View style={styles.scannerText}>
+                  <Text style={{ fontSize: width * 0.06, color: "#55858A" }}>
+                    Zeskanuj kod QR nagrody
+                  </Text>
+                </View>
+                <Scanner />
+                <View style={styles.dialogButtonContainer}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.closeQrPromotion();
+                    }}
+                    style={styles.buttonContainer2}
+                  >
+                    <Text style={styles.buttonText2}>Powrót</Text>
+                  </TouchableOpacity>
+                </View>
+              </DialogContent>
+            </Dialog>
           </View>
 
           <TouchableOpacity
@@ -560,7 +601,7 @@ export class Transaction extends React.Component {
                   <Text style={styles.dialogText}>Podsumowanie</Text>
                   <Text style={styles.dialogText}>Cena: {global.price} </Text>
                   {global.promotion == "free" || global.promotion == null ? (
-                    <Text style={styles.dialogText}>Promocja: Brak</Text>
+                    <Text style={styles.dialogText}>Promocja: BRAK</Text>
                   ) : (
                     <Text style={styles.dialogText}>
                       Promocja: -{global.promotion} %
@@ -594,45 +635,6 @@ export class Transaction extends React.Component {
             </DialogContent>
           </Dialog>
         </View>
-        <Dialog visible={this.state.scanningPromotion}>
-          <DialogContent>
-           <View style={styles.scannerText}>
-            <Text style={{ fontSize: width * 0.06 }}>Zeskanuj kod QR</Text>
-            </View>
-            <Scanner/>
-            <View style={styles.dialogButtonContainer}>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ scanningPromotion: false });
-                }}
-                style={styles.buttonContainer2}
-              >
-                <Text style={styles.buttonText2}>Powrót</Text>
-              </TouchableOpacity>
-            </View>
-          </DialogContent>
-        </Dialog>
-
-        <Dialog visible={this.state.scanningUser}>
-          <DialogContent>
-            <View style={styles.scannerText}>
-                <Text style={{ fontSize: width * 0.06 }}>
-                    Zeskanuj kod QR
-                </Text>
-            </View>
-            <Scanner/>
-            <View style={styles.dialogButtonContainer}>
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({ scanningUser: false });
-                }}
-                style={styles.buttonContainer2}
-              >
-                <Text style={styles.buttonText2}>Powrót</Text>
-              </TouchableOpacity>
-            </View>
-          </DialogContent>
-        </Dialog>
       </View>
     );
   }
@@ -641,7 +643,8 @@ export class Transaction extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    paddingRight: width * 0.15
   },
   allButtonsContainer: {
     flexDirection: "row",

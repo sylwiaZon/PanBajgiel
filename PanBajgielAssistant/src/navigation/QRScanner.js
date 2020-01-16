@@ -26,6 +26,7 @@ export class Scanner extends React.Component {
   async componentWillMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ permissionsGranted: status === "granted" });
+
   }
 
 
@@ -33,13 +34,20 @@ export class Scanner extends React.Component {
 
   onBarCodeScanned = code => {
     if(this.state.barcodeScanned){
-      if ((global.scanning = "user")) {
+      if ((global.scanning == "user")) {
         global.userLogin = code.data;
+        Alert.alert('Zeskanowano użytkownika');
       } 
       else if (global.scanning == "promotion") {
-        global.promotion = code.data;
+        if (!isNaN(Number(code.data))|| code.data == "free"){
+          global.promotion = code.data;
+          Alert.alert('Zeskanowano nagrodę');
+        }
+        else{
+            Alert.alert("Zeskanowano zły QR !!!!");
+            global.promotion = null;
+        }
       }
-      Alert.alert("Zeskanowano");
     }
     this.setState({barcodeScanned:false});
   };
