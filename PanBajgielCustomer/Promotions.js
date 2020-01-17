@@ -67,7 +67,7 @@ getPromotions(){ // pobranie promocji
             <QRCode
              value={this.state.qrValue+''}
              size={0.4*width}
-             color = "#94cfd5"
+             
              />
             
               <TouchableOpacity onPress={() => {this.setState({ visible: false});}}>
