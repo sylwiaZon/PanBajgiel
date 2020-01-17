@@ -57,7 +57,7 @@ getPromotions(){ // pobranie promocji
     <View style={styles.insideContainer2}>
      <TouchableOpacity onPress={() => {this.setState({ visible: true, qrValue: item});}}>
               <View style={{width:width*0.5, textAlign:'center', alignItems:'center', justifyContent:'center'}}>
-             <Text style={styles.textButton}>OK</Text>
+             <Text style={styles.textButton}>Pobierz QR</Text>
            </View>
            </TouchableOpacity>
         <Dialog visible={this.state.visible} onTouchOutside={() => {this.setState({ visible: false });}}>
