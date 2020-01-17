@@ -52,11 +52,11 @@ export default class Register extends React.Component{
         }
     } 
 
-    fetchRegister(){ //rejestracja
+   async fetchRegister(){ //rejestracja
         var name = this.state.login;
        
         console.log(this.state);
-        fetch('http://' + global.ip + ':8081/user/register', {
+        await fetch('http://' + global.ip + ':8081/user/register', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -72,7 +72,7 @@ export default class Register extends React.Component{
         if(response.status == 200){
             global.login==name;
             let UID123_object = {
-                  name: global.login,
+                  name: name,
                   number: 30,
         };
        
@@ -81,6 +81,7 @@ export default class Register extends React.Component{
                   console.log(result);
               });
             });
+             this.props.navigation.navigate('App');
         }
         else{
             Alert.alert("Login zajęty!")
@@ -148,7 +149,7 @@ export default class Register extends React.Component{
                             </View>
                         </KeyboardAvoidingView>
                     </View>
-                    <TouchableOpacity onPress={this.handleRegister} style = {styles.buttonContainer}>
+                    <TouchableOpacity onPress={()=>{this.handleRegister()}} style = {styles.buttonContainer}>
                         <Text style = {styles.buttonText}>
                             Zarejestruj
                         </Text>
