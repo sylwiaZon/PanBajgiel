@@ -5,7 +5,7 @@ import Register from "./Register.js";
 import {createStackNavigator} from "react-navigation-stack";
 
 
-
+//nawigacja pomiedzy logowaniem/rejestracją, a główną aplikacją
 const AuthNavigation = createStackNavigator(
     {
         Login: { screen: Login },

@@ -6,7 +6,7 @@ import {Dimensions } from "react-native";
 var {width, height} = Dimensions.get('window');
 
 
-
+//widok produktów
 export class Products extends React.Component {
   render() {
 

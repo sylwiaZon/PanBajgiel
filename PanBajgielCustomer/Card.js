@@ -8,7 +8,7 @@ import {UserModel} from "./userModel.js";
 var {width, height} = Dimensions.get('window');
 
 
-
+//widok Twojej karty
 export class Card extends React.Component {
 
 
@@ -24,6 +24,7 @@ constructor() {
   }
 
 componentDidMount = () => {
+  //pobranie informacji o zalogowanym uzytkowniku
   url = 'http://'+global.ip+':8081/user?login='+this.state.login
 
   fetch(url, {

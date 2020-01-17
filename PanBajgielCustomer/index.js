@@ -6,16 +6,16 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import {Image,AsyncStorage} from "react-native";
 import React from "react";
 import {createBottomTabNavigator} from "react-navigation-tabs";
+// nawigacja pomiedzy ekranami logowanie/rejestracja, a główną aplikacją
 
-
-// AsyncStorage.clear();
 const SwitchNavigator = createSwitchNavigator(
     {
         Auth: AuthNavigation,
-        App: AppStacker
+        App: AppStacker,
     },
     {
-        initialRouteName: 'Auth'
+        initialRouteName: 'Auth',
+        backBehavior:'Auth'
     }
 )
 

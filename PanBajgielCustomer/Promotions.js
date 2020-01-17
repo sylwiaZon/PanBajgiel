@@ -8,7 +8,7 @@ import {UserModel} from "./userModel.js";
 
 var {width, height} = Dimensions.get('window');
 
-
+//widok i obsługa pobrania promocji
 export class Promotions extends Component {
 
 
@@ -18,11 +18,12 @@ constructor() {
    this.state = {
     login: global.login,
     promotions: [],
-    point:''
+    point:'',
+    qrValue:''
     };
 
   }
-componentDidMount = () => {
+componentDidMount = () => { // pobranie danych o użytkowniku
    url = 'http://'+global.ip+':8081/user?login='+this.state.login
 
   fetch(url, {
@@ -42,8 +43,10 @@ componentDidMount = () => {
     
 }
 
-getPromotions(){
+getPromotions(){ // pobranie promocji
+      
     return this.state.promotions.map((item,index) => {
+       
       return ( 
         <View style={styles.rowContainer}>
         <View style={styles.insideContainer}>
@@ -52,18 +55,27 @@ getPromotions(){
          <Text style={styles.text}> Promocja {item} %</Text>
         </View>
     <View style={styles.insideContainer2}>
-      <Button title="Pobierz QR" onPress={() => {this.setState({ visible: true });}}/>
+     <TouchableOpacity onPress={() => {this.setState({ visible: true, qrValue: item});}}>
+              <View style={{width:width*0.5, textAlign:'center', alignItems:'center', justifyContent:'center'}}>
+             <Text style={styles.textButton}>OK</Text>
+           </View>
+           </TouchableOpacity>
         <Dialog visible={this.state.visible} onTouchOutside={() => {this.setState({ visible: false });}}>
         <DialogContent>
           <View style={styles.container3}>
             <Text style={styles.textQr} >Gratulacje! Odbierz zniżkę !!</Text>
             <QRCode
-             value='Jeśli nie chcesz mojej zguby mopsa daj mi luby !'
+             value={this.state.qrValue+''}
              size={0.4*width}
-             color = "#94cfd5"/>
+             color = "#94cfd5"
+             />
+            
+              <TouchableOpacity onPress={() => {this.setState({ visible: false});}}>
             <View style={styles.insideContainer3}>
-              <Button title='OK' onPress={() => {this.setState({ visible: false});}}/>
-            </View>
+             <Text style={styles.textButton}>OK</Text>
+             </View>
+           </TouchableOpacity>
+            
           </View>
         </DialogContent>
         </Dialog>
@@ -72,12 +84,11 @@ getPromotions(){
       )
     })
 
-
 }
-  render() {
- 
- 
-for(i=0;i<=this.state.point.points;i+=10){
+setPromotions(){ // przetworzenie danych o ilosci punktów na promocje
+   this.state.promotions = [];
+
+  for(i=0;i<=this.state.point.points;i+=10){
     var x = i;
     if(x%100==0 && x!=0){
       x/=10;
@@ -88,16 +99,20 @@ for(i=0;i<=this.state.point.points;i+=10){
   }
   if(this.state.point.points%100!=0 && this.state.point.points>100){
     this.state.promotions.push(Math.floor(this.state.point.points/10))
+   
   };
+}
+render() {
+      {this.setPromotions()}
 
     return (
         <ScrollView style={styles.scrollview}>
           {this.getPromotions()}
-          
         </ScrollView>
     )
   }
 }
+
 
 
 const styles = StyleSheet.create({
@@ -144,12 +159,14 @@ insideContainer2:{
 
 },
 insideContainer3:{
-  width:'60%',
+  width:0.4*width,
   padding:0.01*width,
   justifyContent: 'center',
   backgroundColor:"#94cfd5",
   margin:0.06*width,
   borderRadius: 15,
+  textAlign: 'center',
+  alignItems: 'center'
 },
 
 container3:{
@@ -159,7 +176,7 @@ container3:{
 },
 
 textButton:{
-  fontSize: 0.05 * width,
+  fontSize: 0.04 * width,
   padding:0.02*width,
   color: "#000000",
 },

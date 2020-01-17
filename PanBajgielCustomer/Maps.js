@@ -43,10 +43,10 @@ export class Maps extends React.Component {
           longitudeDelta: 0.04
         }}
       >
-      //dynamiczne tworzenie znaczników na mapie
+      
         {this.state.isLoading
           ? null
-          : this.state.markers.map((marker, index) => {
+          : this.state.markers.map((marker, index) => { //dynamiczne tworzenie znaczników
               var splitString = marker.localization.split(",");
               var latitude = Number(splitString[0]);
               var longitude = Number(splitString[1]);
@@ -114,4 +114,3 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
-

@@ -7,32 +7,100 @@ import {
     ImageBackground,
     TouchableOpacity,
     TextInput,
-    KeyboardAvoidingView
+    KeyboardAvoidingView, Alert,
+    AsyncStorage
 } from 'react-native';
 
-export default class Register extends React.Component {
-    /*constructor(props){
+// rejestracja uzytkownika
+export default class Register extends React.Component{
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
+            password: '',
+            login: '',
+            name: '',
+        };
+        this.setPassword = this.setPassword.bind(this);
+        this.setLogin = this.setLogin.bind(this);
+        this.setName = this.setName.bind(this);
+    }
 
-        }
+    setPassword = (event) => {
+        this.setState({ password: event.nativeEvent.text });
+
     };
 
-    register() {
-        fetch('http://52.142.162.240:8081/user/register/', {
-            method: 'POST',
-            body: JSON.stringify({
-                GlobalUserModel
-            }),
-        });
-    }*/
+    setLogin= (event) => {
+        this.setState({ login: event.nativeEvent.text });
+    };
 
+    setName= (event) => {
+        this.setState({ name: event.nativeEvent.text });
+    };
+
+    validate = (text) => {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/ ;
+        if(reg.test(text) === false)
+        {
+            Alert.alert("Email nie poprawny");
+           this.setState({ login: null});
+
+        }
+        else {
+            this.setState({ login: text});
+            this.fetchRegister();
+        }
+    } 
+
+    fetchRegister(){ //rejestracja
+        var name = this.state.login;
+       
+        console.log(this.state);
+        fetch('http://' + global.ip + ':8081/user/register', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                login: global.login,
+                password: this.state.password,
+                name: this.state.name
+               
+            }),
+        }).then((response) => {console.log('response:',response.status);
+        if(response.status == 200){
+            global.login==name;
+            let UID123_object = {
+                  name: global.login,
+                  number: 30,
+        };
+       
+            AsyncStorage.setItem('user', JSON.stringify(UID123_object), () => {
+                AsyncStorage.getItem('user', (err, result) => {
+                  console.log(result);
+              });
+            });
+        }
+        else{
+            Alert.alert("Login zajęty!")
+        }
+        });
+        
+         if(global.login!=undefined && global.login!=null){this.props.navigation.navigate('App')}
+    }
+
+
+
+    handleRegister = () => {
+        this.validate(this.state.login);
+    };
 
     render() {
         return(
             <View style = {styles.container}>
                 <ImageBackground style = {styles.backgroundImage}
-                                 source= {require('./assets/background2.png')} >
+                                 source= {require('./assets/background.png')} >
                     <View style = {styles.logoContainer}>
                         <Image style = {styles.logo}
                                source= {require('./assets/icon2.png')} />
@@ -50,6 +118,8 @@ export default class Register extends React.Component {
                                     autoCapitalize = "none"
                                     autoCorrect = {false}
                                     onSubmitEditing = {() => this.nameInput.focus()}
+                                    onChange={this.setLogin}
+                                    ref="login"
                                 />
                                 <TextInput
                                     ref = {(input) => this.nameInput = input}
@@ -61,6 +131,7 @@ export default class Register extends React.Component {
                                     autoCapitalize = "none"
                                     autoCorrect = {false}
                                     onSubmitEditing = {() => this.passwordInput.focus()}
+                                    onChange={this.setName}
                                 />
                                 <TextInput
                                     ref = {(input) => this.passwordInput = input}
@@ -69,14 +140,15 @@ export default class Register extends React.Component {
                                     placeholderTextColor = 'rgba(33,52,54,0.8)'
                                     style = {styles.input}
                                     secureTextEntry
-                                    returnKeyType = "go"
+                                    //returnKeyType = "go"
                                     autoCapitalize = "none"
                                     autoCorrect = {false}
+                                    onChange={this.setPassword}
                                 />
                             </View>
                         </KeyboardAvoidingView>
                     </View>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('App')} style = {styles.buttonContainer}>
+                    <TouchableOpacity onPress={this.handleRegister} style = {styles.buttonContainer}>
                         <Text style = {styles.buttonText}>
                             Zarejestruj
                         </Text>

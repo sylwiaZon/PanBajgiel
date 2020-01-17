@@ -1,12 +1,15 @@
 import { StyleSheet,ImageBackground, Text, View, Image, ScrollView, AppRegistry,TouchableOpacity, Alert,Dimensions  } from 'react-native';
 import React,{Component} from 'react';
 import { TabView,TabBar, SceneMap } from 'react-native-tab-view';
+import Dialog, { DialogContent } from 'react-native-popup-dialog';
+import QRCode from 'react-native-qrcode-svg';
+
 import {UserModel} from "./userModel.js";
 
 
 var {width, height} = Dimensions.get('window');
 
-
+//widok pieczątek
 
 export class Stamps extends React.Component {
 
@@ -22,7 +25,7 @@ constructor() {
 
   }
 
-componentDidMount = () => {
+componentDidMount = () => { // pobranie danych o użytkowniku
   url = 'http://'+global.ip+':8081/user?login='+this.state.login
 
   fetch(url, {
@@ -46,13 +49,32 @@ componentDidMount = () => {
 
 
 
-generateButton(){
+generateButton(){ // przycisk do generowania promocji na darmowego bajgla, jeśli nie mamy dostatecznej ilości pieczątek, przycisk jest zablokowany
   if(this.state.stamps == 10){
     return (
 <View style={styles.insideContainer2}>
-      <TouchableOpacity onPress={() => Alert.alert('tutaj funkcja do qr')}>
+     <TouchableOpacity onPress={() => {this.setState({ visible: true});}}>
         <Text style={styles.textButton2}>Odbierz darmowego bajgla!</Text>
       </TouchableOpacity>
+      <Dialog visible={this.state.visible} onTouchOutside={() => {this.setState({ visible: false });}}>
+        <DialogContent>
+          <View style={styles.container3}>
+            <Text style={styles.textQr} >Gratulacje! Odbierz darmowego bajgla!</Text>
+            <QRCode
+             value='free'
+             size={0.4*width}
+             color = "#94cfd5"
+             />
+            
+              <TouchableOpacity onPress={() => {this.setState({ visible: false});}}>
+            <View style={styles.insideContainer3}>
+             <Text style={styles.textButton3}>OK</Text>
+             </View>
+           </TouchableOpacity>
+            
+          </View>
+        </DialogContent>
+        </Dialog>
 
       </View>
       )
@@ -69,7 +91,7 @@ generateButton(){
   }
 }
     
-generateStamps(){
+generateStamps(){ //generowanie pieczątek
       return this.state.stampsTable.map((item,index) => {
       
         if(item==2){
@@ -233,9 +255,33 @@ empty:{
   borderRadius:100,
   margin:10,
   opacity:0.4
-}
+},
 
+insideContainer3:{
+  width:0.4*width,
+  padding:0.01*width,
+  justifyContent: 'center',
+  backgroundColor:"#94cfd5",
+  margin:0.06*width,
+  borderRadius: 15,
+  textAlign: 'center',
+  alignItems: 'center'
+},
 
+container3:{
+  textAlign: 'center',
+  justifyContent: 'center',
+  alignItems: 'center'
+},
+
+textButton3:{
+  fontSize: 0.04 * width,
+  padding:0.02*width,
+  color: "#000000",
+},
+textQr:{
+    fontSize: 0.05 * width,
+  padding:0.08*width, 
+  textAlign:'center',
+},
   });
-
-

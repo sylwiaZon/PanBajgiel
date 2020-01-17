@@ -25,7 +25,7 @@ constructor() {
     };
   }
 
-
+//widok profilu z dwoma zakładkami (Twoja Karta i Pieczątki)
   render() {
      FirstRoute = () => (
     <View  accessible={true} testID="ProfileScreen" accessibilityLabel={'ProfileScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>

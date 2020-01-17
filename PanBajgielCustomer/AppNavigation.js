@@ -10,17 +10,17 @@ import {createAppContainer} from "react-navigation";
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
-
+//nawigacja po głównej aplikacji
 
 export default class App extends React.Component {
     render() {
         return (
-            <AppContainer />
+            <AppContainer  />
         );
     }
 }
 
-
+//ekran główny
 class HomeScreen extends React.Component {
     render() {
         return(
@@ -34,7 +34,7 @@ class HomeScreen extends React.Component {
     }
 }
 
-
+//profil
 class ProfileScreen extends React.Component {
     render() {
         return(
@@ -44,7 +44,7 @@ class ProfileScreen extends React.Component {
         );
     }
 }
-
+// produkty
 class ProductsScreen extends React.Component {
     render() {
         return(
@@ -56,6 +56,7 @@ class ProductsScreen extends React.Component {
         );
     }
 }
+//promocje
 class PromotionsScreen extends React.Component {
     render() {
         return(
@@ -67,12 +68,13 @@ class PromotionsScreen extends React.Component {
         );
     }
 }
+//ustawienia
 class SettingsScreen extends React.Component {
     render() {
         return(
             <View  accessible={true} testID="SettingsScreen" accessibilityLabel={'SettingsScreen'} style={{ alignItems: 'center',justifyContent: 'center'}}>
                 <ImageBackground source={require('./assets/background.png')} style={styles.background}>
-                      <Settings />
+                      <Settings navigation={this.props.navigation} />
                 </ImageBackground>
             </View>
         );
@@ -146,7 +148,7 @@ const AppContainer = createAppContainer(createBottomTabNavigator(
         Profile: ProfileStack,
         Products: ProductsStack,
         Promotions: PromotionsStack,
-        Settings: SettingsStack
+        Settings: SettingsStack,
     },
   
     {
@@ -202,3 +204,4 @@ const styles = StyleSheet.create({
         opacity:0.8
     }
 });
+

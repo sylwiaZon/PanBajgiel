@@ -11,14 +11,7 @@ export class UserModel {
     constructor() {
     }
 
-    /*constructor(login, password, name, points, stamps, client) {
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.points = points;
-        this.stamps = stamps;
-        this.client = client;
-    }*/
+    
 
     setLogin(login) {
         this.login = login;
