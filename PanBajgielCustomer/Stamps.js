@@ -63,7 +63,7 @@ generateButton(){ // przycisk do generowania promocji na darmowego bajgla, jeśl
             <QRCode
              value='free'
              size={0.4*width}
-             color = "#94cfd5"
+            
              />
             
               <TouchableOpacity onPress={() => {this.setState({ visible: false});}}>
