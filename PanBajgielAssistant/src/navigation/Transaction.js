@@ -142,7 +142,7 @@ export class Transaction extends React.Component {
     var pointsNumber = this.state.points;
     var points = parseInt(pointsNumber) + parseInt(global.price);
     if(global.promotion != null && global.promotion != 'free'){
-        points = points - Number(global.promotion);
+        points = points - parseInt(global.promotion)*10;
     }
     this.fetchPoints(points);
   }
@@ -339,7 +339,11 @@ export class Transaction extends React.Component {
   transcationSubmitAction() {
     if (global.userLogin == null) {
       Alert.alert("Uwaga", "Nie zeskanowano użytkownika!");
-    } else {
+    } 
+    else if (!this.state.details.length){
+      Alert.alert("Uwaga", "Brak zakupionych produktów!");
+    }
+    else{
       this.setState({ visible: false });
       this.fetchTransactionData();
       this.fetchDetailsData();

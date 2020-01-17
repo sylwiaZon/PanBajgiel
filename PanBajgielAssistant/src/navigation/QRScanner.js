@@ -32,12 +32,23 @@ export class Scanner extends React.Component {
 
   handleMountError = ({ message }) => console.error(message);
 
+ 
+
 //zczytanie danych ze zeskanowanego kodu QR
   onBarCodeScanned = code => {
     if(this.state.barcodeScanned){
       if ((global.scanning == "user")) {
+        let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/ ;
+        if(reg.test(code.data) === true)
+        {
         global.userLogin = code.data;
         Alert.alert('Zeskanowano użytkownika');
+        }
+         else{
+            Alert.alert("Zeskanowano zły QR !!!!");
+            global.userLogin = null;
+        }
+       
       } 
       else if (global.scanning == "promotion") {
         if (!isNaN(Number(code.data))|| code.data == "free"){
