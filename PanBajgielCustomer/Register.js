@@ -63,7 +63,7 @@ export default class Register extends React.Component{
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                login: global.login,
+                login: name,
                 password: this.state.password,
                 name: this.state.name
                
