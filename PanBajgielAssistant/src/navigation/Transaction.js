@@ -275,27 +275,50 @@ export class Transaction extends React.Component {
     }
     switch (kind) {
       case "mak":
+      if(text==""|| text =='0'){
+          global.makAmount = null;
+      }else{
         global.makAmount = newText;
+      }
         break;
-
       case "sezam":
+      if(text==""|| text =='0'){
+          global.sezamAmount = null;
+      }else{
         global.sezamAmount = newText;
+      }
         break;
 
       case "sol":
+        if(text==""|| text =='0'){
+          global.solAmount = null;
+      }else{
         global.solAmount = newText;
+      }
         break;
 
       case "posypka":
+       if(text==""|| text =='0'){
+          global.posypkaAmount = null;
+      }else{
         global.posypkaAmount = newText;
+      }
         break;
 
       case "ser":
+       if(text=="" || text =='0'){
+          global.sezamAmount = null;
+      }else{
         global.serAmount = newText;
+      }
         break;
 
       case "wieloziarnisty":
-        global.wieloziarnistyAmount = newText;
+       if(text==""|| text =='0'){
+          global.wieloziarnistyAmount = null;
+      }else{
+        global.wieloziarnistyAmount= newText;
+      }
         break;
     }
   }
@@ -346,16 +369,16 @@ export class Transaction extends React.Component {
     if (global.userLogin == null) {
       Alert.alert("Uwaga", "Nie zeskanowano użytkownika!");
     } 
-    else if (!this.state.details.length){
+    else if (!this.state.details.length && global.promotion != 'free'){
       Alert.alert("Uwaga", "Brak zakupionych produktów!");
     }
     else{
+      this.clear();
       this.setState({ visible: false });
       this.fetchTransactionData();
       this.fetchDetailsData();
       this.updateStamps();
       this.updatePoints();
-      this.clear();
     }
   }
 
