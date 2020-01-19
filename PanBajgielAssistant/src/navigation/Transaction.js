@@ -50,7 +50,6 @@ export class Transaction extends React.Component {
   }
 //dodanie szczegółów transakcji
   fetchDetailsData() {
-    this.detailsData();
     fetch("http://" + global.ip + ":8081/product/transactionDetails", {
       method: "POST",
       headers: {
@@ -337,6 +336,7 @@ export class Transaction extends React.Component {
   }
 
   transcationSubmitAction() {
+    this.detailsData();
     if (global.userLogin == null) {
       Alert.alert("Uwaga", "Nie zeskanowano użytkownika!");
     } 
