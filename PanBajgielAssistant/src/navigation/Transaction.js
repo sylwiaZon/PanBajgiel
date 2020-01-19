@@ -243,26 +243,32 @@ export class Transaction extends React.Component {
         switch (kind) {
           case "mak":
             this.textMak.clear();
+            global.makAmount = null;
             break;
 
           case "sezam":
             this.textSezam.clear();
+            global.sezamAmount = null;
             break;
 
           case "sol":
             this.textSol.clear();
+            global.solAmount= null;
             break;
 
           case "posypka":
             this.textPosypka.clear();
+            global.posypkaAmount= null;
             break;
 
           case "ser":
             this.textSer.clear();
+            global.serAmount = null;
             break;
 
           case "wieloziarnisty":
             this.textWieloziarnisty.clear();
+            global.wieloziarnisty = null;
             break;
         }
       }
