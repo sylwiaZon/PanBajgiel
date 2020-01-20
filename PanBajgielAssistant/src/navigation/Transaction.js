@@ -373,12 +373,13 @@ export class Transaction extends React.Component {
       Alert.alert("Uwaga", "Brak zakupionych produktów!");
     }
     else{
-      this.clear();
       this.setState({ visible: false });
       this.fetchTransactionData();
       this.fetchDetailsData();
       this.updateStamps();
       this.updatePoints();
+      this.clear();
+
     }
   }
 
