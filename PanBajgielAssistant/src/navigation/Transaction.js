@@ -307,7 +307,7 @@ export class Transaction extends React.Component {
 
       case "ser":
        if(text=="" || text =='0'){
-          global.sezamAmount = null;
+          global.serAmount = null;
       }else{
         global.serAmount = newText;
       }
@@ -348,8 +348,8 @@ export class Transaction extends React.Component {
     global.solAmount = null;
     global.posypkaAmount = null;
     global.sezamAmount = null;
-    global.sezamAmount = null;
-    global.sezamAmount = null;
+    global.wieloziarnistyAmount = null;
+    global.serAmount = null;
     global.date = null;
     global.price = 0;
 
