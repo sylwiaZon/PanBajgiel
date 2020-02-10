@@ -3,6 +3,7 @@ import React from "react";
 import MapView from "react-native-maps";
 var { width, height } = Dimensions.get("window");
 import { UserModel } from "./userModel.js";
+const data = require("./server-info.json")
 
 export class Maps extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ export class Maps extends React.Component {
   }
 //pobranie danych o lokalizacji sklepów
   fetchMarkerData() {
-    fetch("http://" + global.ip + ":8081/shop")
+    fetch("http://" + data.IP+":" +data.PORT+ "/shop")
       .then(response => response.json())
       .then(responseJson => {
         this.setState({

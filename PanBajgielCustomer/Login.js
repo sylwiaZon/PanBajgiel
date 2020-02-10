@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, Alert,AsyncStorage} from 'react-native';
 import {UserModel} from "./userModel.js";
+const data = require("./server-info.json")
 
 //widok i obsługa logowania
 export default class Login extends React.Component {
-    constructor(props) {
+     constructor(props) {
         super(props);
         state = {
             login: '',
@@ -17,11 +18,28 @@ export default class Login extends React.Component {
         this.setPassword = this.setPassword.bind(this)
         //pobranie sesji, jesli uzytkownik sie zalogowal wczesniej przejście do głównej aplikacji
         AsyncStorage.getItem('user', (err, result) => {
-            console.log(JSON.parse(result));
            if(result!=null){
                       if(JSON.parse(result).name!=null){
-                        global.login=JSON.parse(result).name;
-                         this.props.navigation.navigate('App')
+                        var log = false;
+                        let url = 'http://'+data.IP+':'+data.PORT+'/user?login='+JSON.parse(result).name;
+                        
+                        fetch(url, {method: "GET"})
+                            .then(function(response) {
+                                if (response.status==200){
+                                     
+                                    global.login=JSON.parse(result).name;
+                                    log= true;
+                                     props.navigation.navigate('App')
+                                 }
+                                 })
+                            .catch((error) => {
+                                
+                                console.error(error)
+                                
+                                
+                            })
+            
+                            
                       }
                 }
         });
@@ -40,11 +58,11 @@ export default class Login extends React.Component {
         this.setState({ password: event.nativeEvent.text })
     }
 
-  
+      
      async authenticateUser(){ 
         // autoryzacja logowania + jesli logowanie powiedzie się, zapisujemy sesje w AsyncStorage
         
-        let url = 'http://'+global.ip+':8081/user/login?login='+this.state.login+'&password='+this.state.password
+        let url = 'http://'+data.IP+':'+data.PORT+'/user/login?login='+this.state.login+'&password='+this.state.password
        var name = this.state.login;
         await fetch(url, {method: "GET"})
         .then(function(response) {
@@ -64,9 +82,12 @@ export default class Login extends React.Component {
            
         }
         if(response.status==404){
-            Alert.alert("Złe hasło!!!")
+            global.login=null;
+            Alert.alert("Błędne hasło lub login!!!");
+            AsyncStorage.clear();
             
-        }})
+        }
+    })
         .catch((error) => {
             
             console.error(error)

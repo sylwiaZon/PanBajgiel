@@ -5,6 +5,8 @@ import Dialog, { DialogContent } from 'react-native-popup-dialog';
 import QRCode from 'react-native-qrcode-svg';
 import {UserModel} from "./userModel.js";
 
+const data = require("./server-info.json")
+
 
 var {width, height} = Dimensions.get('window');
 
@@ -24,7 +26,7 @@ constructor() {
 
   }
 componentDidMount = () => { // pobranie danych o użytkowniku
-   url = 'http://'+global.ip+':8081/user?login='+this.state.login
+   url = 'http://'+data.IP+':'+data.PORT+'/user?login='+this.state.login
 
   fetch(url, {
       method: "GET"

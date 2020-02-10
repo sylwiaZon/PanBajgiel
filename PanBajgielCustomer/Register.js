@@ -10,6 +10,7 @@ import {
     KeyboardAvoidingView, Alert,
     AsyncStorage
 } from 'react-native';
+const data = require("./server-info.json")
 
 // rejestracja uzytkownika
 export default class Register extends React.Component{
@@ -56,7 +57,7 @@ export default class Register extends React.Component{
         var name = this.state.login;
        
         console.log(this.state);
-        await fetch('http://' + global.ip + ':8081/user/register', {
+        await fetch('http://' + data.IP+':'+data.PORT + '/user/register', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

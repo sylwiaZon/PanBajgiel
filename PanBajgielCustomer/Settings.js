@@ -2,10 +2,12 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, ImageBackground, Button, TouchableOpacity, TextInput,AsyncStorage, BackHandler} from 'react-native';
 import Dialog from "react-native-dialog";
 
+const data = require("./server-info.json")
+
 //widok ustawień
 export default class Settings extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             newPassword: '',
             backupPasswordTest: '',
@@ -21,7 +23,7 @@ export default class Settings extends React.Component {
         this.showPasswordDialog = this.showPasswordDialog.bind(this);
         this.hidePasswordDialog = this.hidePasswordDialog.bind(this);
     }
-
+   
     setPassword = (event) => {
         this.setState({ newPassword: event.nativeEvent.text });
     };
@@ -53,12 +55,11 @@ export default class Settings extends React.Component {
     }
 
 
-    handleDelete = () => { // usuwanie uźytkownika
-        let url = 'http://'+global.ip+':8081/user?login='+global.login;
-
-        remove();
-        function remove(){
-            fetch(url, {
+     handleDelete = async() => { // usuwanie uźytkownika
+        let url = 'http://'+data.IP+':'+data.PORT+'/user?login='+global.login;
+       
+       
+            await fetch(url, {
                 method: 'DELETE',
                 headers: {
                     Accept: 'application/json',
@@ -66,19 +67,23 @@ export default class Settings extends React.Component {
                 },
             }).then(() => {
                 
-                AsyncStorage.clear(); 
-                BackHandler.exitApp();
+                 AsyncStorage.clear(); 
                 console.log('removed');
             }).catch(err => {
                 console.error(err)
                
             })
-        }
+        
+    
+        this.props.navigation.navigate('Auth');
     }
-
+    handleLogOut = async() =>{
+       await AsyncStorage.clear();
+       this.props.navigation.navigate('Auth');
+    }
     handlePasswordChange = () => { // zmiana hasła
         if(this.state.backupPasswordTest === this.state.newPassword){
-            fetch('http://' + global.ip + ':8081/user/password', {
+            fetch('http://' + data.IP+':'+data.PORT + '/user/password', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -104,14 +109,15 @@ export default class Settings extends React.Component {
     submit = () => {
         this.setState({passwordPopUp: false})
     };
+  
+
 
     render() {
         return(
             <View style = {styles.container}>
-                <ImageBackground style = {styles.backgroundImage}
-                                 source= {require('./assets/background.png')} >
+            
                     <View style = {styles.main}>
-                        <TouchableOpacity style = {styles.buttonContainer} onPress = {()=>{AsyncStorage.clear(); BackHandler.exitApp(); }}>
+                        <TouchableOpacity style = {styles.buttonContainer} onPress = {()=>{this.handleLogOut()}}>
                             <Text style = {styles.buttonText}>
                                 Wyloguj się
                             </Text>
@@ -119,7 +125,7 @@ export default class Settings extends React.Component {
 
                         <TouchableOpacity
                             style = {styles.buttonContainer}
-                            onPress = {this.handleDelete}>
+                            onPress = {()=>{this.setState({ dialogVisible: true })}}>
                             <Text style = {styles.buttonText}>
                                 Usuń konto
                             </Text>
@@ -129,12 +135,12 @@ export default class Settings extends React.Component {
                             <Dialog.Description>
                                 Jesteś pewny, że chcesz usunąć swoje konto?
                             </Dialog.Description>
-                            <Dialog.Button label="Wróć" onPress={()=>{this.handleCancel();}} />
-                            <Dialog.Button label="Usuń" onPress={()=>{AsyncStorage.clear();BackHandler.exitApp();}} />
+                            <Dialog.Button label="Wróć" onPress={()=>{this.setState({ dialogVisible: false })}} />
+                            <Dialog.Button label="Usuń" onPress={()=>{this.handleDelete();}} />
                         </Dialog.Container>
 
                         <TouchableOpacity style = {styles.buttonContainer}
-                                          onPress = {this.showPasswordChange}>
+                                          onPress = {()=>{this.showPasswordChange()}}>
                             <Text style = {styles.buttonText}>
                                 Zmień hasło
                             </Text>
@@ -183,7 +189,7 @@ export default class Settings extends React.Component {
                             </View>
                             : null}
                     </View>
-                </ImageBackground>
+               
             </View>
         )
     }
@@ -192,7 +198,9 @@ export default class Settings extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FEFEFE'
+       
+          justifyContent: "center",
+        alignItems: "center",
     },
     title: {
         color: '#55858A',
@@ -228,7 +236,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     main: {
-        position:'absolute',
+        
         flex: 1,
         alignItems: 'center'
     },

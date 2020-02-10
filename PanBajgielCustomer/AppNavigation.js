@@ -6,19 +6,12 @@ import Settings from "./Settings.js";
 import React from 'react';
 import {ImageBackground, StyleSheet, Text, View, Image} from "react-native";
 import {createStackNavigator} from "react-navigation-stack";
-import {createAppContainer} from "react-navigation";
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import Icon from "react-native-vector-icons/FontAwesome5";
 
 //nawigacja po głównej aplikacji
 
-export default class App extends React.Component {
-    render() {
-        return (
-            <AppContainer  />
-        );
-    }
-}
+
 
 //ekran główny
 class HomeScreen extends React.Component {
@@ -142,7 +135,7 @@ const ProductsStack = createStackNavigator({Products: ProductsScreen, },
             },}})
 
 
-const AppContainer = createAppContainer(createBottomTabNavigator(
+const AppNavigation = createBottomTabNavigator(
     {
         Home: HomeStack,
         Profile: ProfileStack,
@@ -192,7 +185,7 @@ const AppContainer = createAppContainer(createBottomTabNavigator(
             showLabel: false
         }
     }
-));
+);
 
 
 const styles = StyleSheet.create({
@@ -204,4 +197,5 @@ const styles = StyleSheet.create({
         opacity:0.8
     }
 });
+export default AppNavigation;
 

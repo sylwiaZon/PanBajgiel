@@ -1,6 +1,6 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import AuthNavigation from './AuthNavigation.js'
-import AppStacker from "./AppNavigation.js"
+import AppNavigation from "./AppNavigation.js"
 import {PromotionsStack, ProfileStack, ProductsStack, HomeStack, SettingsStack} from "./AppNavigation.js"
 import Icon from "react-native-vector-icons/FontAwesome5";
 import {Image,AsyncStorage} from "react-native";
@@ -11,7 +11,7 @@ import {createBottomTabNavigator} from "react-navigation-tabs";
 const SwitchNavigator = createSwitchNavigator(
     {
         Auth: AuthNavigation,
-        App: AppStacker,
+        App: AppNavigation,
     },
     {
         initialRouteName: 'Auth',

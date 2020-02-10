@@ -6,6 +6,7 @@ import QRCode from 'react-native-qrcode-svg';
 import {UserModel} from "./userModel.js";
 
 var {width, height} = Dimensions.get('window');
+const data = require("./server-info.json")
 
 
 //widok Twojej karty
@@ -25,7 +26,7 @@ constructor() {
 
 componentDidMount = () => {
   //pobranie informacji o zalogowanym uzytkowniku
-  url = 'http://'+global.ip+':8081/user?login='+this.state.login
+  url = 'http://'+data.IP+':'+data.PORT+'/user?login='+this.state.login
 
   fetch(url, {
       method: "GET"
