@@ -6,7 +6,6 @@ import Navigation from './src/navigation/AppNavigation';
 
 import AppContainer from './src/navigation/index';
 
-global.ip='104.211.12.200'
 export default function App() {
   return (
 
