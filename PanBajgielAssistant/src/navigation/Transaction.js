@@ -16,6 +16,7 @@ import Dialog, { DialogContent } from "react-native-popup-dialog";
 import { Scanner } from "./QRScanner.js";
 
 var { width, height } = Dimensions.get("window");
+const data = require("./server-info.json");
 
 export class Transaction extends React.Component {
   constructor() {
@@ -35,7 +36,7 @@ export class Transaction extends React.Component {
 //dodanie transakcji
   fetchTransactionData() {
     this.transactionDate();
-    fetch("http://" + global.ip + ":8081/product/transaction", {
+    fetch("http://" + data.IP+":"+data.PORT + "/product/transaction", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -50,7 +51,7 @@ export class Transaction extends React.Component {
   }
 //dodanie szczegółów transakcji
   fetchDetailsData() {
-    fetch("http://" + global.ip + ":8081/product/transactionDetails", {
+    fetch("http://" + data.IP+":"+data.PORT + "/product/transactionDetails", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -61,7 +62,7 @@ export class Transaction extends React.Component {
   }
 //pobranie aktualnej ceny produktów
   fetchProductsData() {
-    fetch("http://" + global.ip + ":8081/product")
+    fetch("http://" + data.IP+":"+data.PORT + "/product")
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
@@ -75,7 +76,7 @@ export class Transaction extends React.Component {
   }
 //pobranie id sklepu
   fetchShopInfo() {
-    fetch("http://" + global.ip + ":8081/user?login=" + global.login)
+    fetch("http://" + data.IP+":"+data.PORT + "/user?login=" + global.login)
       .then(response => response.json())
       .then(responseJson => {
         global.shopId = responseJson.client;
@@ -86,7 +87,7 @@ export class Transaction extends React.Component {
   }
 //pobranie informacji o pkt użytkownika
   fetchUserPointsandStampsInfo() {
-    fetch("http://" + global.ip + ":8081/user?login=" + global.userLogin)
+    fetch("http://" + data.IP+":"+data.PORT + "/user?login=" + global.userLogin)
       .then(response => response.json())
       .then(responseJson => {
         console.log(responseJson);
@@ -101,8 +102,8 @@ export class Transaction extends React.Component {
   }
 //wysłanie żadąnia, aktualizacja pieczątek klienta
   fetchStamps(newStampsNumber) {
-    let url ="http://" +global.ip +
-      ":8081/user/update/stamps?login=" +
+    let url ="http://" + data.IP + ":" +data.PORT+
+      "/user/update/stamps?login=" +
       global.userLogin +
       "&stamps=" +
       newStampsNumber;
@@ -115,8 +116,8 @@ export class Transaction extends React.Component {
   fetchPoints(newPointsNumber) {
     let url =
       "http://" +
-      global.ip +
-      ":8081/user/update/points?login=" +
+      data.IP +":"+data.PORT+
+      "/user/update/points?login=" +
       global.userLogin +
       "&points=" +
       newPointsNumber;
@@ -307,7 +308,7 @@ export class Transaction extends React.Component {
 
       case "ser":
        if(text=="" || text =='0'){
-          global.serAmount = null;
+          global.sezamAmount = null;
       }else{
         global.serAmount = newText;
       }
@@ -348,8 +349,8 @@ export class Transaction extends React.Component {
     global.solAmount = null;
     global.posypkaAmount = null;
     global.sezamAmount = null;
-    global.wieloziarnistyAmount = null;
-    global.serAmount = null;
+    global.sezamAmount = null;
+    global.sezamAmount = null;
     global.date = null;
     global.price = 0;
 
@@ -373,13 +374,12 @@ export class Transaction extends React.Component {
       Alert.alert("Uwaga", "Brak zakupionych produktów!");
     }
     else{
+      this.clear();
       this.setState({ visible: false });
       this.fetchTransactionData();
       this.fetchDetailsData();
       this.updateStamps();
       this.updatePoints();
-      this.clear();
-
     }
   }
 

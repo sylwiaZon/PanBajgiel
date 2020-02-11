@@ -14,7 +14,7 @@ export class Prices extends React.Component {
      flex:1}} >
   	<View style={styles.rowContainer}>
   	<View style = {{justifyContent: 'center',
-    alignItems: 'center', flex:'column'}} accessible={true} testID="mak" accessibilityLabel={'mak'}>
+    alignItems: 'center'}} accessible={true} testID="mak" accessibilityLabel={'mak'}>
           <Image accessible={true} testID="Mak" accessibilityLabel={'Mak'} source={require('../../assets/Mak.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z makiem{"\n"}1,80 zł
@@ -22,7 +22,7 @@ export class Prices extends React.Component {
     </View>
 
     <View style = {{justifyContent: 'center',
-    alignItems: 'center', flex:'column'}} accessible={true} testID="sezam" accessibilityLabel={'sezam'}>
+    alignItems: 'center'}} accessible={true} testID="sezam" accessibilityLabel={'sezam'}>
           <Image accessible={true} testID="Sezam" accessibilityLabel={'Sezam'} source={require('../../assets/Sezam.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z sezamem{"\n"}1,80 zł
@@ -31,7 +31,7 @@ export class Prices extends React.Component {
 </View>
   	<View style={styles.rowContainer}>
     <View style = {{justifyContent: 'center',
-    alignItems: 'center', flex:'column'}} accessible={true} testID="ser" accessibilityLabel={'ser'}>
+    alignItems: 'center'}} accessible={true} testID="ser" accessibilityLabel={'ser'}>
           <Image  accessible={true} testID="Ser" accessibilityLabel={'Ser'} source={require('../../assets/Ser.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z serem{"\n"}1,80 zł
@@ -40,7 +40,7 @@ export class Prices extends React.Component {
 
 
     <View style = {{justifyContent: 'center',
-    alignItems: 'center', flex:'column'}} accessible={true} testID="sol" accessibilityLabel={'sol'}>
+    alignItems: 'center'}} accessible={true} testID="sol" accessibilityLabel={'sol'}>
           <Image  source={require('../../assets/Sol.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z solą{"\n"}1,80 zł
@@ -50,7 +50,7 @@ export class Prices extends React.Component {
 </View>
   	<View style={styles.rowContainer}>
     <View style = {{justifyContent: 'center',
-    alignItems: 'center', flex:'column'}} accessible={true} testID="posypka" accessibilityLabel={'posypka'}>
+    alignItems: 'center'}} accessible={true} testID="posypka" accessibilityLabel={'posypka'}>
           <Image  source={require('../../assets/Ostra_Posypka.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Z ostrą posypką{"\n"}1,80 zł
@@ -58,7 +58,7 @@ export class Prices extends React.Component {
     </View>
 
     <View style = {{justifyContent: 'center',
-    alignItems: 'center', flex:'column'}} accessible={true} testID="Wieloziarnisty" accessibilityLabel={'Wieloziarnisty'}>
+    alignItems: 'center'}} accessible={true} testID="Wieloziarnisty" accessibilityLabel={'Wieloziarnisty'}>
           <Image  source={require('../../assets/Wieloziarnisty.png')} style={styles.img}/>
           <Text style = {styles.text}>
           Wieloziarnisty{"\n"}1,80 zł

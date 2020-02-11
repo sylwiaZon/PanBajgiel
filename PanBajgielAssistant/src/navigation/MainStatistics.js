@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyleSheet, Text, View,Dimensions, ScrollView } from 'react-native';
 var {width, height} = Dimensions.get('window');
-
+const data = require("./server-info.json");
 //widok statystyk ogólnych
 export class MainStatistics extends React.Component {
 
@@ -18,8 +18,8 @@ constructor() {
   
   //pobranie statystyk 'top sklep' oraz 'top bajgiel' 
   componentDidMount = () => {
-   url = 'http://'+global.ip+':8081/statistics/shops'
-   url2 = 'http://'+global.ip+':8081/statistics/bajgiels'
+   url = 'http://'+data.IP+':'+data.PORT+'/statistics/shops'
+   url2 = 'http://'+data.IP+':'+data.PORT+'/statistics/bajgiels'
 
 
    //top sklep

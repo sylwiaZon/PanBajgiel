@@ -17,6 +17,7 @@ import Dialog from "react-native-dialog";
 import CodePush from 'react-native-code-push';
 
 var {width, height} = Dimensions.get('window');
+const data = require("./server-info.json");
 
 //widok i działanie ekranu ustawień
 
@@ -69,7 +70,7 @@ export class Settings extends React.Component {
     //funkcja do zmiany hasła
     handlePasswordChange = () => {
         if(this.state.backupPasswordTest === this.state.newPassword){
-            fetch('http://' + global.ip + ':8081/user/password', {
+            fetch('http://' + data.IP+':'+data.PORT + '/user/password', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

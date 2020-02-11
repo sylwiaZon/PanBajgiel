@@ -7,6 +7,8 @@ import {MainStatistics} from './MainStatistics.js';
 import {ShopStatistics} from './ShopStatistics.js';
 import {Header} from  'react-native-elements'
 var {width, height} = Dimensions.get('window');
+
+
 //widok TabView statystyk, generowanie zakładek dla statystyk głównych oraz statystyk konkretnego sklepu
 export class Statistics extends React.Component {
 

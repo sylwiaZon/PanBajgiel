@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, ImageBackground, TouchableOpacity, TextInput, AppRegistry, Alert,AsyncStorage, Dimensions} from 'react-native';
 var {width, height} = Dimensions.get('window');
-
+const data = require("./server-info.json");
 // widok i obsługa logowania
 export default class Login extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
    
         state = {
             login: '',
@@ -21,10 +21,27 @@ export default class Login extends React.Component {
         AsyncStorage.getItem('user', (err, result) => { // sprawdzenie  sesji, czy uzytkownik juz sie wczesniej logował
             console.log(JSON.parse(result));
            if(result!=null){
-                      if(JSON.parse(result).name!=null){
-                        global.login=JSON.parse(result).name;
-                         this.props.navigation.navigate('App')
-  
+                       if(JSON.parse(result).name!=null){
+                       
+                        let url = 'http://'+data.IP+':'+data.PORT+'/user?login='+JSON.parse(result).name;
+                        
+                        fetch(url, {method: "GET"})
+                            .then(function(response) {
+                                if (response.status==200){
+                                     
+                                    global.login=JSON.parse(result).name;
+                                    
+                                     props.navigation.navigate('App')
+                                 }
+                                 })
+                            .catch((error) => {
+                                
+                                console.error(error)
+                                
+                                
+                            })
+            
+                            
                       }
                 }
         });
@@ -45,8 +62,8 @@ export default class Login extends React.Component {
 
   
     async authenticateUser(){ // sprawdzenie danych logowania
-        
-        let url = 'http://'+global.ip+':8081/user/login?login='+this.state.login+'&password='+this.state.password
+        console.log('aaaaaaaa')
+        let url = 'http://'+data.IP+':'+data.PORT+'/user/login?login='+this.state.login+'&password='+this.state.password
         var name = this.state.login;
         await fetch(url, {method: "GET"})
         .then(function(response) {
@@ -69,6 +86,7 @@ export default class Login extends React.Component {
         if(response.status==404){
             Alert.alert("Złe hasło!!!")
             global.login=null;
+             AsyncStorage.clear();
         }
 
     })
@@ -94,7 +112,7 @@ export default class Login extends React.Component {
         return(
             <View style = {styles.container}>
                 <ImageBackground style = {styles.backgroundImage}
-                       source= {require('../../assets/background2.png')} >
+                       source= {require('../../assets/background.png')} >
                     <View style = {styles.logoContainer}>
                         <Image style = {styles.logo}
                                source= {require('../../assets/icon2.png')} />

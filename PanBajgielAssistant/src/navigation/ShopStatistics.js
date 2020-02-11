@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Picker,ScrollView, Dimensions } from 'react-nat
 import { VictoryPie,VictoryLegend, VictoryLabel,VictoryBar ,VictoryChart, VictoryTheme, VictoryAxis} from 'victory-native';
 
 var {width, height} = Dimensions.get('window');
+const data = require("./server-info.json");
 //widok statystyk dla konkretnego sklepu
 
 const graphicColor = ['#ffbb68', '#952270', '#ff44b9','#00abd8','#66e200','#81a100'];
@@ -25,7 +26,7 @@ export class ShopStatistics extends React.Component {
   }
   // pobranie listy sklepów z bazy danych
  componentDidMount = () => {
-   url = 'http://'+global.ip+':8081/shop'
+   url = 'http://'+data.IP+':'+data.PORT+'/shop'
   
   fetch(url, {
       method: "GET"
@@ -125,7 +126,7 @@ shop=[{x:lastDays[0], y:0},{x:lastDays[1],y:0},{x:lastDays[2],y:0},{x:lastDays[3
   	
  if(itemValue!='none'){
 
-  		url2 = 'http://'+global.ip+':8081/statistics/shop?id='+itemValue;
+  		url2 = 'http://'+data.IP+':'+data.PORT+'/statistics/shop?id='+itemValue;
       // pobranie statytyskych wybranego sklepu
   	fetch(url2, {
 		      method: "GET"

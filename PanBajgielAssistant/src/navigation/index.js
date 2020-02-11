@@ -12,8 +12,8 @@ import Login from "./Login.js";
 // nawigacja pomiędzy ekranem logowania, a główną aplikacją
 const SwitchNavigator = createSwitchNavigator(
     {
-        Auth: {screen: Login},
-        App: {screen: AppStacker}
+        Auth:  Login,
+        App: AppStacker
     },
     {
         initialRouteName: 'Auth'
