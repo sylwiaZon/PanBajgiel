@@ -5,8 +5,6 @@ import com.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -53,7 +51,7 @@ public class UserRepository {
         Boolean userExists = getUser(user.getLogin()) != null ? true : false;
         if (!userExists) {
             String sql =
-                    String.format("INSERT INTO user (login, password, name, points, stamps, client) VALUES ('%s', '%s', '%s',0,0,1); ",
+                    String.format("INSERT INTO user (login, password, name, points, stamps, type) VALUES ('%s', '%s', '%s',0,0,1); ",
                             user.getLogin(), user.getPassword(), user.getName());
 
             jdbcTemplate.execute(sql);
