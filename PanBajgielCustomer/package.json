@@ -8,7 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "appium": "^1.15.1",
+    "appium": "^1.22.3",
     "appium-doctor": "^1.12.1",
     "expo": "^35.0.0",
     "react": "16.8.3",
